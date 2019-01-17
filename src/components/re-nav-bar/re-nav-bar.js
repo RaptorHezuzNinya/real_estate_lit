@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit-element/';
-import { navBarStyles } from './nav-bar-styles';
+import { navBarStyles } from './re-nav-bar-styles';
 import '../select-box/select-box';
 
 class NavBar extends LitElement {
@@ -29,8 +29,8 @@ class NavBar extends LitElement {
 				${navBarStyles}
 			</style>
 			<div class="nav-bar">
-				<select-box .selectBoxOptions=${years}></select-box>
-				<select-box .selectBoxOptions=${months}></select-box>
+				<re-select-box .selectBoxOptions=${years}></re-select-box>
+				<re-select-box .selectBoxOptions=${months}></re-select-box>
 			</div>
 		`;
 	}

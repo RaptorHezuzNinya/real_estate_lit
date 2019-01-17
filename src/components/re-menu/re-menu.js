@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element/';
-import '../api-component/api-component';
-import menuComponentStyles from './menu-component-styles';
+import menuComponentStyles from './re-menu-styles';
+import '../re-api/re-api';
 
 class MenuComponent extends LitElement {
 	static get properties() {

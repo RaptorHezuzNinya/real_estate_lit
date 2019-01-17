@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element/';
 
-class Tenant extends LitElement {
+class ReTenant extends LitElement {
 	static get properties() {
 		return {
 			firstName: { type: String },
@@ -23,4 +23,4 @@ class Tenant extends LitElement {
 	}
 }
 
-customElements.define('tenant-component', Tenant);
+customElements.define('re-tenant', ReTenant);

@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element/';
 
-class SelectBox extends LitElement {
+class ReSelectBox extends LitElement {
 	static get properties() {
 		return {
 			selectBoxOptions: {
@@ -30,4 +30,4 @@ class SelectBox extends LitElement {
 	}
 }
 
-customElements.define('select-box', SelectBox);
+customElements.define('re-select-box', ReSelectBox);

@@ -9,26 +9,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import { LitElement, html, css } from 'lit-element';
-import { setPassiveTouchGestures } from '@polymer/polymer/lib/utils/settings.js';
-import { connect } from 'pwa-helpers/connect-mixin.js';
-import { installMediaQueryWatcher } from 'pwa-helpers/media-query.js';
-import { installOfflineWatcher } from 'pwa-helpers/network.js';
-import { installRouter } from 'pwa-helpers/router.js';
-import { updateMetadata } from 'pwa-helpers/metadata.js';
+import { setPassiveTouchGestures } from '@polymer/polymer/lib/utils/settings';
+import { connect } from 'pwa-helpers/connect-mixin';
+import { installMediaQueryWatcher } from 'pwa-helpers/media-query';
+import { installOfflineWatcher } from 'pwa-helpers/network';
+import { installRouter } from 'pwa-helpers/router';
+import { updateMetadata } from 'pwa-helpers/metadata';
 
 // This element is connected to the Redux store.
-import { store } from '../store.js';
+import { store } from '../store';
 
 // These are the actions needed by this element.
-import { navigate, updateOffline, updateDrawerState } from '../actions/app.js';
+import { navigate, updateOffline, updateDrawerState } from '../actions/app';
 
 // These are the elements needed by this element.
-import '@polymer/app-layout/app-drawer/app-drawer.js';
-import '@polymer/app-layout/app-header/app-header.js';
-import '@polymer/app-layout/app-scroll-effects/effects/waterfall.js';
-import '@polymer/app-layout/app-toolbar/app-toolbar.js';
-import { menuIcon } from './my-icons.js';
-import './snack-bar.js';
+import '@polymer/app-layout/app-drawer/app-drawer';
+import '@polymer/app-layout/app-header/app-header';
+import '@polymer/app-layout/app-scroll-effects/effects/waterfall';
+import '@polymer/app-layout/app-toolbar/app-toolbar';
+import { menuIcon } from './my-icons';
+import './snack-bar';
 
 class MyApp extends connect(store)(LitElement) {
 	static get properties() {
