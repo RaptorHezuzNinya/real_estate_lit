@@ -12,9 +12,7 @@ class LitApp extends LitElement {
 
 			<div class="app">
 				<nav-bar></nav-bar>
-				<div class="holder">
-					<menu-component></menu-component>
-				</div>
+				<div class="holder"><menu-component></menu-component></div>
 			</div>
 		`;
 	}
