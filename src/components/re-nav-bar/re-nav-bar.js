@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit-element/';
 import { navBarStyles } from './re-nav-bar-styles';
-import '../select-box/select-box';
+import '../re-select-box/re-select-box';
 
-class NavBar extends LitElement {
+class ReNavBar extends LitElement {
 	constructor() {
 		super();
 		this.months = [
@@ -36,4 +36,4 @@ class NavBar extends LitElement {
 	}
 }
 
-customElements.define('nav-bar', NavBar);
+customElements.define('re-nav-bar', ReNavBar);
