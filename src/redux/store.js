@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { lazyReducerEnhancer } from 'pwa-helpers/lazy-reducer-enhancer.js';
-import tenantReducer from './redux/reducers/tenant-reducer.js';
+import { lazyReducerEnhancer } from 'pwa-helpers/lazy-reducer-enhancer';
+import { tenantReducer } from './reducers/tenant-reducer';
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
