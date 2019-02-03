@@ -2,7 +2,7 @@ import { html } from 'lit-element';
 
 // when exported with default this is import statement:
 // import menuComponentStyles from './menu-component-styles';
-const menuComponentStyles = html`
+const ReMenuStyles = html`
 	<style>
 		.main-holder {
 			background-color: green;
@@ -10,7 +10,7 @@ const menuComponentStyles = html`
 	</style>
 `;
 
-export default menuComponentStyles;
+export default ReMenuStyles;
 
 // when exported with named export import statement:
 // import { menuComponentStyles } from './menu-component-styles';

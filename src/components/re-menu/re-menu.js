@@ -1,8 +1,7 @@
 import { LitElement, html } from 'lit-element/';
-import menuComponentStyles from './re-menu-styles';
-import '../re-api/re-api';
+import ReMenuStyles from './re-menu-styles';
 
-class MenuComponent extends LitElement {
+class ReMenu extends LitElement {
 	static get properties() {
 		return {
 			firstName: { type: String }
@@ -19,11 +18,10 @@ class MenuComponent extends LitElement {
 	render() {
 		// const { firstName, lastName } = this;
 		return html`
-			${menuComponentStyles}
-			<api-component hidden path="tenants"></api-component>
+			${ReMenuStyles}
 			<main class="main-holder"><p>asdfasdf</p></main>
 		`;
 	}
 }
 
-customElements.define('menu-component', MenuComponent);
+customElements.define('re-menu', ReMenu);
