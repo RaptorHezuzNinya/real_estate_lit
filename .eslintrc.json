@@ -4,7 +4,7 @@
 		"commonjs": true,
 		"es6": true
 	},
-	"extends": ["eslint:recommended", "standard"],
+	"extends": ["airbnb", "prettier"],
 	"plugins": ["prettier"],
 	"rules": {
 		"prettier/prettier": ["error"]

@@ -1,12 +1,17 @@
 import { LitElement, html } from 'lit-element/';
+import { connect } from 'pwa-helpers';
 import ReMenuStyles from './re-menu-styles';
+import { store } from '../../redux/store';
 
-class ReMenu extends LitElement {
+class ReMenu extends connect(store)(LitElement) {
 	static get properties() {
 		return {
-			firstName: { type: String }
-			// lastName: { type: String }
+			tenants: { type: Array }
 		};
+	}
+
+	stateChanged(state) {
+		this.tentants = state.tenants;
 	}
 
 	constructor() {

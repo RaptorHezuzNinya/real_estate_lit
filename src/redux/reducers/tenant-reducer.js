@@ -1,14 +1,18 @@
-
 const INITIAL_STATE = {
-    tenants = []
+	tenants: []
 };
 
-export const tenantReducer (state = INITIAL_STATE, action) =>  {
-    switch (action.type) {
-        case 'GET_ALL_TENANTS':
-            break;
+export const tenantReducer = (state = INITIAL_STATE, action) => {
+	switch (action.type) {
+		case 'GET_ALL_TENANTS':
+			break;
 
-        default:
-            return state;
-    }
-}
+		default:
+			return state;
+	}
+};
+
+const bla = () => {
+	return console.log('uncirnon');
+};
+export default bla;

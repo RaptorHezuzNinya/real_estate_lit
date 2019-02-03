@@ -1,14 +1,7 @@
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
+export const GET_ALL_TENANTS = 'GET_ALL_TENANTS';
 
-export const increment = () => {
+export const getAllTenants = () => {
 	return {
-		type: INCREMENT
-	};
-};
-
-export const decrement = () => {
-	return {
-		type: DECREMENT
+		type: GET_ALL_TENANTS
 	};
 };
