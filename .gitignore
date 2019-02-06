@@ -8,3 +8,4 @@ _site/
 .server
 src/components1
 test
+personalNotes.js
