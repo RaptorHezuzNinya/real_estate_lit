@@ -10,7 +10,6 @@ export const store = createStore(
 	devCompose(lazyReducerEnhancer(combineReducers), applyMiddleware(thunk))
 );
 
-// Initially loaded reducers.
 store.addReducers({
 	tenantReducer
 });

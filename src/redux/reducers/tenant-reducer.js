@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-	tenants: []
+	tenants: ['sjors']
 };
 
 export const tenantReducer = (state = INITIAL_STATE, action) => {
@@ -11,8 +11,3 @@ export const tenantReducer = (state = INITIAL_STATE, action) => {
 			return state;
 	}
 };
-
-const bla = () => {
-	return console.log('uncirnon');
-};
-export default bla;
