@@ -1,7 +1,8 @@
 import { LitElement, html } from 'lit-element/';
 import { connect } from 'pwa-helpers';
-import ReMenuStyles from './re-menu-styles';
 import { store } from '../../redux/store';
+import ReMenuStyles from './re-menu-styles';
+import { getAllTenants } from '../../redux/actions/tenant';
 
 class ReMenu extends connect(store)(LitElement) {
 	static get properties() {
@@ -10,13 +11,12 @@ class ReMenu extends connect(store)(LitElement) {
 		};
 	}
 
-	stateChanged(state) {
-		this.tentants = state.tenants;
-	}
-
 	constructor() {
 		super();
 		this.firstName = 'wardd';
+		// console.log('yolo');
+		getAllTenants();
+
 		// this.lastName = 'verhoef';
 	}
 
@@ -26,6 +26,10 @@ class ReMenu extends connect(store)(LitElement) {
 			${ReMenuStyles}
 			<main class="main-holder"><p>asdfasdf</p></main>
 		`;
+	}
+
+	stateChanged(state) {
+		this.tentants = state.tenants;
 	}
 }
 
