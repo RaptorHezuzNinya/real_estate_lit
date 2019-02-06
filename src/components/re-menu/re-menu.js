@@ -14,10 +14,21 @@ class ReMenu extends connect(store)(LitElement) {
 	constructor() {
 		super();
 		this.firstName = 'wardd';
-		// console.log('yolo');
-		getAllTenants();
+		this.getTenants();
+	}
 
-		// this.lastName = 'verhoef';
+	getTenants() {
+		axios
+			.get('/tenants', {})
+			.then(function(response) {
+				console.log(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			})
+			.then(function() {
+				console.log('made it till ends ');
+			});
 	}
 
 	render() {

@@ -1,7 +1,19 @@
-export const GET_ALL_TENANTS = 'GET_ALL_TENANTS';
+import axios from 'axios';
 
-export const getAllTenants = () => {
+export const GET_TENANTS = 'GET_TENANTS';
+export const SET_TENANTS = 'SET_TENANTS';
+
+export const getTenants = () => {
+	return () => {
+		return axios.get('http://127.0.0.1:5000/tenants').then(({ data }) => {
+			dispatch(setTenants(data));
+		});
+	};
+};
+
+export const setTenants = tenants => {
 	return {
-		type: GET_ALL_TENANTS
+		type: 'SET_TENANTS',
+		payload: tenants
 	};
 };
