@@ -1,4 +1,4 @@
-import { LitElement, html } from '/lit-element/';
+import { LitElement, html } from 'lit-element';
 import { navBarStyles } from './re-nav-bar-styles';
 import '../re-select-box/re-select-box';
 
