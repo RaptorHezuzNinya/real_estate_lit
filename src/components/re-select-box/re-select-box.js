@@ -14,16 +14,14 @@ class ReSelectBox extends LitElement {
 		return html`
 			<div>
 				<select>
-					${
-						selectBoxOptions.map(x =>
-							Object.entries(x).map(
-								([key, value]) =>
-									html`
-										<option value="${key}">${value}</option>
-									`
-							)
+					${selectBoxOptions.map(x =>
+						Object.entries(x).map(
+							([key, value]) =>
+								html`
+									<option value="${key}">${value}</option>
+								`
 						)
-					}
+					)}
 				</select>
 			</div>
 		`;
