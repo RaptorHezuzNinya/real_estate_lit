@@ -1,7 +1,8 @@
-import { LitElement, html } from 'lit-element/';
+import { LitElement, html } from '/lit-element/';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
 import ReMenuStyles from './re-menu-styles';
+import axios from 'axios';
 import { getAllTenants } from '../../redux/actions/tenant';
 
 class ReMenu extends connect(store)(LitElement) {

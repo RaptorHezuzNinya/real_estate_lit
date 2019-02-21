@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element/';
+import { LitElement, html } from '/lit-element/';
 import { styles } from './re-app-styles';
 import './re-nav-bar/re-nav-bar';
 import './re-menu/re-menu';
