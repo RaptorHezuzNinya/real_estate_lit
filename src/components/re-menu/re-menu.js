@@ -20,7 +20,7 @@ class ReMenu extends connect(store)(LitElement) {
 
 	getTenants() {
 		axios
-			.get('/tenants', {})
+			.get('http://127.0.0.1:5000/tenants', {})
 			.then(function(response) {
 				console.log(response);
 			})
