@@ -13,7 +13,6 @@ class ReMenu extends connect(store)(LitElement) {
 
 	constructor() {
 		super();
-		this.firstName = 'wardd';
 		store.dispatch(getTenants());
 	}
 

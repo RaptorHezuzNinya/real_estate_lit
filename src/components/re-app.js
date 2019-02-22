@@ -12,7 +12,7 @@ class ReApp extends LitElement {
 
 			<div class="app">
 				<re-nav-bar></re-nav-bar>
-				<div class="holder"><re-menu></re-menu></div>
+				<re-menu></re-menu>
 			</div>
 		`;
 	}
