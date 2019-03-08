@@ -1,15 +1,23 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { lazyReducerEnhancer } from 'pwa-helpers/lazy-reducer-enhancer';
-import { tenantReducer } from './reducers/tenant-reducer';
+import logger from 'redux-logger';
+import { rootReducer } from './reducers/index';
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const store = createStore(
-	state => state,
-	devCompose(lazyReducerEnhancer(combineReducers), applyMiddleware(thunk))
-);
+const configureStore = state =>
+	createStore(rootReducer, state, devCompose(applyMiddleware(thunk, logger)));
 
-store.addReducers({
-	tenantReducer
-});
+export const store = configureStore();
+
+// old store
+// export const store = createStore(
+// 	rootReducer,
+// 	state => state,
+// 	devCompose(lazyReducerEnhancer(combineReducers), applyMiddleware(thunk), applyMiddleware(logger))
+// );
+
+// store.addReducers({
+// 	tenants: tenantReducer
+// });
