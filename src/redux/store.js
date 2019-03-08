@@ -7,7 +7,7 @@ import { rootReducer } from './reducers/index';
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const configureStore = state =>
-	createStore(rootReducer, state, devCompose(applyMiddleware(thunk, logger)));
+	createStore(lazyReducerEnhancer(rootReducer), state, devCompose(applyMiddleware(thunk, logger)));
 
 export const store = configureStore();
 
