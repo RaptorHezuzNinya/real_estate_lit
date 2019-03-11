@@ -18,6 +18,10 @@ module.exports = {
 						plugins: ['@babel/plugin-syntax-dynamic-import']
 					}
 				}
+			},
+			{
+				test: /\.css$/,
+				use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
 			}
 		]
 	},
