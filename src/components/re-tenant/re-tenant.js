@@ -9,20 +9,17 @@ class ReTenant extends LitElement {
 		};
 	}
 
-	// constructor() {
-	// 	super();
-	// }
-
 	render() {
 		const { email, first_name, account_holder } = this.tenant;
 		return html`
+			<!-- <re-normalize></re-normalize> -->
+			<link rel="stylesheet" href="../../../../node_modules/normalize.css/normalize.css" />
 			<article>
 				<h1>${email}</h1>
 				<p>${first_name}</p>
 				<p>${account_holder}</p>
 				<br />
 			</article>
-			<!-- <p class="app-intro">To get started, edit <code>src/lit-app.js</code> and save to reload.</p> -->
 		`;
 	}
 }
