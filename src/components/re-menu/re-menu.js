@@ -9,10 +9,6 @@ class ReMenu extends connect(store)(LitElement) {
 		return {};
 	}
 
-	constructor() {
-		super();
-	}
-
 	render() {
 		return html`
 			${ReMenuStyles}
