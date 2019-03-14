@@ -4,7 +4,7 @@ import { store } from '../../redux/store';
 import { ReTenantsOverViewStyles } from './re-tenants-overview-styles';
 import { getTenants } from '../../redux/actions/tenant';
 import '../re-tenant/re-tenant';
-// import { NormalizeCss } from '../re-normalize-css/re-normalize-css';
+// import '../re-normalize/re-normalize';
 
 class ReTenantsOverView extends connect(store)(LitElement) {
 	static get properties() {
@@ -22,6 +22,8 @@ class ReTenantsOverView extends connect(store)(LitElement) {
 		const { tenants } = this;
 
 		return html`
+			<!-- <link rel="stylesheet" href="../../../../node_modules/normalize.css/normalize.css" /> -->
+			<!-- <re-normalize></re-normalize> -->
 			<ul>
 				${tenants.map(
 					tenant =>

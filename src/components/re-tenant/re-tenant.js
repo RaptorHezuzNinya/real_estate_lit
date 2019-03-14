@@ -1,6 +1,5 @@
 import { LitElement, html } from 'lit-element';
-// import 'normalize.css';
-// import { ReNormalizeCss } from '../re-normalize-css/re-normalize-css';
+// import '../re-normalize/re-normalize';
 
 class ReTenant extends LitElement {
 	static get properties() {
