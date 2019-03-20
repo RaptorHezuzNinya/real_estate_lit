@@ -1,10 +1,9 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
-import { ReTenantsOverViewStyles } from './re-tenants-overview-styles';
 import { getTenants } from '../../redux/actions/tenant';
+// import { normalize } from '../../normalize';
 import '../re-tenant/re-tenant';
-// import '../re-normalize/re-normalize';
 
 class ReTenantsOverView extends connect(store)(LitElement) {
 	static get properties() {
@@ -12,6 +11,12 @@ class ReTenantsOverView extends connect(store)(LitElement) {
 			tenants: { type: Array }
 		};
 	}
+
+	// static get Styles() {
+	// 	return css`
+	// 		${normalize}
+	// 	`;
+	// }
 
 	constructor() {
 		super();
@@ -22,8 +27,6 @@ class ReTenantsOverView extends connect(store)(LitElement) {
 		const { tenants } = this;
 
 		return html`
-			<!-- <link rel="stylesheet" href="../../../../node_modules/normalize.css/normalize.css" /> -->
-			<!-- <re-normalize></re-normalize> -->
 			<ul>
 				${tenants.map(
 					tenant =>
