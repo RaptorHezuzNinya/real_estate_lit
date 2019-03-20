@@ -9,14 +9,17 @@ class ReTenant extends LitElement {
 	}
 
 	static get styles() {
-		return html`
-			<link rel="stylesheet" href="../../../../node_modules/normalize.css/normalize.css" />
+		return unsafeCSS`
+			:host {
+				${normalize}
+			}
 		`;
 	}
 
 	render() {
 		const { email, first_name, account_holder } = this.tenant;
 		return html`
+			<!-- <link rel="stylesheet" href="../../../node_modules/normalize.css/normalize.css" /> -->
 			<article>
 				<h1>${email}</h1>
 				<p>${first_name}</p>
