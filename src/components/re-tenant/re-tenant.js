@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, unsafeCSS } from 'lit-element';
 import { normalize } from '../../normalize';
 
 class ReTenant extends LitElement {

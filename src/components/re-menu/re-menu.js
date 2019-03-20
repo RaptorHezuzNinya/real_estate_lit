@@ -14,7 +14,6 @@ class ReMenu extends connect(store)(LitElement) {
 
 	render() {
 		return html`
-			<!-- ${ReMenuStyles} -->
 			<main class="main-holder">
 				<re-tenants-overview></re-tenants-overview>
 			</main>
