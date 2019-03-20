@@ -1,5 +1,5 @@
-import { LitElement, html } from 'lit-element';
-// import '../re-normalize/re-normalize';
+import { LitElement, html, css } from 'lit-element';
+import { normalize } from '../../normalize';
 
 class ReTenant extends LitElement {
 	static get properties() {
@@ -8,11 +8,15 @@ class ReTenant extends LitElement {
 		};
 	}
 
+	static get styles() {
+		return html`
+			<link rel="stylesheet" href="../../../../node_modules/normalize.css/normalize.css" />
+		`;
+	}
+
 	render() {
 		const { email, first_name, account_holder } = this.tenant;
 		return html`
-			<!-- <re-normalize></re-normalize> -->
-			<link rel="stylesheet" href="../../../../node_modules/normalize.css/normalize.css" />
 			<article>
 				<h1>${email}</h1>
 				<p>${first_name}</p>
