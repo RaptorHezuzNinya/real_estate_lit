@@ -11,12 +11,12 @@ class ReMenu extends connect(store)(LitElement) {
 		return [
 			css`
 				${normalize}
+			`,
+			css`
+				:host {
+					display: block;
+				}
 			`
-			// css`
-			// 	:host {
-			// 		display: block;
-			// 	}
-			// `
 		];
 	}
 
