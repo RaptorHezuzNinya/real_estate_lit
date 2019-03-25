@@ -1,7 +1,8 @@
 import { LitElement, html } from 'lit-element';
 import { styles } from './re-app-styles';
-import './re-nav-bar/re-nav-bar';
 import './re-menu/re-menu';
+import './re-my-element/re-my-element';
+// import './re-nav-bar/re-nav-bar';
 
 class ReApp extends LitElement {
 	render() {
@@ -11,8 +12,8 @@ class ReApp extends LitElement {
 			</style>
 
 			<div class="app">
-				<re-nav-bar id="reNavBar"></re-nav-bar>
 				<re-menu></re-menu>
+				<!-- <re-nav-bar id="reNavBar"></re-nav-bar> -->
 			</div>
 		`;
 	}
