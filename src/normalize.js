@@ -1,6 +1,6 @@
-import { unsafeCSS } from 'lit-element';
+import { css } from 'lit-element';
 
-export const normalize = unsafeCSS`
+export const normalize = css`
 	html {
 		line-height: 1.15;
 		-webkit-text-size-adjust: 100%;
