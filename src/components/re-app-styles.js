@@ -7,9 +7,6 @@ export const styles = css`
 		height: 100%;
 		padding-top: 55px;
 	}
-	h1 {
-		color: yellow;
-	}
 `;
 
 export const hostStyles = css`
