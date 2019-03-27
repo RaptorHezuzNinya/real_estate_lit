@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
 import { ReMenuStyles } from './re-menu-styles';
-import { normalize } from '../../normalize';
+import { normalize } from '../../css/normalize';
 import '../re-tenants-overview/re-tenants-overview';
 import '../re-my-element/re-my-element';
 

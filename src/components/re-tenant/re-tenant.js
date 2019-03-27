@@ -1,5 +1,5 @@
 import { LitElement, html, unsafeCSS } from 'lit-element';
-import { normalize } from '../../normalize';
+import { normalize } from '../../css/normalize';
 
 class ReTenant extends LitElement {
 	static get properties() {

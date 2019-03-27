@@ -26,8 +26,8 @@ class ReApp extends LitElement {
 			</style>
 
 			<div class="app">
+				<re-nav-bar></re-nav-bar>
 				<re-menu></re-menu>
-				<!-- <re-nav-bar id="reNavBar"></re-nav-bar> -->
 			</div>
 		`;
 	}
