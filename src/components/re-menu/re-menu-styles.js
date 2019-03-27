@@ -1,9 +1,7 @@
-import { html } from 'lit-element';
+import { css } from 'lit-element';
 
-export const ReMenuStyles = html`
-	<style>
-		.textClass {
-			color: red;
-		}
-	</style>
+export const ReMenuStyles = css`
+	.textClass {
+		color: red;
+	}
 `;

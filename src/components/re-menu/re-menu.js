@@ -16,6 +16,9 @@ class ReMenu extends connect(store)(LitElement) {
 				:host {
 					display: block;
 				}
+			`,
+			css`
+				${ReMenuStyles}
 			`
 		];
 	}
@@ -29,6 +32,7 @@ class ReMenu extends connect(store)(LitElement) {
 					<h1>Header ** AS SLOT ** in reMyElement</h1>
 					<p class="textClass">paragraph as slot</p>
 				</re-my-element>
+				<re-tenants-overview></re-tenants-overview>
 			</main>
 		`;
 	}
