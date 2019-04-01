@@ -26,11 +26,6 @@ class ReMenu extends connect(store)(LitElement) {
 		return html`
 			<main class="main-holder">
 				<h1>header in re-menu</h1>
-				<re-my-element>
-					<br />
-					<h1>Header ** AS SLOT ** in reMyElement</h1>
-					<p class="textClass">paragraph as slot</p>
-				</re-my-element>
 				<re-tenants-overview></re-tenants-overview>
 			</main>
 		`;

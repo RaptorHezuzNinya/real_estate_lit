@@ -1,16 +1,13 @@
-import { html } from 'lit-element';
+import { css } from 'lit-element';
 
-export const navBarStyles = html`
-	<style>
-		.nav-bar {
-			background-color: red;
-			height: 55px;
-			position: fixed;
-			top: 0px;
-			width: 100%;
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
-		}
-	</style>
+export const navBarStyles = css`
+	.nav-bar {
+		background-color: yellow;
+		height: 55px;
+		width: 100%;
+	}
+`;
+
+export const hostStyles = css`
+	display: block;
 `;
