@@ -1,23 +1,23 @@
 import { LitElement, html, css } from 'lit-element';
-import { styles, hostStyles } from './re-app-styles';
+import { appStyles, hostStyles } from './re-app-styles';
 import { normalize } from '../css/normalize';
 import './re-menu/re-menu';
-import './re-my-element/re-my-element';
 import './re-nav-bar/re-nav-bar';
+import './re-filter-bar/re-filter-bar';
 
 class ReApp extends LitElement {
 	static get styles() {
 		return [
+			css`
+				${normalize}
+			`,
 			css`
 				:host {
 					${hostStyles}
 				}
 			`,
 			css`
-				${normalize}
-			`,
-			css`
-				${styles}
+				${appStyles}
 			`
 		];
 	}
