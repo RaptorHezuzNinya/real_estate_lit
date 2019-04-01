@@ -4,7 +4,6 @@ import { store } from '../../redux/store';
 import { ReMenuStyles } from './re-menu-styles';
 import { normalize } from '../../css/normalize';
 import '../re-tenants-overview/re-tenants-overview';
-import '../re-my-element/re-my-element';
 
 class ReMenu extends connect(store)(LitElement) {
 	static get styles() {

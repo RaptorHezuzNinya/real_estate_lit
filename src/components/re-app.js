@@ -25,7 +25,10 @@ class ReApp extends LitElement {
 	render() {
 		return html`
 			<div class="app">
-				<re-nav-bar></re-nav-bar>
+				<header>
+					<re-nav-bar></re-nav-bar>
+					<re-filter-bar></re-filter-bar>
+				</header>
 				<re-menu></re-menu>
 			</div>
 		`;
