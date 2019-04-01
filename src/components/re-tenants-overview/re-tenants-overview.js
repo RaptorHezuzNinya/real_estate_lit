@@ -32,6 +32,7 @@ class ReTenantsOverView extends connect(store)(LitElement) {
 	}
 
 	stateChanged(state) {
+		console.log('state.tenantReducer.tenants', state.tenantReducer.tenants);
 		this.tenants = state.tenantReducer.tenants;
 	}
 }
