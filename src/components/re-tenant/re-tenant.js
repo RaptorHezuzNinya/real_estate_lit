@@ -1,4 +1,4 @@
-import { LitElement, html, unsafeCSS } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import { normalize } from '../../css/normalize';
 
 class ReTenant extends LitElement {
@@ -9,7 +9,7 @@ class ReTenant extends LitElement {
 	}
 
 	static get styles() {
-		return unsafeCSS`
+		return css`
 			:host {
 				${normalize}
 			}
