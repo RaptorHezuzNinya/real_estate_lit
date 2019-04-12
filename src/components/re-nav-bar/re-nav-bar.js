@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { normalize } from '../../css/normalize';
 import { navBarStyles, hostStyles } from './re-nav-bar-styles';
+import '../re-button/re-button';
 
 class ReNavBar extends LitElement {
 	static get styles() {
@@ -22,8 +23,8 @@ class ReNavBar extends LitElement {
 	render() {
 		return html`
 			<div class="nav-bar">
-				<p>icon 1</p>
-				<p>icon 2</p>
+				<re-button .btnText="list"></re-button>
+				<re-button .btnText="upload"></re-button>
 			</div>
 		`;
 	}
