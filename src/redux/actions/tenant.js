@@ -10,6 +10,6 @@ export const setTenants = tenants => ({
 });
 
 export const getTenants = () => dispatch =>
-	axios.get('http://127.0.0.1:3000/tenants').then(({ data }) => {
+	axios.get('http://127.0.0.1:5000/tenants').then(({ data }) => {
 		dispatch(setTenants(data));
 	});
