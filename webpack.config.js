@@ -4,7 +4,8 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
 	devServer: {
-		historyApiFallback: true
+		historyApiFallback: true,
+		overlay: true
 	},
 	mode: 'production',
 	module: {
