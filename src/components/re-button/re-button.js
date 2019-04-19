@@ -11,27 +11,37 @@ class ReButton extends LitElement {
 			`,
 			css`
 				${ReButtonStyles}
+			`,
+			css`
+				${host}
 			`
 		];
 	}
 
 	static get properties() {
 		return {
-			btnText: { type: String }
+			btnText: { type: String },
+			btnType: { type: String },
+			btnName: { type: String }
 		};
 	}
 
-	// constructor() {
-	//     super();
-	//     this.
-	// }
-
 	render() {
+		const { btnText, btnType, btnName } = this;
 		return html`
-			<div class="btn-holder">
-				<button></button>
+			<div class="btnHolder">
+				<re-input
+					.inputType="${btnType}"
+					.inputName="${btnName}"
+					.inputText="${btnText}"
+					@click="${() => this.handleClick()}"
+				></re-input>
 			</div>
 		`;
+	}
+
+	handleClick() {
+		console.log('input submitted');
 	}
 }
 
