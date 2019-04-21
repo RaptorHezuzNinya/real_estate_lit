@@ -5,10 +5,10 @@ export const appStyles = css`
 		text-align: center;
 		font-family: sans-serif;
 		height: 100%;
+
 		padding-top: 110px;
 	}
 	header {
-		background-color: red;
 		flex-direction: column;
 		height: 110px;
 		position: fixed;
