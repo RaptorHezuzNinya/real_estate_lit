@@ -4,6 +4,8 @@ import { store } from '../../redux/store';
 import { ReMenuStyles } from './re-menu-styles';
 import { normalize } from '../../css/normalize';
 import '../re-tenants-overview/re-tenants-overview';
+import '../re-form/re-form';
+import '../re-collapse/re-collapse';
 
 class ReMenu extends connect(store)(LitElement) {
 	static get styles() {
@@ -25,6 +27,7 @@ class ReMenu extends connect(store)(LitElement) {
 	render() {
 		return html`
 			<main class="main-holder">
+				<re-collapse></re-collapse>
 				<h1>header in re-menu</h1>
 				<re-tenants-overview></re-tenants-overview>
 			</main>

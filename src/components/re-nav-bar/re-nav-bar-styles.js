@@ -2,16 +2,16 @@ import { css } from 'lit-element';
 
 export const navBarStyles = css`
 	.navBar {
-		background-color: yellow;
 		height: 55px;
 		width: 100%;
 		display: flex;
-		justify-content: space-around;
+		justify-content: flex-end;
 	}
 `;
 
 export const hostStyles = css`
 	:host {
 		display: block;
+		padding: 0px 25px;
 	}
 `;
