@@ -9,19 +9,19 @@ class ReNavBar extends LitElement {
 		return [
 			css`
 				${normalize}
-			`,
-			css`
-				${hostStyles}
-			`,
-			css`
-				${navBarStyles}
 			`
+			// css`
+			// 	${hostStyles}
+			// `,
+			// css`
+			// 	${navBarStyles}
+			// `
 		];
 	}
 
 	constructor() {
 		super();
-		this.btnTextUpload = 'upload';
+		this.btnTextUpload = 'upload payments	';
 		this.btnType = 'button';
 		this.btnName = 'uploadButton';
 	}

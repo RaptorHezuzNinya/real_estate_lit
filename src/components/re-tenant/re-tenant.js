@@ -2,12 +2,6 @@ import { LitElement, html, css } from 'lit-element';
 import { normalize } from '../../css/normalize';
 
 class ReTenant extends LitElement {
-	static get properties() {
-		return {
-			tenant: { type: Object }
-		};
-	}
-
 	static get styles() {
 		return css`
 			:host {
