@@ -2,12 +2,15 @@ import { css } from 'lit-element';
 
 export const normalize = css`
 	html {
+		margin: 0;
+		padding: 0;
 		line-height: 1.15;
 		-webkit-text-size-adjust: 100%;
 	}
 	body {
 		margin: 0;
 		background-color: green;
+		padding: 0;
 	}
 	main {
 		display: block;

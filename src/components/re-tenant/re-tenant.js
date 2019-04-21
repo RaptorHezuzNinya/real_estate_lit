@@ -10,13 +10,19 @@ class ReTenant extends LitElement {
 		`;
 	}
 
+	static get properties() {
+		return {
+			tenant: { type: Object }
+		};
+	}
+
 	render() {
-		const { email, first_name, account_holder } = this.tenant;
+		const { email, first_name: firstName, account_holder: accountHolder } = this.tenant;
 		return html`
-			<article>
+			<article style="border: 1px solid black">
 				<h1>${email}</h1>
-				<p>${first_name}</p>
-				<p>${account_holder}</p>
+				<p>${firstName}</p>
+				<p>${accountHolder}</p>
 				<br />
 			</article>
 		`;
