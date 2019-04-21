@@ -4,9 +4,9 @@ import { hostStyles } from './re-form-styles';
 class ReForm extends LitElement {
 	static get styles() {
 		return [
-			css`
-				${hostStyles}
-			`
+			// css`
+			// 	${hostStyles}
+			// `
 		];
 	}
 
@@ -21,18 +21,20 @@ class ReForm extends LitElement {
 
 				<input type="submit" name="submitForm" />
 			</form> -->
-			${this.exampleForm()}
+			<form enctype="multipart/form-data">
+            	<p>Select CSV/JSON file to upload:</p>
+				<input type="file" name="file" id="csvfile">
+				<input type="submit" value="Upload" @click="${(evt, data) =>
+					this.handleUpload(evt, data)}">Submit json</input>
+        	</form>
 		`;
 	}
 
-	exampleForm = () => {
-		html`
-        <form action="/uploadfile" method="POST" enctype="multipart/form-data">
-            <p>Select CSV/JSON file to upload:</p>
-            <input type="file" name="file" id="csvfile">
-            <input type="submit" value="Upload">Submit json</input>
-        </form>`;
-	};
+	handleUpload(e, d) {
+		e.preventDefault();
+		const y = this.shadowRoot.getElementById('csvfile');
+		fileData = y.files[0];
+	}
 }
 
 customElements.define('re-form', ReForm);

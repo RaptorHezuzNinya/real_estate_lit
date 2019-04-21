@@ -10,11 +10,11 @@ class ReButton extends LitElement {
 				${normalize}
 			`,
 			css`
-				${ReButtonStyles}
-			`,
-			css`
-				${host}
+				// ${ReButtonStyles}
 			`
+			// css`
+			// 	${host}
+			// `
 		];
 	}
 
@@ -41,7 +41,7 @@ class ReButton extends LitElement {
 	}
 
 	handleClick() {
-		console.log('input submitted');
+		console.log('uncionr');
 	}
 }
 

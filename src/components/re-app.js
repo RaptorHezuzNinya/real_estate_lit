@@ -10,15 +10,15 @@ class ReApp extends LitElement {
 		return [
 			css`
 				${normalize}
-			`,
-			css`
-				:host {
-					${hostStyles}
-				}
-			`,
-			css`
-				${appStyles}
 			`
+			// css`
+			// 	:host {
+			// 		${hostStyles}
+			// 	}
+			// `,
+			// css`
+			// 	${appStyles}
+			// `
 		];
 	}
 
