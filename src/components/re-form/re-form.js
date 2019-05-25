@@ -5,35 +5,49 @@ class ReForm extends LitElement {
 	static get styles() {
 		return [
 			// css`
-			// 	${hostStyles}
 			// `
 		];
+		// 	${hostStyles}
 	}
 
 	static get properties() {
-		return {};
+		return {
+			prop1: { type: String }
+		};
+	}
+
+	updated(changedProperties) {
+		// console.log(changedProperties); // logs previous values
+		// console.log(this.foo); // logs current value
+	}
+
+	constructor() {
+		super();
+		this.prop1 = 'Hello World';
 	}
 
 	render() {
 		return html`
-			<!-- <form name="reForm">
-				<input type="upload" />
-
-				<input type="submit" name="submitForm" />
-			</form> -->
-			<form enctype="multipart/form-data">
-            	<p>Select CSV/JSON file to upload:</p>
-				<input type="file" name="file" id="csvfile">
-				<input type="submit" value="Upload" @click="${(evt, data) =>
-					this.handleUpload(evt, data)}">Submit json</input>
-        	</form>
+			<form id="reForm" enctype="multipart/form-data">
+				<label for="file">Choose a csv file</label>
+				<input type="file" name="file" id="csvfile" />
+				<input type="submit" @click="${(evt, data) => this.handleUpload(evt, data)}" />
+			</form>
 		`;
 	}
 
-	handleUpload(e, d) {
-		e.preventDefault();
-		const y = this.shadowRoot.getElementById('csvfile');
-		fileData = y.files[0];
+	handleUpload(evt, data) {
+		console.log(data);
+		console.log(evt);
+
+		// evt.preventDefault();
+		// const y = this.shadowRoot.getElementById('csvfile');
+		// const fileData = y.files[0];
+		// if (!fileData) {
+		// 	return window.alert('No file chosen');
+		// }
+		// const form = this.shadowRoot.getElementById('reForm');
+		// return form.submit();
 	}
 }
 

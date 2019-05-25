@@ -30,11 +30,11 @@ class ReNavBar extends LitElement {
 		const { btnTextUpload, btnType, btnName } = this;
 		return html`
 			<div class="navBar">
-				<re-button
+				<!-- <re-button
 					.btnType="${btnType}"
 					.btnText="${btnTextUpload}"
 					.btnName="${btnName}"
-				></re-button>
+				></re-button> -->
 				<!-- <re-button
 					.btnType="${btnType}"
 					.btnText="${btnTextUpload}"

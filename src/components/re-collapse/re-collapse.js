@@ -18,31 +18,29 @@ class ReCollapse extends LitElement {
 	}
 
 	static get properties() {
-		return {};
+		return { showContent: { type: Boolean } };
+	}
+
+	constructor() {
+		super();
+		this.showContent = true;
 	}
 
 	render() {
 		return html`
 			<button id="collapsible" @click="${() => this.handleClick()}">Open uploader</button>
-			<div id="collapsibleContent">
-				<re-form></re-form>
-				<!-- <slot></slot> -->
-			</div>
+			${this.showContent
+				? html`
+						<div>
+							<re-form></re-form>
+						</div>
+				  `
+				: html``}
 		`;
 	}
 
 	handleClick() {
-		const y = this.shadowRoot.getElementById('collapsible');
-		const x = this.shadowRoot.getElementById('collapsibleContent');
-
-		x.style.maxHeight = `${x.scrollHeight}px`;
-		// if (x.style.maxHeight) {
-		// 	console.log('unicorn');
-
-		// 	return (x.style.maxHeight = `0px`);
-		// }
-
-		// return (x.style.maxHeight = `${x.scrollHeight}px;`);
+		return (this.showContent = !this.showContent);
 	}
 }
 
