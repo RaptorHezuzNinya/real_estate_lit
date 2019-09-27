@@ -27,8 +27,9 @@ class ReMenu extends connect(store)(LitElement) {
 	render() {
 		return html`
 			<main class="main-holder">
-				<re-collapse></re-collapse>
-				<h1>header in re-menu</h1>
+				<re-collapse>
+					<re-form></re-form>
+				</re-collapse>
 				<re-tenants-overview></re-tenants-overview>
 			</main>
 		`;

@@ -29,17 +29,13 @@ class ReForm extends LitElement {
 	render() {
 		return html`
 			<form id="reForm" enctype="multipart/form-data">
-				<label for="file">Choose a csv file</label>
 				<input type="file" name="file" id="csvfile" />
-				<input type="submit" @click="${(evt, data) => this.handleUpload(evt, data)}" />
+				<input type="submit" @click="${(evt, data) => this.handleSubmit(evt, data)}" />
 			</form>
 		`;
 	}
 
-	handleUpload(evt, data) {
-		console.log(data);
-		console.log(evt);
-
+	handleSubmit(evt, data) {
 		// evt.preventDefault();
 		// const y = this.shadowRoot.getElementById('csvfile');
 		// const fileData = y.files[0];
