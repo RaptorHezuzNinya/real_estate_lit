@@ -11,7 +11,6 @@ const configureStore = state =>
 
 export const store = configureStore();
 
-// old store
 // export const store = createStore(
 // 	rootReducer,
 // 	state => state,
