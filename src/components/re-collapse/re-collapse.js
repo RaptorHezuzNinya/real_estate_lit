@@ -8,9 +8,9 @@ class ReCollapse extends LitElement {
 			css`
 				${normalize}
 			`,
-			// css`
-			// 	// ${hostStyles}
-			// `
+			css`
+				${hostStyles}
+			`,
 			css`
 				${reCollapseStyles}
 			`
@@ -23,24 +23,22 @@ class ReCollapse extends LitElement {
 
 	constructor() {
 		super();
-		this.showContent = true;
+		this.showContent = false;
 	}
 
 	render() {
 		return html`
-			<button id="collapsible" @click="${() => this.handleClick()}">Open uploader</button>
+			<button id="collapsible" @click="${() => (this.showContent = !this.showContent)}">
+				Open CSV uploader
+			</button>
 			${this.showContent
 				? html`
-						<div>
-							<re-form></re-form>
+						<div id="collapsibleContent">
+							<slot></slot>
 						</div>
 				  `
 				: html``}
 		`;
-	}
-
-	handleClick() {
-		return (this.showContent = !this.showContent);
 	}
 }
 

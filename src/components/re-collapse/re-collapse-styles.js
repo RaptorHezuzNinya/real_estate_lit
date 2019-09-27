@@ -1,6 +1,8 @@
 import { css } from 'lit-element';
 
-export const hostStyles = css``;
+export const hostStyles = css`
+	display: block;
+`;
 
 export const reCollapseStyles = css`
 	#collapsible {
@@ -16,10 +18,7 @@ export const reCollapseStyles = css`
 	}
 
 	#collapsibleContent {
-		padding: 0 18px;
-		max-height: 0;
-		overflow: hidden;
-		transition: max-height 0.2s ease-out;
-		background-color: #f1f1f1;
+		display: flex;
+		justify-content: center;
 	}
 `;
