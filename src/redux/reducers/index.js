@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import { tenantReducer } from './tenant-reducer';
+import { tenantReducer } from './tenantReducer';
 
 export const rootReducer = combineReducers({
 	tenantReducer
 });
-
-// export default rootReducer;
