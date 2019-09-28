@@ -17,7 +17,6 @@ const fetchTenantsFlow = ({ dispatch }) => next => action => {
 				label: FETCH_TENANTS
 			})
 		);
-		// dispatch(showLoader(action.type));
 	}
 };
 
@@ -25,7 +24,6 @@ const fetchTenantsSuccess = ({ dispatch }) => next => action => {
 	next(action);
 	if (action.type === FETCH_TENANTS_SUCCESS) {
 		dispatch(setTenants(action.payload));
-		// dispatch(showLoader(action.type));
 	}
 };
 

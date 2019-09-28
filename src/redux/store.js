@@ -9,16 +9,10 @@ import { tenantMiddleware } from './middleware/tenantMW';
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const configureStore = state =>
-	createStore(rootReducer, state, devCompose(applyMiddleware(thunk, ...tenantMiddleware, apiMiddleware, logger)));
+	createStore(
+		rootReducer,
+		state,
+		devCompose(applyMiddleware(thunk, ...tenantMiddleware, apiMiddleware, logger))
+	);
 
 export const store = configureStore();
-
-// export const store = createStore(
-// 	rootReducer,
-// 	state => state,
-// 	devCompose(lazyReducerEnhancer(combineReducers), applyMiddleware(thunk), applyMiddleware(logger))
-// );
-
-// store.addReducers({
-// 	tenants: tenantReducer
-// });
