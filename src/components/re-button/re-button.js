@@ -1,21 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
-import { normalize } from '../../css/normalize';
 import { ReButtonStyles, host } from './re-button-styles';
 import '../re-input/re-input';
 
 class ReButton extends LitElement {
 	static get styles() {
-		return [
-			css`
-				${normalize}
-			`,
-			css`
-				// ${ReButtonStyles}
-			`
-			// css`
-			// 	${host}
-			// `
-		];
+		return [ReButtonStyles];
 	}
 
 	static get properties() {

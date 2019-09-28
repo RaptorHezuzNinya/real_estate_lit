@@ -1,17 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
-import { normalize } from '../../css/normalize';
+
 import { filterBarStyles } from './re-filter-bar-styles';
 
 class ReFilterBar extends LitElement {
 	static get styles() {
-		return [
-			css`
-				${normalize}
-			`,
-			css`
-				${filterBarStyles}
-			`
-		];
+		return [filterBarStyles];
 	}
 
 	constructor() {
