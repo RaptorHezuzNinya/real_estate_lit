@@ -1,15 +1,13 @@
-import axios from 'axios';
-
-// UNICORN NOTE => :why export thse const
-export const GET_TENANTS = 'GET_TENANTS';
 export const SET_TENANTS = 'SET_TENANTS';
-
 export const setTenants = tenants => ({
 	type: 'SET_TENANTS',
 	payload: tenants
 });
 
-export const getTenants = () => dispatch =>
-	axios.get('http://127.0.0.1:5000/tenants').then(({ data }) => {
-		dispatch(setTenants(data));
-	});
+export const FETCH_TENANTS = 'FETCH_TENANTS';
+export const FETCH_TENANTS_SUCCESS = 'FETCH_TENANTS_SUCCESS';
+export const FETCH_TENANTS_ERROR = 'FETCH_TENANTS_ERROR';
+export const fetchTenants = data => ({
+	type: FETCH_TENANTS,
+	payload: data
+});
