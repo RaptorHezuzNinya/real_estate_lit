@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
-import { getTenants } from '../../redux/actions/tenant';
+import { fetchTenants } from '../../redux/actions/tenant';
 import '../re-tenant/re-tenant';
 
 class ReTenantsOverView extends connect(store)(LitElement) {
@@ -13,7 +13,7 @@ class ReTenantsOverView extends connect(store)(LitElement) {
 
 	constructor() {
 		super();
-		store.dispatch(getTenants());
+		store.dispatch(fetchTenants({}));
 	}
 
 	render() {
