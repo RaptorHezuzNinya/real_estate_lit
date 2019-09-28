@@ -3,7 +3,6 @@ import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
 import { ReMenuStyles } from './re-menu-styles';
 import '../re-tenants-overview/re-tenants-overview';
-import '../re-form/re-form';
 import '../re-collapse/re-collapse';
 
 class ReMenu extends connect(store)(LitElement) {
@@ -14,9 +13,7 @@ class ReMenu extends connect(store)(LitElement) {
 	render() {
 		return html`
 			<main class="main-holder">
-				<re-collapse>
-					<re-form></re-form>
-				</re-collapse>
+				<re-collapse> </re-collapse>
 				<re-tenants-overview></re-tenants-overview>
 			</main>
 		`;
