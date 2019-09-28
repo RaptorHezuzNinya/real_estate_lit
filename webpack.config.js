@@ -27,11 +27,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CopyWebpackPlugin([
-			'images/**',
-			'node_modules/@webcomponents/webcomponentsjs/**',
-			'manifest.json'
-		]),
+		new CopyWebpackPlugin(['images/**', 'node_modules/@webcomponents/webcomponentsjs/**', 'manifest.json']),
 		new HtmlWebpackPlugin({
 			chunksSortMode: 'none',
 			template: 'index.html'
