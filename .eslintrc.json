@@ -4,19 +4,24 @@
 		"commonjs": true,
 		"es6": true
 	},
-	"extends": ["airbnb", "prettier"],
-	"plugins": ["prettier", "import"],
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 2018
+	},
+	"extends": ["plugin:prettier/recommended"],
+	"plugins": ["import", "prettier", "lit"],
 	"rules": {
 		"prettier/prettier": ["error"],
 		"import/no-default-export": 2,
 		"import/prefer-default-export": 0,
 		"import/no-extraneous-dependencies": [
 			"error",
-			{ "devDependencies": true, "optionalDependencies": false, "peerDependencies": false }
+			{
+				"devDependencies": true,
+				"optionalDependencies": false,
+				"peerDependencies": false
+			}
 		],
 		"no-underscore-dangle": 0
-	},
-	"parserOptions": {
-		"sourceType": "module"
 	}
 }
