@@ -6,6 +6,7 @@ import { SharedStyles } from '../shared-styles.js';
 import { fetchTenants } from '../../redux/actions/tenant';
 import '../can-button-v2/can-button-v2.js';
 import '../re-tenant-card/re-tenant-card.js';
+import { fetchPayments } from '../../redux/actions/payment';
 
 class ReHomePage extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -26,6 +27,7 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	connectedCallback() {
 		super.connectedCallback();
 		store.dispatch(fetchTenants());
+		store.dispatch(fetchPayments());
 	}
 
 	render() {
