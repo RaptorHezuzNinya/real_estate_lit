@@ -1,5 +1,5 @@
 import { SET_TENANTS } from '../actions/tenant';
-
+import { arrayToObject } from '../../utils/helper.js';
 const INITIAL_STATE = {
 	tenants: [
 		{

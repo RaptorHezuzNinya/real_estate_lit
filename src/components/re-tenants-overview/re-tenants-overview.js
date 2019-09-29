@@ -16,23 +16,28 @@ class ReTenantsOverView extends connect(store)(LitElement) {
 		store.dispatch(fetchTenants({}));
 	}
 
-	render() {
-		const { tenants } = this;
+	stateChanged(state) {
+		this.tenants = state.tenantReducer.tenants;
+	}
 
+	render() {
 		return html`
 			<ul>
-				${tenants.map(
-					tenant =>
-						html`
-							<re-tenant .tenant=${tenant}></re-tenant>
-						`
-				)}
+				${this.renderTenants()}
 			</ul>
 		`;
 	}
 
-	stateChanged(state) {
-		this.tenants = state.tenantReducer.tenants;
+	renderTenants() {
+		const templates = [];
+		for (let key in this.tenants) {
+			let tenant = this.tenants[key];
+			let tenantTempl = html`
+				<re-tenant .tenant=${tenant}></re-tenant>
+			`;
+			templates.push(tenantTempl);
+		}
+		return templates;
 	}
 }
 
