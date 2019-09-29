@@ -11,9 +11,7 @@ export const apiAction = ({
 	onSuccess = null,
 	onFailure = null,
 	label = '',
-	headers = {},
-	auth = false,
-	activeRole = 'guest'
+	headers = {}
 }) => {
 	return {
 		type: API_REQUEST,
@@ -24,9 +22,7 @@ export const apiAction = ({
 			onSuccess,
 			onFailure,
 			label,
-			headers,
-			auth,
-			activeRole
+			headers
 		}
 	};
 };
