@@ -31,14 +31,14 @@ class CanList extends LitElement {
 				<div>
 					<ul class=${this.klass}>
 						${this.listItems.map(listItem => {
-				return html`
+							return html`
 								<can-list-item
 									.listItem="${listItem}"
 									?link=${this.link}
 									.property=${this.property}
 								></can-list-item>
 							`;
-			})}
+						})}
 					</ul>
 				</div>
 			`;
