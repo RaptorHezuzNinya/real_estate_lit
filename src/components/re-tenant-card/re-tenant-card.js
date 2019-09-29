@@ -1,26 +1,32 @@
 import { LitElement, html, unsafeCSS } from 'lit-element';
-import { ReCardStyles } from './re-tenant-card-styles.js';
+import { ReTenantCardStyles } from './re-tenant-card-styles.js';
 import MDCCardStyles from './re-tenant-card-styles.scss';
-
+import '../can-button-v2/can-button-v2.js';
 export class ReTenantCard extends LitElement {
 	static get styles() {
-		return [ReCardStyles, unsafeCSS(MDCCardStyles)];
+		return [ReTenantCardStyles, unsafeCSS(MDCCardStyles)];
 	}
 
 	static get properties() {
 		return {
-			propName: { type: String }
+			tenant: { type: Object }
 		};
 	}
 
 	constructor() {
 		super();
+		this.tenant = false;
 	}
 
 	render() {
+		if (!this.tenant) return;
 		return html`
 			<div class="mdc-card cardContent">
-				<p>re-card component</p>
+				<p>${this.tenant.email}</p>
+				<div class="mdc-card__primary-action" tabindex="0">
+					<!-- <can-button-v2>show payments</can-button-v2> -->
+					<p>show payments</p>
+				</div>
 			</div>
 		`;
 	}
