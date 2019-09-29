@@ -8,3 +8,4 @@ test
 config.js
 yarn-error.log
 /dist
+coverage/
