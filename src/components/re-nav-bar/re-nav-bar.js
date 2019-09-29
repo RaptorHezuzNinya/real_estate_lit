@@ -1,22 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
-import { normalize } from '../../css/normalize';
 import { navBarStyles, hostStyles } from './re-nav-bar-styles';
 import '../re-button/re-button';
 import '../re-input/re-input';
 
 class ReNavBar extends LitElement {
 	static get styles() {
-		return [
-			css`
-				${normalize}
-			`
-			// css`
-			// 	${hostStyles}
-			// `,
-			// css`
-			// 	${navBarStyles}
-			// `
-		];
+		return [hostStyles];
 	}
 
 	constructor() {

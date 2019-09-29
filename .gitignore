@@ -1,11 +1,10 @@
 build/
 node_modules/
-test/integration/screenshots-current/
 _site/
 .DS_Store
-
 .vscode
 .server
-src/components1
 test
-personalNotes.js
+config.js
+yarn-error.log
+/dist

@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
-import { getTenants } from '../../redux/actions/tenant';
+import { fetchTenants } from '../../redux/actions/tenant';
 import '../re-tenant/re-tenant';
 
 class ReTenantsOverView extends connect(store)(LitElement) {
@@ -13,27 +13,31 @@ class ReTenantsOverView extends connect(store)(LitElement) {
 
 	constructor() {
 		super();
-		store.dispatch(getTenants());
+		store.dispatch(fetchTenants({}));
+	}
+
+	stateChanged(state) {
+		this.tenants = state.tenantReducer.tenants;
 	}
 
 	render() {
-		const { tenants } = this;
-
 		return html`
 			<ul>
-				${tenants.map(
-					tenant =>
-						html`
-							<re-tenant .tenant=${tenant}></re-tenant>
-						`
-				)}
+				${this.renderTenants()}
 			</ul>
 		`;
 	}
 
-	stateChanged(state) {
-		console.log('state.tenantReducer.tenants', state.tenantReducer.tenants);
-		this.tenants = state.tenantReducer.tenants;
+	renderTenants() {
+		const templates = [];
+		for (let key in this.tenants) {
+			let tenant = this.tenants[key];
+			let tenantTempl = html`
+				<re-tenant .tenant=${tenant}></re-tenant>
+			`;
+			templates.push(tenantTempl);
+		}
+		return templates;
 	}
 }
 

@@ -1,13 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
-import { normalize } from '../../css/normalize';
 
 class ReTenant extends LitElement {
 	static get styles() {
-		return css`
-			:host {
-				${normalize}
-			}
-		`;
+		return css``;
 	}
 
 	static get properties() {

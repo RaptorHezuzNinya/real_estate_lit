@@ -1,5 +1,5 @@
-import { GET_TENANTS, SET_TENANTS } from '../actions/tenant';
-
+import { SET_TENANTS } from '../actions/tenant';
+import { arrayToObject } from '../../utils/helper.js';
 const INITIAL_STATE = {
 	tenants: [
 		{
@@ -17,13 +17,10 @@ const INITIAL_STATE = {
 
 export const tenantReducer = (state = INITIAL_STATE, { type, payload }) => {
 	switch (type) {
-		case GET_TENANTS:
-			break;
-
 		case SET_TENANTS: {
-			const tenants = payload.map(tenant => tenant);
-			const updatedState = tenants.concat(Object.assign({}, ...state.tenants));
-			return { tenants: updatedState };
+			const newData = arrayToObject(payload, 'id');
+
+			return { ...state, tenants: newData };
 		}
 		default:
 			return state;
