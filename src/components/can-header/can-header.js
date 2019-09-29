@@ -5,12 +5,12 @@ import { updateDrawerState, navigate } from '../../redux/actions/app';
 import { normalize } from '../../assets/css/normalize';
 
 import { CanHeaderStyles } from './can-header-styles';
-import { crowdAboutNowIcon, userProfileIcon, menuIcon } from '../../assets/css/icons';
+import { userProfileIcon, menuIcon, radminiIcon } from '../../assets/css/icons';
 import '../can-button/can-button';
 
 class CanHeader extends connect(store)(LitElement) {
 	static get styles() {
-		return [normalize, CanHeaderStyles];
+		return [CanHeaderStyles];
 	}
 	static get properties() {
 		return {

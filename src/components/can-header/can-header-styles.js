@@ -18,17 +18,17 @@ export const CanHeaderStyles = css`
 		width: 20%;
 	}
 
-	.middle svg {
+	.middle {
 		width: 60%;
+	}
+
+	.middle > div {
+		display: flex;
+		justify-content: center;
 	}
 
 	.right {
 		width: 20%;
-	}
-
-	.canLogoHolder {
-		display: flex;
-		justify-content: center;
 	}
 
 	@media screen and (${tablet}) {
