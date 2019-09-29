@@ -31,22 +31,28 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	render() {
 		return html`
 			<section>
-				<p>section 1</p>
-				<h2>Static page</h2>
-				<p>This is a text-only page.</p>
-				<p>
-					It doesn't do asdfsdfdsnything other than display some static text.
-				</p>
-				<can-button-v2>Works</can-button-v2>
+				<h3>Tenants overview</h3>
 			</section>
 			<section>
-				<p>section 2</p>
-				<re-tenant-card></re-tenant-card>
+				${this.renderTenantCards()}
 			</section>
 			<section>
 				<p>section 3</p>
 			</section>
 		`;
+	}
+
+	renderTenantCards() {
+		const templates = [];
+		for (const key in this.tenants) {
+			if (this.tenants.hasOwnProperty(key)) {
+				const template = html`
+					<re-tenant-card .tenant=${this.tenants[key]}></re-tenant-card>
+				`;
+				templates.push(template);
+			}
+		}
+		return templates;
 	}
 
 	stateChanged(state) {
