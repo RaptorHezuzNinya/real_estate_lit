@@ -20,7 +20,6 @@ class CanHeader extends connect(store)(LitElement) {
 
 	constructor() {
 		super();
-
 	}
 
 	render() {
@@ -32,8 +31,8 @@ class CanHeader extends connect(store)(LitElement) {
 					</div>
 				</can-button>
 				<can-button navigation class="middle" @click="${this.handleCanLogoClicked}">
-					<div class="canLogoHolder">
-						${crowdAboutNowIcon}
+					<div>
+						${radminiIcon}
 					</div>
 				</can-button>
 
@@ -53,15 +52,6 @@ class CanHeader extends connect(store)(LitElement) {
 	handleCanLogoClicked() {
 		window.history.pushState({}, '', '/');
 		store.dispatch(navigate(window.location.pathname));
-	}
-
-	handleUserProfileButtonClicked() {
-		console.log('user Profile button clicked');
-
-	}
-
-	stateChanged(state) {
-
 	}
 }
 
