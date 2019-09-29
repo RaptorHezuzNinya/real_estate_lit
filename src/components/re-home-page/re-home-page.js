@@ -1,10 +1,11 @@
 import { html, LitElement } from 'lit-element';
 import { connect } from 'pwa-helpers';
-import { store } from '../redux/store';
-import { PageViewElement } from './page-view-element.js';
-import { SharedStyles } from './shared-styles.js';
-import './can-button-v2/can-button-v2.js'
-class MyView1 extends connect(store)(PageViewElement) {
+import { store } from '../../redux/store';
+import { PageViewElement } from '../page-view-element.js';
+import { SharedStyles } from '../shared-styles.js';
+import '../can-button-v2/can-button-v2.js';
+
+class ReHomePage extends connect(store)(PageViewElement) {
 	static get styles() {
 		return [SharedStyles];
 	}
@@ -13,7 +14,6 @@ class MyView1 extends connect(store)(PageViewElement) {
 		console.log('render() View1');
 
 		return html`
-			<section>
 				<h2>Static page</h2>
 				<p>This is a text-only page.</p>
 				<p>
@@ -53,7 +53,6 @@ class MyView1 extends connect(store)(PageViewElement) {
 			</section>
 		`;
 	}
-
 }
 
-window.customElements.define('my-view1', MyView1);
+window.customElements.define('re-home-page', ReHomePage);

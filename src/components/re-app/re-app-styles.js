@@ -1,6 +1,6 @@
 import { css } from 'lit-element';
-import { canBackgroundColor } from '../assets/css/colors';
-export const MyAppStyles = css`
+import { canBackgroundColor } from '../../assets/css/colors.js';
+export const ReAppStyles = css`
 	:host {
 		display: block;
 		background: ${canBackgroundColor};

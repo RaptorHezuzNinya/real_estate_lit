@@ -6,7 +6,7 @@ export const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
 
 export const navigate = path => dispatch => {
 	// Extract the page name from path.
-	const page = (path === '/') ? 'view1' : path.slice(1);
+	const page = path === '/' ? 're-home-page' : path.slice(1);
 
 	// Any other info you might want to extract from the path (like page type),
 	// you can do here
@@ -17,8 +17,8 @@ export const navigate = path => dispatch => {
 
 const loadPage = page => dispatch => {
 	switch (page) {
-		case 'view1':
-			import('../../components/my-view1.js').then(module => {
+		case 're-home-page':
+			import('../../components/re-home-page/re-home-page.js').then(module => {
 				// Put code in here that you want to run every time when
 				// navigating to view1 after my-view1.js is loaded.
 			});
@@ -37,7 +37,6 @@ export const updatePage = page => {
 		type: UPDATE_PAGE,
 		page
 	};
-
 };
 
 export const updateOffline = offline => (dispatch, getState) => {
@@ -69,10 +68,6 @@ export const showSnackbar = () => dispatch => {
 	snackbarTimer = window.setTimeout(() => dispatch({ type: CLOSE_SNACKBAR }), 3000);
 };
 
-
-
-
-
 // below different implementations
 // export function showSnackbarPromise(subreddit) {
 // 	return function (dispatch) {
@@ -97,7 +92,3 @@ export const showSnackbar = () => dispatch => {
 // 		dispatch({ type: CLOSE_SNACKBAR })
 // 	});
 // };
-
-
-
-

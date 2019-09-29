@@ -5,18 +5,19 @@ import { installMediaQueryWatcher } from 'pwa-helpers/media-query.js';
 import { installOfflineWatcher } from 'pwa-helpers/network.js';
 import { installRouter } from 'pwa-helpers/router.js';
 import { updateMetadata } from 'pwa-helpers/metadata.js';
-import { store } from '../redux/store';
-import { navigate, updateOffline, updateDrawerState } from '../redux/actions/app.js';
-import { MyAppStyles } from './my-app-styles';
-import { normalize } from '../assets/css/normalize';
+import { store } from '../../redux/store';
+import { navigate, updateOffline, updateDrawerState } from '../../redux/actions/app.js';
+import { ReAppStyles } from './re-app-styles';
+import { normalize } from '../../assets/css/normalize';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header/app-header.js';
-import './snack-bar.js';
-import './can-header/can-header';
+import '../re-snack-bar/re-snack-bar.js';
+import '../re-404/re-404.js';
+import '../can-header/can-header';
 
-class MyApp extends connect(store)(LitElement) {
+class ReApp extends connect(store)(LitElement) {
 	static get styles() {
-		return [normalize, MyAppStyles];
+		return [normalize, ReAppStyles];
 	}
 	static get properties() {
 		return {
@@ -24,8 +25,7 @@ class MyApp extends connect(store)(LitElement) {
 			_page: { type: String },
 			_drawerOpened: { type: Boolean },
 			_snackbarOpened: { type: Boolean },
-			_offline: { type: Boolean },
-
+			_offline: { type: Boolean }
 		};
 	}
 
@@ -35,25 +35,14 @@ class MyApp extends connect(store)(LitElement) {
 
 			<app-drawer .opened="${this._drawerOpened}" @opened-changed="${this._drawerOpenedChanged}">
 				<nav class="drawer-list">
-					<a ?selected="${this._page === 'view1'}" href="/view1">View1</a>
-					<a ?selected="${this._page === 'view2'}" href="/view2">View2</a>
-					${this._user
-				? html`
-								<a ?selected="${this._page === 'user/dashboard'}" href="/user/dashboard"
-									>Dashboard</a
-								>
-						  `
-				: html`
-								<a ?selected="${this._page === 'login'}" href="/login">Login</a>
-						  `}
+					<!-- <a ?selected="${this._page === 'view1'}" href="/view1">View1</a> -->
 				</nav>
 			</app-drawer>
 
 			<!-- Main content -->
 			<main role="main" class="main-content">
-				<my-view1 class="page" ?active="${this._page === 'view1'}"></my-view1>
-
-				<my-view404 class="page" ?active="${this._page === 'view404'}"></my-view404>
+				<re-home-page class="page" ?active="${this._page === 're-home-page'}"></re-home-page>
+				<re-404 class="page" ?active="${this._page === 're-404'}"></re-404>
 			</main>
 
 			<snack-bar ?active="${this._snackbarOpened}">
@@ -99,8 +88,7 @@ class MyApp extends connect(store)(LitElement) {
 		this._offline = state.app.offline;
 		this._snackbarOpened = state.app.snackbarOpened;
 		this._drawerOpened = state.app.drawerOpened;
-
 	}
 }
 
-window.customElements.define('my-app', MyApp);
+window.customElements.define('re-app', ReApp);

@@ -1,6 +1,5 @@
 import { LitElement, html } from 'lit-element';
 
-
 import { CanListItemStyles } from './can-list-item-styles';
 import { failedIcon } from '../../assets/css/icons';
 
