@@ -1,6 +1,14 @@
 import { combineReducers } from 'redux';
-import { tenantReducer } from './tenantReducer';
+import { app } from './app.js';
+import { uiReducer } from './ui.js';
 
-export const rootReducer = combineReducers({
-	tenantReducer
+
+const appReducer = combineReducers({
+	app,
+	ui: uiReducer,
+
 });
+// in order to reset store to initial state we return undefined
+export const rootReducer = (state, action) => {
+	return appReducer(state, action);
+};

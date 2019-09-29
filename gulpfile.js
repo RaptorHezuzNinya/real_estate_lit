@@ -16,7 +16,9 @@ const del = require('del');
 /**
  * Cleans the prpl-server build in the server directory.
  */
-gulp.task('prpl-server:clean', () => del('server/build'));
+gulp.task('prpl-server:clean', () => {
+	return del('server/build');
+});
 
 /**
  * Copies the prpl-server build to the server directory while renaming the

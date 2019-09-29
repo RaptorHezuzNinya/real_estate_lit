@@ -1,0 +1,20 @@
+@import '@material/textfield/mdc-text-field';
+@import '@material/textfield/character-counter/mdc-text-field-character-counter';
+
+$can-green: rgb(80, 227, 194);
+$can-blue: rgb(16, 54, 75);
+$relative: Relative;
+
+.mdc-text-field.mdc-text-field--focused {
+	@include mdc-text-field-focused-outline-color($can-green);
+	@include mdc-text-field-label-color($can-blue);
+	width: 100%;
+}
+
+.mdc-text-field:not(.mdc-text-field--focused) {
+	width: 100%;
+}
+
+.mdc-text-field-helper-line {
+	width: 100%;
+}

@@ -1,6 +1,6 @@
 export const API_REQUEST = 'API_REQUEST';
-export const API_REQUEST_START = 'API_REQUEST_START';
 export const API_REQUEST_END = 'API_REQUEST_END';
+export const API_REQUEST_START = 'API_REQUEST_START';
 export const ACCESS_DENIED = 'ACCESS_DENIED';
 export const API_ERROR = 'API_ERROR';
 
@@ -11,7 +11,9 @@ export const apiAction = ({
 	onSuccess = null,
 	onFailure = null,
 	label = '',
-	headers = {}
+	headers = {},
+	auth = false,
+	activeRole = 'guest'
 }) => {
 	return {
 		type: API_REQUEST,
@@ -22,7 +24,9 @@ export const apiAction = ({
 			onSuccess,
 			onFailure,
 			label,
-			headers
+			headers,
+			auth,
+			activeRole
 		}
 	};
 };
@@ -44,6 +48,6 @@ export const accessDenied = url => ({
 
 export const apiError = (error, label) => ({
 	type: API_ERROR,
-	label: label,
-	error: error
+	label,
+	error
 });

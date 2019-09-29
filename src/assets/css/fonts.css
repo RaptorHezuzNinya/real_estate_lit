@@ -1,0 +1,39 @@
+@font-face {
+	font-family: 'Relative';
+	src: url('../fonts/relative-book-web.eot');
+	src: url('../fonts/relative-book-web.eot?#iefix') format('embedded-opentype'), url('../fonts/relative-book-web.woff2') format('woff2'), url('../fonts/relative-book-web.woff') format('woff'), url('../fonts/relative-book-web.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Relative';
+	src: url('../fonts/relative-medium-web.eot');
+	src: url('../fonts/relative-medium-web.eot?#iefix') format('embedded-opentype'), url('../fonts/relative-medium-web.woff2') format('woff2'), url('../fonts/relative-medium-web.woff') format('woff'), url('../fonts/relative-medium-web.ttf') format('truetype');
+	font-style: normal;
+	font-display: swap;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Relative';
+	src: url('../fonts/relative-medium-italic-web.eot');
+	src: url('../fonts/relative-medium-italic-web.eot?#iefix') format('embedded-opentype'), url('../fonts/relative-medium-italic-web.woff2') format('woff2'), url('../fonts/relative-medium-italic-web.woff') format('woff'), url('../fonts/relative-medium-italic-web.ttf') format('truetype');
+	font-style: italic;
+	font-display: swap;
+	font-weight: 500;
+}
+
+* {
+	font-family: 'Relative', Helvetica, sans-serif;
+	text-rendering: optimizeLegibility;
+	font-kerning: normal;
+	box-sizing: border-box;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+	font-family: 'Relative', Helvetica, sans-serif;
+}

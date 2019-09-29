@@ -1,18 +1,23 @@
 import axios from 'axios';
-import { API_ROOT } from '../../../config.js';
+import { API_ROOT } from '../../../config/config.js';
 import { API_REQUEST, accessDenied, apiRequestStart, apiRequestEnd } from '../actions/api';
 
 export const apiMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
 	if (action.type !== API_REQUEST) return;
 
-	const { url, method, onSuccess, onFailure, label, headers } = action.meta;
+	const { url, method, onSuccess, onFailure, label, headers, activeRole, auth } = action.meta;
+
 	const data = action.payload;
+
+	const store = getState();
+	if (auth && store.user.user) headers.Authorization = store.user.user.token;
 
 	const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
 
 	axios.defaults.baseURL = API_ROOT;
 	axios.defaults.headers.common['Content-Type'] = 'application/json';
+	axios.defaults.headers.common['activeRole'] = activeRole;
 
 	if (label) dispatch(apiRequestStart(label));
 

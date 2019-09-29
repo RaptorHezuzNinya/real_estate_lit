@@ -1,0 +1,10 @@
+@import '@material/select/mdc-select';
+
+$can-green: rgb(80, 227, 194);
+$green: rgb(105, 192, 172);
+$can-blue: rgb(16, 54, 75);
+
+.mdc-select.mdc-select--outlined.mdc-select--focused {
+	@include mdc-select-focused-label-color($can-blue);
+	@include mdc-select-focused-outline-color($can-green);
+}

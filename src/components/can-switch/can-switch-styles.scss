@@ -1,0 +1,10 @@
+@import '@material/switch/mdc-switch';
+
+$can-green: rgb(80, 227, 194);
+$green: rgb(105, 192, 172);
+$can-blue: rgb(16, 54, 75);
+
+.mdc-switch.mdc-switch--checked {
+	@include mdc-switch-toggled-on-track-color($can-green);
+	@include mdc-switch-toggled-on-thumb-color($green);
+}

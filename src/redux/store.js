@@ -1,18 +1,30 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-// import { lazyReducerEnhancer } from 'pwa-helpers/lazy-reducer-enhancer';
 import logger from 'redux-logger';
-import { rootReducer } from './reducers/index';
-import { apiMiddleware } from './middleware/apiMW.js';
-import { tenantMiddleware } from './middleware/tenantMW';
+import { rootReducer } from './reducers/index.js';
+import { apiMiddleware } from '../redux/middleware/apiMW.js';
+import { saveState, loadState } from './localStorage.js';
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const configureStore = state =>
+// persistedState loads state from localStore
+const persistedState = loadState();
+// if you wanna readd resisted state use persistedState instead of state
+const setupStore = state =>
 	createStore(
 		rootReducer,
-		state,
-		devCompose(applyMiddleware(thunk, ...tenantMiddleware, apiMiddleware, logger))
+		persistedState,
+		// state,
+		devCompose(
+			applyMiddleware(
+				thunk,
+				apiMiddleware
+			)
+		)
 	);
 
-export const store = configureStore();
+export const store = setupStore();
+
+store.subscribe(() => {
+	saveState(store.getState());
+});
