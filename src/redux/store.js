@@ -5,6 +5,7 @@ import { rootReducer } from './reducers/index.js';
 import { apiMiddleware } from '../redux/middleware/apiMW.js';
 import { tenantMiddleware } from '../redux/middleware/tenantMW.js';
 import { saveState, loadState } from './localStorage.js';
+import { paymentMiddleware } from './middleware/paymentMW.js';
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -16,7 +17,7 @@ const setupStore = state =>
 		rootReducer,
 		persistedState,
 		// state,
-		devCompose(applyMiddleware(thunk, apiMiddleware, ...tenantMiddleware))
+		devCompose(applyMiddleware(thunk, apiMiddleware, ...tenantMiddleware, ...paymentMiddleware))
 	);
 
 export const store = setupStore();
