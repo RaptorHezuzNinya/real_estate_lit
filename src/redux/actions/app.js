@@ -37,7 +37,6 @@ export const updatePage = page => {
 		type: UPDATE_PAGE,
 		page
 	};
-
 };
 
 export const updateOffline = offline => (dispatch, getState) => {
@@ -69,10 +68,6 @@ export const showSnackbar = () => dispatch => {
 	snackbarTimer = window.setTimeout(() => dispatch({ type: CLOSE_SNACKBAR }), 3000);
 };
 
-
-
-
-
 // below different implementations
 // export function showSnackbarPromise(subreddit) {
 // 	return function (dispatch) {
@@ -97,7 +92,3 @@ export const showSnackbar = () => dispatch => {
 // 		dispatch({ type: CLOSE_SNACKBAR })
 // 	});
 // };
-
-
-
-
