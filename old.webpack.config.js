@@ -7,7 +7,8 @@ module.exports = {
 		historyApiFallback: true,
 		overlay: true
 	},
-	mode: 'production',
+	mode: 'development',
+	devtool: 'inline-source-maps',
 	module: {
 		rules: [
 			{
@@ -27,7 +28,11 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CopyWebpackPlugin(['images/**', 'node_modules/@webcomponents/webcomponentsjs/**', 'manifest.json']),
+		new CopyWebpackPlugin([
+			'images/**',
+			'node_modules/@webcomponents/webcomponentsjs/**',
+			'manifest.json'
+		]),
 		new HtmlWebpackPlugin({
 			chunksSortMode: 'none',
 			template: 'index.html'

@@ -13,6 +13,7 @@ class ReTenant extends LitElement {
 
 	render() {
 		const { email, first_name: firstName, account_holder: accountHolder } = this.tenant;
+
 		return html`
 			<article style="border: 1px solid black">
 				<h1>${email}</h1>

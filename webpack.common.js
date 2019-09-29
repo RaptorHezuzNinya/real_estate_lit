@@ -10,6 +10,7 @@ module.exports = {
 		filename: 'main.js',
 		path: path.join(__dirname, '/dist')
 	},
+
 	devServer: {
 		historyApiFallback: true
 	},
@@ -61,29 +62,29 @@ module.exports = {
 					}
 				}
 			},
-			{
-				test: /.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
-				use: {
-					loader: 'file-loader',
-					options: {
-						name: '[name].[ext]',
-						outputPath: 'fonts/'
-					}
-				}
-			},
-			{
-				test: /\.svg$/,
-				include: [/icons/],
-				use: [
-					{
-						loader: 'file-loader',
-						options: {
-							name: '[name].[ext]',
-							outputPath: 'icons/'
-						}
-					}
-				]
-			},
+			// {
+			// 	test: /.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
+			// 	use: {
+			// 		loader: 'file-loader',
+			// 		options: {
+			// 			name: '[name].[ext]',
+			// 			outputPath: 'fonts/'
+			// 		}
+			// 	}
+			// },
+			// {
+			// 	test: /\.svg$/,
+			// 	include: [/icons/],
+			// 	use: [
+			// 		{
+			// 			loader: 'file-loader',
+			// 			options: {
+			// 				name: '[name].[ext]',
+			// 				outputPath: 'icons/'
+			// 			}
+			// 		}
+			// 	]
+			// },
 
 			// this is used to import css files from node_modules and add them to get styles() with: unsafeCSS(testStyles),
 			{
@@ -93,20 +94,21 @@ module.exports = {
 			},
 
 			// We need this loader to make the fonts work and apply css
-			{
-				test: /\.css$/i,
-				use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-				include: [path.resolve(__dirname, 'src/assets/css/fonts.css')]
-			},
+			// {
+			// 	test: /\.css$/i,
+			// 	use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+			// 	include: [path.resolve(__dirname, 'src/assets/css/fonts.css')]
+			// },
 			{
 				test: /\.scss$/,
 				use: [
+					{ loader: 'style-loader' },
 					{ loader: 'css-loader' },
 					{
-						loader: 'sass-loader',
-						options: {
-							includePaths: ['./node_modules']
-						}
+						loader: 'sass-loader'
+						// options: {
+						// 	includePaths: ['./node_modules']
+						// }
 					}
 				]
 			}
