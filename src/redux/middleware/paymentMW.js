@@ -4,7 +4,7 @@ import {
 	FETCH_PAYMENTS_ERROR,
 	setPayments
 } from '../actions/payment.js';
-// import { arrayToObject } from '../../utils/helper.js';
+
 import { apiAction } from '../actions/api.js';
 import { arrayToObject } from '../../utils/helper.js';
 
