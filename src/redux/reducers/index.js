@@ -10,7 +10,7 @@ const appReducer = combineReducers({
 	tenant,
 	payment
 });
-// in order to reset store to initial state we return undefined
+
 export const rootReducer = (state, action) => {
 	return appReducer(state, action);
 };
