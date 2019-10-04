@@ -6,8 +6,9 @@ export const SharedStyles = css`
 		box-sizing: border-box;
 	}
 
-	section {
-		padding: 24px;
+	section,
+	main {
+		padding: 20px;
 		background-color: ${canBackgroundColor};
 	}
 
