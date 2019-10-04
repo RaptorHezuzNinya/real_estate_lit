@@ -56,7 +56,7 @@ export const ReTestCardStyles = css`
 
 	.cardHeaderSupportingText {
 		/* background-color: #2196f2; */
-		font-size: 15px;
+		font-size: 14px;
 		height: 16px;
 		width: 136px;
 	}

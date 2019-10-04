@@ -34,7 +34,7 @@ export class ReTestCard extends LitElement {
 				</section>
 
 				<section class="nonSharedContent">
-					<section class="greySquaresContainer">
+					<!-- <section class="greySquaresContainer">
 						<span class="greySquare"></span>
 						<span class="greySquare"></span>
 						<span class="greySquare"></span>
@@ -45,7 +45,7 @@ export class ReTestCard extends LitElement {
 					<div class="greyLine"></div>
 					<div class="greyLine"></div>
 					<div class="greyLine"></div>
-					<div class="greyLine"></div>
+					<div class="greyLine"></div> -->
 				</section>
 			</div>
 		`;
