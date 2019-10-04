@@ -19,11 +19,8 @@ export class ReTestCard extends LitElement {
 
 	render() {
 		return html`
-			<div
-				class=${`card  ${this.cardIsActive ? 'cardActive' : null}`}
-				@click=${this.handleCardActivation}
-			>
-				<section id="cardHeader">
+			<div class=${`card  ${this.cardIsActive ? 'cardActive' : null}`}>
+				<section id="cardHeader" @click=${this.handleCardActivation}>
 					<span class="cardAvatarContainer">
 						<span class="cardAvatar"></span>
 					</span>
@@ -46,6 +43,7 @@ export class ReTestCard extends LitElement {
 					<div class="greyLine"></div>
 					<div class="greyLine"></div>
 					<div class="greyLine"></div> -->
+					<can-button-v2> Show payments</can-button-v2>
 				</section>
 			</div>
 		`;

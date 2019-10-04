@@ -18,6 +18,7 @@ export const ReTestCardStyles = css`
 
 	.cardActive {
 		height: 332px;
+		/* height: 100%; */
 	}
 
 	.cardActive .nonSharedContent {
@@ -25,6 +26,11 @@ export const ReTestCardStyles = css`
 		transition: 150ms;
 		transition-delay: 75ms;
 		opacity: 1;
+		height: 100%;
+		display: flex;
+		flex-direction: column-reverse;
+		/* margin: auto; */
+		justify-content: center;
 	}
 
 	.nonSharedContent {
