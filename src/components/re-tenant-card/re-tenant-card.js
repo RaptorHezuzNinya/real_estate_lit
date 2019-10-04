@@ -9,26 +9,35 @@ export class ReTenantCard extends LitElement {
 
 	static get properties() {
 		return {
-			tenant: { type: Object }
+			tenant: { type: Object },
+			prop: Boolean
 		};
 	}
 
 	constructor() {
 		super();
 		this.tenant = false;
+		this.prop = false;
 	}
 
 	render() {
 		if (!this.tenant) return;
 		return html`
-			<div class="mdc-card cardContent">
-				<p>${this.tenant.email}</p>
-				<div class="mdc-card__primary-action" tabindex="0">
-					<!-- <can-button-v2>show payments</can-button-v2> -->
-					<p>show payments</p>
-				</div>
-			</div>
+			${!this.prop
+				? html`
+						<div class="mdc-card cardContent">
+							<p>${this.tenant.email}</p>
+							<div class="mdc-card__primary-action" tabindex="0" @click=${this.handle}>
+								<!-- <can-button-v2>show payments</can-button-v2> -->
+								<p>show payments</p>
+							</div>
+						</div>
+				  `
+				: ''}
 		`;
+	}
+	handle() {
+		this.props = !this.prop;
 	}
 }
 customElements.define('re-tenant-card', ReTenantCard);
