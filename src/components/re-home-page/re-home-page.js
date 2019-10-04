@@ -1,16 +1,17 @@
 import { html, LitElement } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
+import { fetchTenants } from '../../redux/actions/tenant';
+import { fetchPayments } from '../../redux/actions/payment';
 import { PageViewElement } from '../page-view-element.js';
 import { SharedStyles } from '../shared-styles.js';
-import { fetchTenants } from '../../redux/actions/tenant';
+import { ReHomePageStyles } from './re-home-page-styles.js';
 import '../can-button-v2/can-button-v2.js';
-import '../re-tenant-card/re-tenant-card.js';
-import { fetchPayments } from '../../redux/actions/payment';
+import '../re-test-card/re-test-card.js';
 
 class ReHomePage extends connect(store)(PageViewElement) {
 	static get styles() {
-		return [SharedStyles];
+		return [SharedStyles, ReHomePageStyles];
 	}
 
 	static get properties() {
