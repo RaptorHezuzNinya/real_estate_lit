@@ -4,7 +4,6 @@ import { canBlue, canGreen } from '../../assets/css/colors';
 export const CanButtonV2Styles = css`
 	:host {
 		display: block;
-		height: 100%;
 	}
 
 	:host([hidden]) {

@@ -50,7 +50,7 @@ class ReHomePage extends connect(store)(PageViewElement) {
 		for (const key in this.tenants) {
 			if (this.tenants.hasOwnProperty(key)) {
 				const template = html`
-					<re-test-card .tenant=${this.tenants[key]}></re-test-card>
+					<re-test-card .tenant=${this.tenants[key]}> </re-test-card>
 				`;
 				templates.push(template);
 			}
