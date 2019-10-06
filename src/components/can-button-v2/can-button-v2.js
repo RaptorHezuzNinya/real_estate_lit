@@ -13,7 +13,8 @@ class CanButtonV2 extends LitElement {
 		return {
 			green: { type: Boolean, reflect: true },
 			disabled: { type: Boolean },
-			MDCRipple: { type: Object }
+			MDCRipple: { type: Object },
+			buttonLabel: String
 		};
 	}
 
@@ -22,6 +23,7 @@ class CanButtonV2 extends LitElement {
 		this.green = false;
 		this.disabled = false;
 		this.MDCRipple = false;
+		this.buttonLabel = false;
 	}
 
 	render() {
