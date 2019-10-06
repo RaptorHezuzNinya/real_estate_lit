@@ -1,11 +1,47 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { rootReducer } from './reducers/index.js';
-import { apiMiddleware } from '../redux/middleware/apiMW.js';
-import { tenantMiddleware } from '../redux/middleware/tenantMW.js';
+// save redux state to localStorage
 import { saveState, loadState } from './localStorage.js';
+// middleware
+// import { apiMiddleware } from '../redux/middleware/apiMW.js';
+import { tenantMiddleware } from '../redux/middleware/tenantMW.js';
 import { paymentMiddleware } from './middleware/paymentMW.js';
+// new middleware
+// CORE middleware
+import { apiMiddleware } from './middleware/core/api.mw.js';
+import { actionSplitterMiddleware } from './middleware/core/actionSplitter.mw.js';
+// FEATURE middleware
+import { userMiddleware } from './middleware/feature/user.mw.js';
+// reducers
+import { combineReducers } from 'redux';
+import { app } from './reducers/app.js';
+import { ui } from './reducers/ui.js';
+import { tenant } from './reducers/tenant.js';
+import { payment } from './reducers/payment.js';
+import { userReducer } from './reducers/user.reducer.js';
+
+const featureMiddleware = [userMiddleware];
+
+const coreMiddleware = [
+	actionSplitterMiddleware,
+	apiMiddleware
+	// normalizeMiddleware,
+	// notificationMiddleware,
+	// loggerMiddleware
+];
+
+const appReducer = combineReducers({
+	app,
+	ui,
+	tenant,
+	payment,
+	user: userReducer
+});
+
+const rootReducer = (state, action) => {
+	return appReducer(state, action);
+};
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,7 +53,16 @@ const setupStore = state =>
 		rootReducer,
 		persistedState,
 		// state,
-		devCompose(applyMiddleware(thunk, apiMiddleware, ...tenantMiddleware, ...paymentMiddleware))
+		devCompose(
+			applyMiddleware(
+				thunk,
+				// apiMiddleware,
+				// ...tenantMiddleware,
+				// ...paymentMiddleware,
+				...featureMiddleware,
+				...coreMiddleware
+			)
+		)
 	);
 
 export const store = setupStore();

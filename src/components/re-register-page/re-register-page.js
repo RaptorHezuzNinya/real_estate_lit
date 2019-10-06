@@ -4,6 +4,7 @@ import { store } from '../../redux/store';
 import { ReRegisterPageStyles } from './re-register-page-styles.js';
 import '../re-card/re-card.js';
 import '../can-text-input/can-text-input.js';
+import { signUpUser } from '../../redux/actions/user.acs';
 
 export class ReRegisterPage extends connect(store)(LitElement) {
 	static get styles() {
@@ -41,6 +42,8 @@ export class ReRegisterPage extends connect(store)(LitElement) {
 	}
 
 	buttonClicked(evt) {
+		console.log('buttonclicked');
+
 		const data = {
 			user: {
 				username: this.username,
@@ -48,7 +51,7 @@ export class ReRegisterPage extends connect(store)(LitElement) {
 				password: this.password
 			}
 		};
-		store.dispatch(userSignUp(data));
+		store.dispatch(signUpUser(data));
 	}
 
 	renderInputs() {

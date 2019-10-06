@@ -4,10 +4,10 @@ export const API_SUCCESS = 'API_SUCCESS';
 export const API_ERROR = 'API_ERROR';
 
 // action creators
-export const apiRequest = ({ body, method, url, feature }) => ({
+export const apiRequest = ({ body, method, url, feature, headers }) => ({
 	type: `${feature} ${API_REQUEST}`,
 	payload: body,
-	meta: { method, url, feature }
+	meta: { method, url, feature, headers: null }
 });
 
 export const apiSuccess = ({ response, feature }) => ({
