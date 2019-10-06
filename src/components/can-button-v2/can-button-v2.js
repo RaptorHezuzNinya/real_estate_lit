@@ -47,7 +47,7 @@ class CanButtonV2 extends LitElement {
 	}
 
 	handleClick() {
-		const event = new CustomEvent('btn-click-event', {
+		const event = new CustomEvent('button-click', {
 			detail: { message: 'btn-click-event' }
 		});
 		this.dispatchEvent(event);

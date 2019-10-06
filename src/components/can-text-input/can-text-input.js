@@ -5,7 +5,6 @@ import MDCTextFieldStyles from './can-text-input-styles.scss';
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldCharacterCounter } from '@material/textfield/character-counter';
 
-
 class CanTextInput extends LitElement {
 	static get styles() {
 		return [normalize, CanTextInputStyles, unsafeCSS(MDCTextFieldStyles)];
@@ -54,7 +53,9 @@ class CanTextInput extends LitElement {
 				<div class="mdc-notched-outline">
 					<div class="mdc-notched-outline__leading"></div>
 					<div class="mdc-notched-outline__notch">
-						<label for="text-field-hero-input" class="mdc-floating-label mdc-floating-label--float-above"
+						<label
+							for="text-field-hero-input"
+							class="mdc-floating-label mdc-floating-label--float-above"
 							>${this.label}</label
 						>
 					</div>
@@ -64,24 +65,24 @@ class CanTextInput extends LitElement {
 
 			<div class="mdc-text-field-helper-line">
 				${this.helperText
-				? html`
+					? html`
 							<div class="mdc-text-field-helper-text">
 								${this.helperText}
 							</div>
 					  `
-				: ''}
+					: ''}
 				${this.counter
-				? html`
+					? html`
 							<div class="mdc-text-field-character-counter"></div>
 					  `
-				: ''}
+					: ''}
 			</div>
 		`;
 	}
 
 	handleInput(evt) {
 		this.inputValue = evt.target.value;
-		const inputChange = new CustomEvent('input-change-event', {
+		const inputChange = new CustomEvent('input-value-change', {
 			detail: {
 				value: this.inputValue
 			},
@@ -104,7 +105,9 @@ class CanTextInput extends LitElement {
 	disconnectedCallback() {
 		super.disconnectedCallback();
 		if (this.MDCTextFieldElement) return this.MDCTextField.destroy(this.MDCTextFieldElement);
-		this.MDCCharacterCounter.destroy(this.shadowRoot.querySelector('.mdc-text-field-character-counter'));
+		this.MDCCharacterCounter.destroy(
+			this.shadowRoot.querySelector('.mdc-text-field-character-counter')
+		);
 	}
 }
 

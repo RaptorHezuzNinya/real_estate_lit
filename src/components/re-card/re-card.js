@@ -14,17 +14,12 @@ export class ReCard extends LitElement {
 		return html`
 			<!-- <div class="mdc-card"></div> -->
 			<div class="mdc-card">
-				<p>card content</p>
+				<slot name="content"></slot>
 
 				<div class="mdc-card__actions mdc-card__action mdc-card__action--button">
-					<can-button-v2
-						class="mdc-card__action mdc-card__action--button"
-						buttonLabel="Action 1"
-					></can-button-v2>
-					<can-button-v2
-						class="mdc-card__action mdc-card__action--button"
-						buttonLabel="Action 2"
-					></can-button-v2>
+					
+					<slot name="action1"><slot>
+					<slot name="action2"><slot>
 				</div>
 			</div>
 		`;

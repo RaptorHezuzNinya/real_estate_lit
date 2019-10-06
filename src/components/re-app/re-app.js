@@ -1,11 +1,11 @@
 import { LitElement, html } from 'lit-element';
 import { setPassiveTouchGestures } from '@polymer/polymer/lib/utils/settings.js';
 import { connect } from 'pwa-helpers';
+import { store } from '../../redux/store';
 import { installMediaQueryWatcher } from 'pwa-helpers/media-query.js';
 import { installOfflineWatcher } from 'pwa-helpers/network.js';
 import { installRouter } from 'pwa-helpers/router.js';
 import { updateMetadata } from 'pwa-helpers/metadata.js';
-import { store } from '../../redux/store';
 import { navigate, updateOffline, updateDrawerState } from '../../redux/actions/app.js';
 import { ReAppStyles } from './re-app-styles';
 import { normalize } from '../../assets/css/normalize';
