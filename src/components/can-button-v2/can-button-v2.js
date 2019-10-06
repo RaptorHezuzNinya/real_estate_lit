@@ -35,8 +35,9 @@ class CanButtonV2 extends LitElement {
 				type="button"
 			>
 				<slot></slot>
-				<slot name="text"></slot>
-				<slot name="icon"></slot>
+				<!-- <slot name="text"></slot>
+				<slot name="icon"></slot> -->
+				<span class="mdc-button__label">${this.buttonLabel}</span>
 			</button>
 		`;
 	}

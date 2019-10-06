@@ -14,6 +14,8 @@ import '@polymer/app-layout/app-header/app-header.js';
 import '../re-snack-bar/re-snack-bar.js';
 import '../re-404/re-404.js';
 import '../can-header/can-header';
+import '../re-register-page/re-register-page.js';
+import '../re-home-page/re-home-page.js';
 
 class ReApp extends connect(store)(LitElement) {
 	static get styles() {
