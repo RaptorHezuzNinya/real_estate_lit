@@ -57,10 +57,3 @@ export class ReTestCard extends LitElement {
 	}
 }
 customElements.define('re-test-card', ReTestCard);
-
-/* <section class="nonSharedContent">
-<section class="greySquaresContainer">
-	<span class="greySquare"></span>
-</section>
-<div class="greyLine"></div>
-</section> */
