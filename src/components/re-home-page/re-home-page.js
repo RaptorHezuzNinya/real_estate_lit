@@ -8,6 +8,7 @@ import { SharedStyles } from '../shared-styles.js';
 import { ReHomePageStyles } from './re-home-page-styles.js';
 import '../can-button-v2/can-button-v2.js';
 import '../re-test-card/re-test-card.js';
+import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
 
 class ReHomePage extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -16,13 +17,15 @@ class ReHomePage extends connect(store)(PageViewElement) {
 
 	static get properties() {
 		return {
-			tenants: { type: Object }
+			tenants: { type: Object },
+			paymentsByTenantId: { type: Object }
 		};
 	}
 
 	constructor() {
 		super();
 		this.tenants = false;
+		this.paymentsByTenantId = false;
 	}
 
 	connectedCallback() {
