@@ -17,8 +17,8 @@ export const ReTestCardStyles = css`
 	}
 
 	.cardActive {
-		height: 332px;
-		/* height: 100%; */
+		/* height: 332px; */
+		height: 100%;
 	}
 
 	.cardActive .nonSharedContent {
@@ -34,6 +34,7 @@ export const ReTestCardStyles = css`
 	}
 
 	.nonSharedContent {
+		border: 1px solid red;
 		transition: 75ms;
 		opacity: 0;
 	}
@@ -42,7 +43,7 @@ export const ReTestCardStyles = css`
 		cursor: pointer;
 		width: 100%;
 		height: 72px;
-		padding-top: 16px;
+		padding-top: 12px;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 	}
 

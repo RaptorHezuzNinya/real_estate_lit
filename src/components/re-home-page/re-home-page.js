@@ -68,6 +68,7 @@ class ReHomePage extends connect(store)(PageViewElement) {
 
 	stateChanged(state) {
 		this.tenants = state.tenant.tenants;
+		this.paymentsByTenantId = paymentsByTenantId(state);
 	}
 }
 
