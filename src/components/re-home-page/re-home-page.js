@@ -35,6 +35,7 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	}
 
 	render() {
+		console.log(this.paymentsByTenantId);
 		return html`
 			<header>
 				<h3>Tenants overview</h3>
@@ -53,7 +54,11 @@ class ReHomePage extends connect(store)(PageViewElement) {
 		for (const key in this.tenants) {
 			if (this.tenants.hasOwnProperty(key)) {
 				const template = html`
-					<re-test-card .tenant=${this.tenants[key]}> </re-test-card>
+					<re-test-card
+						.tenant=${this.tenants[key]}
+						.payments=${this.paymentsByTenantId[this.tenants[key].id]}
+					>
+					</re-test-card>
 				`;
 				templates.push(template);
 			}
