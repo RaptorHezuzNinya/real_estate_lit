@@ -39,15 +39,17 @@ export class ReTestCard extends LitElement {
 		`;
 	}
 	renderPayments() {
-		return this.payments.map(payment => {
-			const date = new Date(payment.date);
-			return html`
-				<div class="paymentHolder">
-					<span> ${date.toDateString()}</span>
-					<span>€ ${payment.amount}</span>
-				</div>
-			`;
-		});
+		if (this.payments) {
+			return this.payments.map(payment => {
+				const date = new Date(payment.date);
+				return html`
+					<div class="paymentHolder">
+						<span> ${date.toDateString()}</span>
+						<span>€ ${payment.amount}</span>
+					</div>
+				`;
+			});
+		}
 	}
 
 	handleCardActivation() {
