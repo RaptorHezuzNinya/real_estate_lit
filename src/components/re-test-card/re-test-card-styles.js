@@ -55,7 +55,7 @@ export const ReTestCardStyles = css`
 	}
 
 	.cardHeaderTitle {
-		background-color: #2196f2;
+		/* background-color: #2196f2; */
 		width: 184px;
 		height: 16px;
 		margin-bottom: 16px;
@@ -83,29 +83,10 @@ export const ReTestCardStyles = css`
 		display: inline-block;
 	}
 
-	.greySquaresContainer {
-		width: 200%;
-		padding: 10px;
-	}
-
-	.greySquare {
-		margin: 8px;
-		display: inline-block;
-		width: 120px;
-		height: 120px;
-		background-color: #ededed;
-		border-radius: 2px;
-	}
-
-	.greyLine {
-		width: 160px;
-		height: 16px;
-		margin: 24px 16px;
-		background-color: #ededed;
-	}
-
-	.greyLine:first-of-type {
-		width: 220px;
-		margin: 0 16px;
+	.paymentHolder {
+		border-bottom: 0.5px solid lightgray;
+		font-size: 15px;
+		display: flex;
+		justify-content: space-around;
 	}
 `;

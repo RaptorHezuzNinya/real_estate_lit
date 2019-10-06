@@ -8,13 +8,15 @@ export class ReTestCard extends LitElement {
 	static get properties() {
 		return {
 			cardIsActive: { type: Boolean },
-			tenant: Object
+			tenant: Object,
+			payments: Array
 		};
 	}
 	constructor() {
 		super();
 		this.cardIsActive = false;
 		this.tenant = false;
+		this.payments = false;
 	}
 
 	render() {
@@ -25,28 +27,27 @@ export class ReTestCard extends LitElement {
 						<span class="cardAvatar"></span>
 					</span>
 					<span class="cardHeaderTextContainer">
-						<div class="cardHeaderTitle"></div>
+						<div class="cardHeaderTitle">${this.tenant.first_name} ${this.tenant.last_name}</div>
 						<div class="cardHeaderSupportingText">${this.tenant.email}</div>
 					</span>
 				</section>
 
 				<section class="nonSharedContent">
-					<!-- <section class="greySquaresContainer">
-						<span class="greySquare"></span>
-						<span class="greySquare"></span>
-						<span class="greySquare"></span>
-						<span class="greySquare"></span>
-					</section>
-					<div class="greyLine"></div>
-					<div class="greyLine"></div>
-					<div class="greyLine"></div>
-					<div class="greyLine"></div>
-					<div class="greyLine"></div>
-					<div class="greyLine"></div> -->
-					<can-button-v2> Show payments</can-button-v2>
+					${this.renderPayments()}
 				</section>
 			</div>
 		`;
+	}
+	renderPayments() {
+		return this.payments.map(payment => {
+			const date = new Date(payment.date);
+			return html`
+				<div class="paymentHolder">
+					<span> ${date.toDateString()}</span>
+					<span>€ ${payment.amount}</span>
+				</div>
+			`;
+		});
 	}
 
 	handleCardActivation() {
@@ -54,3 +55,10 @@ export class ReTestCard extends LitElement {
 	}
 }
 customElements.define('re-test-card', ReTestCard);
+
+/* <section class="nonSharedContent">
+<section class="greySquaresContainer">
+	<span class="greySquare"></span>
+</section>
+<div class="greyLine"></div>
+</section> */
