@@ -13,7 +13,6 @@ export const getUserRolesSelector = createSelector(
 						roleId: assignedRole.roleId,
 						userId: assignedRole.userId,
 						assignedRoleId: assignedRole.assignedRoleId,
-
 						name: roleDescription.name,
 						title: roleDescription.title,
 						dashboardUrl: roleDescription.dashboardUrl

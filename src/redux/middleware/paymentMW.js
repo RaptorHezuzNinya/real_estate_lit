@@ -25,7 +25,7 @@ const fetchPaymentsFlow = ({ dispatch }) => next => action => {
 const fetchPaymentsSuccess = ({ dispatch }) => next => action => {
 	next(action);
 	if (action.type === FETCH_PAYMENTS_SUCCESS) {
-		dispatch(setPayments(arrayToObject(action.payload, 'id')));
+		dispatch(setPayments(action.payload));
 	}
 };
 export const paymentMiddleware = [fetchPaymentsFlow, fetchPaymentsSuccess];
