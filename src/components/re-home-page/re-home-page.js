@@ -35,7 +35,6 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	}
 
 	render() {
-		console.log(this.paymentsByTenantId);
 		return html`
 			<header>
 				<h3>Tenants overview</h3>
