@@ -7,7 +7,9 @@ export const apiMiddleware = ({ dispatch }) => next => action => {
 
 	if (action.type.includes(API_REQUEST)) {
 		const { url, method, entity, headers } = action.meta;
-		const body = action.payload;
+
+		const data = action.payload;
+		const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
 
 		axios.defaults.baseURL = API_ROOT;
 		axios.defaults.headers.common['Content-Type'] = 'application/json';

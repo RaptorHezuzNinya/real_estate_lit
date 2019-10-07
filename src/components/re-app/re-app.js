@@ -69,8 +69,8 @@ class ReApp extends connect(store)(LitElement) {
 	}
 
 	updated(changedProps) {
-		if (changedProps.has('_page')) {
-			const pageTitle = this.appTitle + ' | ' + this._page;
+		if (changedProps.has('page')) {
+			const pageTitle = this.appTitle + ' | ' + this.page;
 			updateMetadata({
 				title: pageTitle,
 				description: pageTitle
@@ -88,10 +88,11 @@ class ReApp extends connect(store)(LitElement) {
 	}
 
 	stateChanged(state) {
-		this._page = state.app.currentPage.page;
-		this._offline = state.app.offline;
-		this._snackbarOpened = state.app.snackbarOpened;
-		this._drawerOpened = state.app.drawerOpened;
+		this.page = state.app.currentPage.page;
+		this.offline = state.app.offline;
+		this.snackbarOpened = state.app.snackbarOpened;
+		this.drawerOpened = state.app.drawerOpened;
+		this.user = state.user.user;
 	}
 }
 

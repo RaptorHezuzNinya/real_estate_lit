@@ -3,8 +3,8 @@ import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
 import { signUpUser } from '../../redux/actions/user.acs.js';
 import { ReRegisterPageStyles } from './re-register-page-styles.js';
-import '../re-card/re-card.js';
 import '../can-text-input/can-text-input.js';
+import '../re-card/re-card.js';
 
 export class ReRegisterPage extends connect(store)(LitElement) {
 	static get styles() {
