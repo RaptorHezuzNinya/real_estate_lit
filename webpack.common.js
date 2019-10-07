@@ -1,17 +1,19 @@
 const path = require('path');
+
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
 	entry: path.resolve(__dirname, 'src/index.js'),
-
 	output: {
-		filename: 'main.js',
-		path: path.join(__dirname, '/dist')
+		path: path.join(__dirname, '/dist'),
+		filename: '[name].[contenthash].js'
 	},
-	devServer: {
-		historyApiFallback: true
+	optimization: {
+		splitChunks: {
+			chunks: 'all'
+		}
 	},
 	node: {
 		fs: 'empty',
@@ -19,35 +21,6 @@ module.exports = {
 		tls: 'empty',
 		child_process: 'empty'
 	},
-	plugins: [
-		new CopyWebpackPlugin([
-			'images/**',
-			'node_modules/@webcomponents/webcomponentsjs/**',
-			'manifest.json'
-		]),
-		new HtmlWebpackPlugin({
-			chunksSortMode: 'none',
-			template: 'index.html'
-		}),
-		new WorkboxWebpackPlugin.GenerateSW({
-			include: ['index.html', 'manifest.json', /\.js$/],
-			exclude: [/\/@webcomponents\/webcomponentsjs\//],
-			navigateFallback: 'index.html',
-			swDest: 'service-worker.js',
-			clientsClaim: true,
-			skipWaiting: true,
-			runtimeCaching: [
-				{
-					urlPattern: /\/@webcomponents\/webcomponentsjs\//,
-					handler: 'StaleWhileRevalidate'
-				},
-				{
-					urlPattern: /^https:\/\/fonts.gstatic.com\//,
-					handler: 'StaleWhileRevalidate'
-				}
-			]
-		})
-	],
 	module: {
 		rules: [
 			{
@@ -91,7 +64,6 @@ module.exports = {
 				use: ['css-loader'],
 				include: [/node_modules/]
 			},
-
 			// We need this loader to make the fonts work and apply css
 			{
 				test: /\.css$/i,
@@ -111,5 +83,34 @@ module.exports = {
 				]
 			}
 		]
-	}
+	},
+	plugins: [
+		new CopyWebpackPlugin([
+			'images/**',
+			'node_modules/@webcomponents/webcomponentsjs/**',
+			'manifest.json'
+		]),
+		new HtmlWebpackPlugin({
+			chunksSortMode: 'none',
+			template: 'index.html'
+		}),
+		new WorkboxWebpackPlugin.GenerateSW({
+			include: ['index.html', 'manifest.json', /\.js$/],
+			exclude: [/\/@webcomponents\/webcomponentsjs\//],
+			navigateFallback: 'index.html',
+			swDest: 'service-worker.js',
+			clientsClaim: true,
+			skipWaiting: true,
+			runtimeCaching: [
+				{
+					urlPattern: /\/@webcomponents\/webcomponentsjs\//,
+					handler: 'StaleWhileRevalidate'
+				},
+				{
+					urlPattern: /^https:\/\/fonts.gstatic.com\//,
+					handler: 'StaleWhileRevalidate'
+				}
+			]
+		})
+	]
 };
