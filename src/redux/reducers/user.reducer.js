@@ -1,14 +1,14 @@
-import { USER_SIGN_UP } from '../actions/user.acs.js';
+import { SET_USER } from '../actions/user.acs.js';
 const initialState = {
-	username: false,
 	email: false,
-	password: false
+	username: false,
+	token: false
 };
 
 export const userReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
-		// case USER_SIGN_UP:
-		// 	return { ...state, ...payload };
+		case SET_USER:
+			return { ...state, ...payload };
 
 		default:
 			return state;
