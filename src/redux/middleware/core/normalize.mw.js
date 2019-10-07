@@ -9,7 +9,7 @@ export const normalizeMiddleware = ({ dispatch }) => next => action => {
 		dispatch(dataNormalized({ entity: action.meta.entity }));
 
 		// transform the data structure
-		debugger;
+
 		const user = action.payload.reduce((acc, item) => {
 			acc[item[action.meta.normalizeKey]] = item;
 			return acc;
