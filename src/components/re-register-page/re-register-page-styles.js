@@ -5,7 +5,7 @@ export const ReRegisterPageStyles = css`
 		display: block;
 	}
 	can-text-input {
-		margin-bottom: 16px;
+		margin-bottom: 32px;
 	}
 
 	div[slot='content'] {
