@@ -1,10 +1,10 @@
 import { LitElement, html } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
+import { signUpUser } from '../../redux/actions/user.acs.js';
 import { ReRegisterPageStyles } from './re-register-page-styles.js';
 import '../re-card/re-card.js';
 import '../can-text-input/can-text-input.js';
-import { signUpUser } from '../../redux/actions/user.acs';
 
 export class ReRegisterPage extends connect(store)(LitElement) {
 	static get styles() {
@@ -42,8 +42,6 @@ export class ReRegisterPage extends connect(store)(LitElement) {
 	}
 
 	buttonClicked(evt) {
-		console.log('buttonclicked');
-
 		const data = {
 			user: {
 				username: this.username,

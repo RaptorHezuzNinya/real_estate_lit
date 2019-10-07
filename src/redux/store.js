@@ -6,6 +6,8 @@ import { saveState, loadState } from './localStorage.js';
 // middleware
 import { apiMiddleware } from './middleware/core/api.mw.js';
 import { actionSplitterMiddleware } from './middleware/core/actionSplitter.mw.js';
+import { normalizeMiddleware } from './middleware/core/normalize.mw';
+import { notificationMiddleware } from './middleware/core/notification.mw';
 // entity middleware
 import { userMiddleware } from './middleware/entity/user.mw.js';
 import { tenantMiddleware } from '../redux/middleware/tenantMW.js';

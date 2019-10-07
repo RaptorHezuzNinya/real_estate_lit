@@ -1,4 +1,8 @@
-import { removeNotification, SET_NOTIFICATION, setNotification } from '../../actions/notification';
+import {
+	removeNotification,
+	SET_NOTIFICATION,
+	setNotification
+} from '../../actions/notification.acs.js';
 
 export const notificationMiddleware = () => next => action => {
 	if (action.type.includes(SET_NOTIFICATION)) {
