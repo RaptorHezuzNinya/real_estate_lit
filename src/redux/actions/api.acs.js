@@ -4,20 +4,23 @@ export const API_SUCCESS = 'API_SUCCESS';
 export const API_ERROR = 'API_ERROR';
 
 // action creators
-export const apiRequest = ({ body, method, url, feature, headers }) => ({
-	type: `${feature} ${API_REQUEST}`,
+// This is Command Action!
+export const apiRequest = ({ body, method = 'GET', url, entity, headers = null }) => ({
+	type: `${entity} ${API_REQUEST}`,
 	payload: body,
-	meta: { method, url, feature, headers: null }
+	meta: { method, url, entity, headers }
 });
 
-export const apiSuccess = ({ response, feature }) => ({
-	type: `${feature} ${API_SUCCESS}`,
+// This is Event Action!
+export const apiSuccess = ({ response, entity }) => ({
+	type: `${entity} ${API_SUCCESS}`,
 	payload: response,
-	meta: { feature }
+	meta: { entity }
 });
 
-export const apiError = ({ error, feature }) => ({
-	type: `${feature} ${API_ERROR}`,
+// This is Event Action!
+export const apiError = ({ error, entity }) => ({
+	type: `${entity} ${API_ERROR}`,
 	payload: error,
-	meta: { feature }
+	meta: { entity }
 });

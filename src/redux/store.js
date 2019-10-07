@@ -4,15 +4,12 @@ import logger from 'redux-logger';
 // save redux state to localStorage
 import { saveState, loadState } from './localStorage.js';
 // middleware
-// import { apiMiddleware } from '../redux/middleware/apiMW.js';
-import { tenantMiddleware } from '../redux/middleware/tenantMW.js';
-import { paymentMiddleware } from './middleware/paymentMW.js';
-// new middleware
-// CORE middleware
 import { apiMiddleware } from './middleware/core/api.mw.js';
 import { actionSplitterMiddleware } from './middleware/core/actionSplitter.mw.js';
-// FEATURE middleware
-import { userMiddleware } from './middleware/feature/user.mw.js';
+// entity middleware
+import { userMiddleware } from './middleware/entity/user.mw.js';
+import { tenantMiddleware } from '../redux/middleware/tenantMW.js';
+import { paymentMiddleware } from './middleware/paymentMW.js';
 // reducers
 import { combineReducers } from 'redux';
 import { app } from './reducers/app.js';
