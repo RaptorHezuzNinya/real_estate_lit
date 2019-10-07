@@ -19,10 +19,16 @@ export const apiMiddleware = ({ dispatch }) => next => action => {
 				url,
 				method,
 				headers,
-				body
+				[dataOrParams]: data
 			})
-			.then(response => response.json())
-			.then(response => dispatch(apiSuccess({ response, entity })))
-			.catch(error => dispatch(apiError({ error: error, entity })));
+			.then(({ data }) => {
+				const response = data;
+				dispatch(apiSuccess({ response, entity }));
+			})
+			.catch(error => {
+				console.log('error', error);
+				console.log('errror.response', error.response);
+				dispatch(apiError({ error: error, entity }));
+			});
 	}
 };
