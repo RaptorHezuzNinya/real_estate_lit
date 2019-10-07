@@ -18,16 +18,6 @@ import { tenant } from './reducers/tenant.js';
 import { payment } from './reducers/payment.js';
 import { userReducer } from './reducers/user.reducer.js';
 
-const featureMiddleware = [userMiddleware];
-
-const coreMiddleware = [
-	actionSplitterMiddleware,
-	apiMiddleware
-	// normalizeMiddleware,
-	// notificationMiddleware,
-	// loggerMiddleware
-];
-
 const appReducer = combineReducers({
 	app,
 	ui,
@@ -42,21 +32,29 @@ const rootReducer = (state, action) => {
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// persistedState loads state from localStore
-const persistedState = loadState();
-// if you wanna readd resisted state use persistedState instead of state
+const entityMiddleware = [userMiddleware];
+
+const coreMiddleware = [
+	actionSplitterMiddleware,
+	apiMiddleware,
+	normalizeMiddleware,
+	notificationMiddleware
+	// loggerMiddleware
+];
+
+const persistedState = loadState(); // persistedState loads state from localStore
+
 const setupStore = state =>
 	createStore(
 		rootReducer,
 		persistedState,
-		// state,
+
 		devCompose(
 			applyMiddleware(
 				thunk,
-				// apiMiddleware,
 				// ...tenantMiddleware,
 				// ...paymentMiddleware,
-				...featureMiddleware,
+				...entityMiddleware,
 				...coreMiddleware
 			)
 		)
