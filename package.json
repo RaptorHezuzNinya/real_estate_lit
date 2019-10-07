@@ -8,11 +8,11 @@
 	"repository": "CrowdAboutNow/crowdaboutnow.nl-v2",
 	"private": true,
 	"scripts": {
+		"start:webpack": "webpack-dev-server --disableHostCheck=true --color --open --config webpack.dev.js",
+		"build:webpack": "rm -rf dist && webpack --config webpack.prod.js",
 		"start": "polymer serve",
-		"start:webpack": "webpack-dev-server  --disableHostCheck=true --color --open --mode development",
 		"build": "polymer build --auto-base-path && gulp prpl-server",
 		"build:static": "polymer build",
-		"build:webpack": "rm -rf dist && webpack --config webpack.prod.js",
 		"serve": "prpl-server --root server/build",
 		"serve:static": "polymer serve --port 5000 build/es5-bundled",
 		"serve:webpack": "polymer serve --port 3000 dist",
