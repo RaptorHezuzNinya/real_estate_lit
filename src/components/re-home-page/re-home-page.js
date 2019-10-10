@@ -6,8 +6,9 @@ import { fetchPayments } from '../../redux/actions/payment';
 import { PageViewElement } from '../page-view-element.js';
 import { SharedStyles } from '../shared-styles.js';
 import { ReHomePageStyles } from './re-home-page-styles.js';
-import '../can-button-v2/can-button-v2.js';
+import '../re-button/re-button.js';
 import '../re-test-card/re-test-card.js';
+import '../re-user-dashboard/re-user-dashboard.js';
 import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
 
 class ReHomePage extends connect(store)(PageViewElement) {
@@ -18,7 +19,8 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	static get properties() {
 		return {
 			tenants: { type: Object },
-			paymentsByTenantId: { type: Object }
+			paymentsByTenantId: { type: Object },
+			user: Object
 		};
 	}
 

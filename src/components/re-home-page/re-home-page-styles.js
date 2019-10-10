@@ -4,6 +4,7 @@ export const ReHomePageStyles = css`
 	:host {
 		display: block;
 	}
+
 	h3 {
 		text-align: center;
 	}
