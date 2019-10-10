@@ -15,6 +15,7 @@ import '../re-404/re-404.js';
 import '../can-header/can-header';
 import '../re-register-page/re-register-page.js';
 import '../re-home-page/re-home-page.js';
+import '../re-login-page/re-login-page.js';
 
 class ReApp extends connect(store)(LitElement) {
 	static get styles() {
@@ -39,29 +40,6 @@ class ReApp extends connect(store)(LitElement) {
 		this.user = false;
 	}
 
-	render() {
-		return html`
-			<can-header></can-header>
-
-			<app-drawer .opened="${this.drawerOpened}" @opened-changed="${this._drawerOpenedChanged}">
-				<nav class="drawer-list">
-					<a ?selected="${this.page === 'register'}" href="/register">Sign up</a>
-				</nav>
-			</app-drawer>
-
-			<!-- Main content -->
-			<main role="main" class="main-content">
-				<re-home-page class="page" ?active="${this.page === 're-home-page'}"></re-home-page>
-				<re-register-page class="page" ?active="${this.page === 'register'}"></re-register-page>
-				<re-404 class="page" ?active="${this.page === 're-404'}"></re-404>
-			</main>
-
-			<snack-bar ?active="${this.snackbarOpened}">
-				You are now ${this.offline ? 'offline' : 'online'}.
-			</snack-bar>
-		`;
-	}
-
 	firstUpdated() {
 		installRouter(location => store.dispatch(navigate(decodeURIComponent(location.pathname))));
 		installOfflineWatcher(offline => store.dispatch(updateOffline(offline)));
@@ -79,11 +57,35 @@ class ReApp extends connect(store)(LitElement) {
 		}
 	}
 
+	render() {
+		return html`
+			<can-header></can-header>
+
+			<app-drawer .opened="${this.drawerOpened}" @opened-changed="${this.drawerOpenedChanged}">
+				<nav class="drawer-list">
+					<a ?selected="${this.page === 'register'}" href="/register">Sign up</a>
+				</nav>
+			</app-drawer>
+
+			<!-- Main content -->
+			<main role="main" class="main-content">
+				<re-home-page class="page" ?active="${this.page === 'home'}"></re-home-page>
+				<!-- <re-login-page class="page" ?active="${this.page === 'login'}"></re-login-page> -->
+				<re-register-page class="page" ?active="${this.page === 'register'}"></re-register-page>
+				<re-404 class="page" ?active="${this.page === 're-404'}"></re-404>
+			</main>
+
+			<snack-bar ?active="${this.snackbarOpened}">
+				You are now ${this.offline ? 'offline' : 'online'}.
+			</snack-bar>
+		`;
+	}
+
 	_menuButtonClicked() {
 		store.dispatch(updateDrawerState(true));
 	}
 
-	_drawerOpenedChanged(e) {
+	drawerOpenedChanged(e) {
 		store.dispatch(updateDrawerState(e.target.opened));
 	}
 

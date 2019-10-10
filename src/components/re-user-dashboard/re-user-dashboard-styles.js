@@ -1,11 +1,7 @@
 import { css } from 'lit-element';
 
-export const ReHomePageStyles = css`
+export const ReUserDashboardStyles = css`
 	:host {
 		display: block;
-	}
-
-	h3 {
-		text-align: center;
 	}
 `;

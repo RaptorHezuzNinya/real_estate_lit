@@ -12,7 +12,6 @@ export class ReCard extends LitElement {
 	}
 	render() {
 		return html`
-			<!-- <div class="mdc-card"></div> -->
 			<div class="mdc-card">
 				<slot name="content"></slot>
 

@@ -1,7 +1,7 @@
 import { LitElement, html, unsafeCSS } from 'lit-element';
 import { ReTenantCardStyles } from './re-tenant-card-styles.js';
 import MDCCardStyles from './re-tenant-card-styles.scss';
-import '../can-button-v2/can-button-v2.js';
+import '../re-button/re-button.js';
 export class ReTenantCard extends LitElement {
 	static get styles() {
 		return [ReTenantCardStyles, unsafeCSS(MDCCardStyles)];
@@ -28,7 +28,7 @@ export class ReTenantCard extends LitElement {
 						<div class="mdc-card cardContent">
 							<p>${this.tenant.email}</p>
 							<div class="mdc-card__primary-action" tabindex="0" @click=${this.handle}>
-								<!-- <can-button-v2>show payments</can-button-v2> -->
+								<!-- <re-button>show payments</re-button> -->
 								<p>show payments</p>
 							</div>
 						</div>

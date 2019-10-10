@@ -1,7 +1,7 @@
 import { LitElement, html, unsafeCSS } from 'lit-element';
 import { normalize } from '../../assets/css/normalize.js';
-import { CanButtonV2Styles } from './can-button-v2-styles.js';
-import MDCButtonStyles from './can-button-v2-styles.scss';
+import { CanButtonV2Styles } from './re-button-styles.js';
+import MDCButtonStyles from './re-button-styles.scss';
 import { MDCRipple } from '@material/ripple';
 
 class CanButtonV2 extends LitElement {
@@ -48,7 +48,9 @@ class CanButtonV2 extends LitElement {
 
 	handleClick() {
 		const event = new CustomEvent('button-click', {
-			detail: { message: 'btn-click-event' }
+			detail: { message: 'btn-click-event' },
+			bubbles: true,
+			composed: true
 		});
 		this.dispatchEvent(event);
 	}
@@ -60,4 +62,4 @@ class CanButtonV2 extends LitElement {
 	}
 }
 
-customElements.define('can-button-v2', CanButtonV2);
+customElements.define('re-button', CanButtonV2);

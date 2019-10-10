@@ -6,8 +6,9 @@ import { fetchPayments } from '../../redux/actions/payment';
 import { PageViewElement } from '../page-view-element.js';
 import { SharedStyles } from '../shared-styles.js';
 import { ReHomePageStyles } from './re-home-page-styles.js';
-import '../can-button-v2/can-button-v2.js';
+import '../re-button/re-button.js';
 import '../re-test-card/re-test-card.js';
+import '../re-user-dashboard/re-user-dashboard.js';
 import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
 
 class ReHomePage extends connect(store)(PageViewElement) {
@@ -18,7 +19,8 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	static get properties() {
 		return {
 			tenants: { type: Object },
-			paymentsByTenantId: { type: Object }
+			paymentsByTenantId: { type: Object },
+			user: Object
 		};
 	}
 
@@ -26,25 +28,34 @@ class ReHomePage extends connect(store)(PageViewElement) {
 		super();
 		this.tenants = false;
 		this.paymentsByTenantId = false;
+		this.user = false;
 	}
 
 	connectedCallback() {
 		super.connectedCallback();
-		store.dispatch(fetchTenants());
-		store.dispatch(fetchPayments());
+		// store.dispatch(fetchTenants());
+		// store.dispatch(fetchPayments());
 	}
 
 	render() {
 		return html`
 			<header>
-				<h3>Tenants overview</h3>
+				<h3>Public home page</h3>
 			</header>
 			<section>
-				${this.renderTenantCards()}
+				${this.renderSectionContent()}
 			</section>
-			<section>
-				<p>section 3</p>
-			</section>
+		`;
+	}
+	renderSectionContent() {
+		if (!this.user) {
+			return html`
+				<re-login-page></re-login-page>
+			`;
+		}
+		return html`
+			<p>logged in</p>
+			<re-user-dashboard></re-user-dashboard>
 		`;
 	}
 
@@ -68,6 +79,7 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	stateChanged(state) {
 		this.tenants = state.tenant.tenants;
 		this.paymentsByTenantId = paymentsByTenantId(state);
+		this.user = state.user.user;
 	}
 }
 

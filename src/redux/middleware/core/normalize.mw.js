@@ -3,7 +3,7 @@ import { setUser } from '../../actions/user.acs.js';
 
 export const normalizeMiddleware = ({ dispatch }) => next => action => {
 	// filter both by action type and metadata content
-	if (action.type.includes('SET') && action.meta.normalizeKey) {
+	if (action.type.includes(`Set`) && action.meta.normalizeKey) {
 		// notify about the transformation
 
 		dispatch(dataNormalized({ entity: action.meta.entity }));
