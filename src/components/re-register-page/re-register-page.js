@@ -31,14 +31,19 @@ export class ReRegisterPage extends connect(store)(LitElement) {
 				<div slot="content" @input-value-change=${this.inputChanged}>
 					${this.renderInputs()}
 				</div>
-				<can-button-v2
+				<re-button
 					slot="action1"
 					@button-click=${this.buttonClicked}
 					class="mdc-card__action mdc-card__action--button"
-					buttonLabel="Action 1"
-				></can-button-v2>
+					buttonLabel="Register"
+				></re-button>
 			</re-card>
 		`;
+	}
+
+	inputChanged(evt) {
+		this[evt.target.id] = evt.detail.value;
+		evt.stopPropagation();
 	}
 
 	buttonClicked(evt) {
@@ -90,10 +95,6 @@ export class ReRegisterPage extends connect(store)(LitElement) {
 				></can-text-input>
 			`;
 		});
-	}
-	inputChanged(evt) {
-		this[evt.target.id] = evt.detail.value;
-		evt.stopPropagation();
 	}
 }
 customElements.define('re-register-page', ReRegisterPage);

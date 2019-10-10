@@ -53,7 +53,8 @@ export class ReLoginPage extends connect(store)(LitElement) {
 				password: this.password
 			}
 		};
-		store.dispatch(signUpUser(data));
+
+		store.dispatch(loginUser(data));
 	}
 
 	renderInputs() {
@@ -87,10 +88,6 @@ export class ReLoginPage extends connect(store)(LitElement) {
 				></can-text-input>
 			`;
 		});
-	}
-	inputChanged(evt) {
-		this[evt.target.id] = evt.detail.value;
-		evt.stopPropagation();
 	}
 }
 customElements.define('re-login-page', ReLoginPage);
