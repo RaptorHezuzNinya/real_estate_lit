@@ -1,10 +1,13 @@
 import { LitElement, html } from 'lit-element';
+import { connect } from 'pwa-helpers';
+import { store } from '../../redux/store';
 import { ReLoginPageStyles } from './re-login-page-styles.js';
 import '../can-text-input/can-text-input.js';
 import '../re-card/re-card.js';
-import '../can-button-v2/can-button-v2.js';
+import '../re-button/re-button.js';
+import { loginUser } from '../../redux/actions/user.acs.js';
 
-export class ReLoginPage extends LitElement {
+export class ReLoginPage extends connect(store)(LitElement) {
 	static get styles() {
 		return [ReLoginPageStyles];
 	}
@@ -16,8 +19,8 @@ export class ReLoginPage extends LitElement {
 	}
 	constructor() {
 		super();
-		this.email = '';
-		this.password = '';
+		this.email = 'w@c.nl';
+		this.password = 'x';
 	}
 
 	render() {
@@ -27,14 +30,20 @@ export class ReLoginPage extends LitElement {
 				<div slot="content" @input-value-change=${this.inputChanged}>
 					${this.renderInputs()}
 				</div>
-				<can-button-v2
-					slot="action1"
-					@button-click=${this.buttonClicked}
-					class="mdc-card__action mdc-card__action--button"
-					buttonLabel="Action 1"
-				></can-button-v2>
+				<div class="footer">
+					<re-button
+						@button-click=${this.buttonClicked}
+						class="mdc-card__action mdc-card__action--button"
+						buttonLabel="Login"
+					></re-button>
+					<a class="register" buttonLabel="Register" href="/register">register</a>
+				</div>
 			</re-card>
 		`;
+	}
+	inputChanged(evt) {
+		this[evt.target.id] = evt.detail.value;
+		evt.stopPropagation();
 	}
 
 	buttonClicked(evt) {
