@@ -28,25 +28,34 @@ class ReHomePage extends connect(store)(PageViewElement) {
 		super();
 		this.tenants = false;
 		this.paymentsByTenantId = false;
+		this.user = false;
 	}
 
 	connectedCallback() {
 		super.connectedCallback();
-		store.dispatch(fetchTenants());
-		store.dispatch(fetchPayments());
+		// store.dispatch(fetchTenants());
+		// store.dispatch(fetchPayments());
 	}
 
 	render() {
 		return html`
 			<header>
-				<h3>Tenants overview</h3>
+				<h3>Public home page</h3>
 			</header>
 			<section>
-				${this.renderTenantCards()}
+				${this.renderSectionContent()}
 			</section>
-			<section>
-				<p>section 3</p>
-			</section>
+		`;
+	}
+	renderSectionContent() {
+		if (!this.user) {
+			return html`
+				<re-login-page></re-login-page>
+			`;
+		}
+		return html`
+			<p>logged in</p>
+			<re-user-dashboard></re-user-dashboard>
 		`;
 	}
 
@@ -70,6 +79,7 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	stateChanged(state) {
 		this.tenants = state.tenant.tenants;
 		this.paymentsByTenantId = paymentsByTenantId(state);
+		this.user = state.user.user;
 	}
 }
 
