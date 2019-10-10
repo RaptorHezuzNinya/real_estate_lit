@@ -49,8 +49,8 @@ const persistedState = loadState(); // persistedState loads state from localStor
 const setupStore = state =>
 	createStore(
 		rootReducer,
-		// persistedState,
-		state,
+		persistedState,
+		// state,
 		devCompose(
 			applyMiddleware(
 				thunk,

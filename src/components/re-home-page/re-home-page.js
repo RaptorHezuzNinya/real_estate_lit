@@ -31,11 +31,11 @@ class ReHomePage extends connect(store)(PageViewElement) {
 		this.user = false;
 	}
 
-	connectedCallback() {
-		super.connectedCallback();
-		// store.dispatch(fetchTenants());
-		// store.dispatch(fetchPayments());
-	}
+	// connectedCallback() {
+	// 	super.connectedCallback();
+	// 	store.dispatch(fetchTenants());
+	//  store.dispatch(fetchPayments());
+	// }
 
 	render() {
 		return html`
