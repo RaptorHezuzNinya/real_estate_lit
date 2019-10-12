@@ -6,7 +6,7 @@ import { installMediaQueryWatcher } from 'pwa-helpers/media-query.js';
 import { installOfflineWatcher } from 'pwa-helpers/network.js';
 import { installRouter } from 'pwa-helpers/router.js';
 import { updateMetadata } from 'pwa-helpers/metadata.js';
-import { navigate, updateOffline, updateDrawer } from '../../redux/actions/app.acs.js';
+import { navigate, updateOffline, setDrawer } from '../../redux/actions/app.acs.js';
 import { ReAppStyles } from './re-app-styles';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header/app-header.js';
@@ -41,10 +41,11 @@ class ReApp extends connect(store)(LitElement) {
 	}
 
 	firstUpdated() {
-		installRouter(location => store.dispatch(navigate(decodeURIComponent(location.pathname))));
+		const page = decodeURIComponent(location.pathname);
+		installRouter(location => store.dispatch(navigate({ page: page })));
 		installOfflineWatcher(offline => store.dispatch(updateOffline(offline)));
 		installMediaQueryWatcher(`(min-width: 460px)`, () =>
-			store.dispatch(updateDrawer({ state: false }))
+			store.dispatch(setDrawer({ state: false }))
 		);
 	}
 
@@ -84,11 +85,11 @@ class ReApp extends connect(store)(LitElement) {
 	}
 
 	_menuButtonClicked() {
-		store.dispatch(updateDrawer({ state: true }));
+		store.dispatch(setDrawer({ state: true }));
 	}
 
 	drawerChanged(evt) {
-		store.dispatch(updateDrawer({ state: evt.target.open }));
+		store.dispatch(setDrawer({ state: evt.target.open }));
 	}
 
 	stateChanged(state) {
