@@ -6,7 +6,7 @@ import { installMediaQueryWatcher } from 'pwa-helpers/media-query.js';
 import { installOfflineWatcher } from 'pwa-helpers/network.js';
 import { installRouter } from 'pwa-helpers/router.js';
 import { updateMetadata } from 'pwa-helpers/metadata.js';
-import { navigate, updateOffline, updateDrawerState } from '../../redux/actions/app.js';
+import { navigate, updateOffline, updateDrawer } from '../../redux/actions/app.acs.js';
 import { ReAppStyles } from './re-app-styles';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header/app-header.js';
@@ -25,8 +25,8 @@ class ReApp extends connect(store)(LitElement) {
 		return {
 			appTitle: { type: String },
 			page: { type: String },
-			drawerOpened: { type: Boolean },
-			snackbarOpened: { type: Boolean },
+			drawerOpen: { type: Boolean },
+			snackbaropen: { type: Boolean },
 			offline: { type: Boolean },
 			user: Object
 		};
@@ -43,7 +43,9 @@ class ReApp extends connect(store)(LitElement) {
 	firstUpdated() {
 		installRouter(location => store.dispatch(navigate(decodeURIComponent(location.pathname))));
 		installOfflineWatcher(offline => store.dispatch(updateOffline(offline)));
-		installMediaQueryWatcher(`(min-width: 460px)`, () => store.dispatch(updateDrawerState(false)));
+		installMediaQueryWatcher(`(min-width: 460px)`, () =>
+			store.dispatch(updateDrawer({ state: false }))
+		);
 	}
 
 	updated(changedProps) {
@@ -61,7 +63,7 @@ class ReApp extends connect(store)(LitElement) {
 		return html`
 			<can-header></can-header>
 
-			<app-drawer .opened="${this.drawerOpened}" @opened-changed="${this.drawerOpenedChanged}">
+			<app-drawer .opened="${this.drawerOpen}" @opened-changed="${this.drawerChanged}">
 				<nav class="drawer-list">
 					<a ?selected="${this.page === 'register'}" href="/register">Sign up</a>
 				</nav>
@@ -75,25 +77,25 @@ class ReApp extends connect(store)(LitElement) {
 				<re-404 class="page" ?active="${this.page === 're-404'}"></re-404>
 			</main>
 
-			<snack-bar ?active="${this.snackbarOpened}">
+			<snack-bar ?active="${this.snackbaropen}">
 				You are now ${this.offline ? 'offline' : 'online'}.
 			</snack-bar>
 		`;
 	}
 
 	_menuButtonClicked() {
-		store.dispatch(updateDrawerState(true));
+		store.dispatch(updateDrawer({ state: true }));
 	}
 
-	drawerOpenedChanged(e) {
-		store.dispatch(updateDrawerState(e.target.opened));
+	drawerChanged(evt) {
+		store.dispatch(updateDrawer({ state: evt.target.open }));
 	}
 
 	stateChanged(state) {
 		this.page = state.app.currentPage.page;
 		this.offline = state.app.offline;
-		this.snackbarOpened = state.app.snackbarOpened;
-		this.drawerOpened = state.app.drawerOpened;
+		this.snackbaropen = state.app.snackbaropen;
+		this.drawerOpen = state.app.drawerOpen;
 		this.user = state.user.user;
 	}
 }
