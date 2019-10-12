@@ -57,12 +57,13 @@ class ReApp extends connect(store)(LitElement) {
 			updateMetadata({
 				title: pageTitle,
 				description: pageTitle
-				// This object also takes an image property, that points to an img src.
 			});
 		}
 	}
 
 	render() {
+		console.info('rerender:', this);
+
 		return html`
 			<can-header></can-header>
 
@@ -74,8 +75,16 @@ class ReApp extends connect(store)(LitElement) {
 
 			<!-- Main content -->
 			<main role="main" class="main-content">
+				<re-user-dashboard
+					class="page"
+					?active="${this.page === '/user/dashboard'}"
+				></re-user-dashboard>
+
+				<re-tenant-create-page
+					class="page"
+					?active="${this.page === '/tenants/create'}"
+				></re-tenant-create-page>
 				<re-home-page class="page" ?active="${this.page === 'home'}"></re-home-page>
-				<!-- <re-login-page class="page" ?active="${this.page === 'login'}"></re-login-page> -->
 				<re-register-page class="page" ?active="${this.page === 'register'}"></re-register-page>
 				<re-404 class="page" ?active="${this.page === 're-404'}"></re-404>
 			</main>
