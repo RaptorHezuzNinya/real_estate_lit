@@ -46,7 +46,7 @@ class CanHeader extends connect(store)(LitElement) {
 	}
 
 	handleMenuButtonClicked() {
-		store.dispatch(updateDrawerState(true));
+		store.dispatch(updateDrawer({ state: true }));
 	}
 
 	handleCanLogoClicked() {
