@@ -1,9 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store.js';
-import { updateDrawer, navigate } from '../../redux/actions/app.acs.js';
-import { normalize } from '../../assets/css/normalize';
-
+import { setDrawer, navigate } from '../../redux/actions/app.acs.js';
 import { CanHeaderStyles } from './can-header-styles';
 import { userProfileIcon, menuIcon, radminiIcon } from '../../assets/css/icons';
 import '../can-button/can-button';
@@ -46,12 +44,14 @@ class CanHeader extends connect(store)(LitElement) {
 	}
 
 	handleMenuButtonClicked() {
-		store.dispatch(updateDrawer({ state: true }));
+		console.log('setDrawer can-header');
+
+		store.dispatch(setDrawer({ state: true }));
 	}
 
 	handleCanLogoClicked() {
 		window.history.pushState({}, '', '/');
-		store.dispatch(navigate(window.location.pathname));
+		store.dispatch(navigate({ page: window.location.pathname }));
 	}
 }
 
