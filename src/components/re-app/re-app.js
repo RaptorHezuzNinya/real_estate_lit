@@ -11,11 +11,12 @@ import { ReAppStyles } from './re-app-styles';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header/app-header.js';
 import '../re-snack-bar/re-snack-bar.js';
-import '../re-404/re-404.js';
 import '../can-header/can-header';
 import '../re-register-page/re-register-page.js';
 import '../re-home-page/re-home-page.js';
+import '../re-user-dashboard/re-user-dashboard.js';
 import '../re-login-page/re-login-page.js';
+import '../re-tenant-create-page/re-tenant-create-page.js';
 
 class ReApp extends connect(store)(LitElement) {
 	static get styles() {

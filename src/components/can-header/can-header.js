@@ -44,8 +44,6 @@ class CanHeader extends connect(store)(LitElement) {
 	}
 
 	handleMenuButtonClicked() {
-		console.log('setDrawer can-header');
-
 		store.dispatch(setDrawer({ state: true }));
 	}
 
