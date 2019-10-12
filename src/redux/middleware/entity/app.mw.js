@@ -5,16 +5,17 @@ export const appMiddleware = ({ dispatch }) => next => action => {
 
 	switch (action.type) {
 		case NAVIGATE: {
-			const page = action.payload.page === '/' ? 'home' : action.payload.page.slice(1);
-			loadPage(page);
-			dispatch(setPage(page));
-			dispatch(setDrawer({ state: false }));
+			const page = action.payload.page === '/' ? 'home' : action.payload.page;
+			console.log('page: ', page);
+			loadDispatchSetPage(dispatch, page);
+			next(setDrawer({ state: false }));
+
 			break;
 		}
 	}
 };
 
-const loadPage = page => {
+const loadDispatchSetPage = (dispatch, page) => {
 	switch (page) {
 		// case 'view1':			 EXAMPLE to to load module or bundle per 'page'
 		// 	import('../../components/my-view1.js').then(module => {

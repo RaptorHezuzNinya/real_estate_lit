@@ -3,27 +3,28 @@ import { SET } from '../actions/types.acs.js';
 export const APP = '[App]';
 
 export const NAVIGATE = `${APP} navigate`;
+export const SET_PAGE = `${APP} ${SET} page`;
+export const SET_DRAWER = `${APP} ${SET} drawer`;
+export const UPDATE_OFFLINE = 'UPDATE_OFFLINE';
+
 export const navigate = page => ({
 	type: NAVIGATE,
 	payload: page,
 	meta: { entity: APP }
 });
 
-export const SET_PAGE = `${APP} ${SET} page`;
 export const setPage = page => ({
 	type: SET_PAGE,
 	payload: page,
 	meta: { entity: APP }
 });
 
-export const SET_DRAWER = `${APP} ${SET} drawer`;
 export const setDrawer = state => ({
 	type: SET_DRAWER,
 	payload: state,
 	meta: { entity: APP }
 });
 
-export const UPDATE_OFFLINE = 'UPDATE_OFFLINE';
 export const updateOffline = offline => (dispatch, getState) => {
 	// Show the snackbar only if offline status changes.
 	if (offline !== getState().app.offline) {
