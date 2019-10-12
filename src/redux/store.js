@@ -10,6 +10,7 @@ import { notificationMiddleware } from './middleware/core/notification.mw';
 // entity middleware
 import { apiMiddleware } from './middleware/core/api.mw.js';
 import { userMiddleware } from './middleware/entity/user.mw.js';
+import { appMiddleware } from './middleware/entity/app.mw.js';
 
 // reducers
 import { combineReducers } from 'redux';
@@ -27,12 +28,12 @@ const rootReducer = (state, action) => {
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const entityMiddleware = [userMiddleware];
+const entityMiddleware = [appMiddleware, userMiddleware];
 
 const coreMiddleware = [
 	actionSplitterMiddleware,
 	apiMiddleware,
-	normalizeMiddleware,
+	// normalizeMiddleware,
 	notificationMiddleware
 ];
 
