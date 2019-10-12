@@ -7,6 +7,7 @@ import { ReHomePageStyles } from './re-home-page-styles.js';
 import '../re-button/re-button.js';
 import '../re-test-card/re-test-card.js';
 import '../re-user-dashboard/re-user-dashboard.js';
+import { navigate } from '../../redux/actions/app.acs';
 
 class ReHomePage extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -34,18 +35,8 @@ class ReHomePage extends connect(store)(PageViewElement) {
 				<h3>Public home page</h3>
 			</header>
 			<section>
-				${this.renderSectionContent()}
-			</section>
-		`;
-	}
-	renderSectionContent() {
-		if (!this.user) {
-			return html`
 				<re-login-page></re-login-page>
-			`;
-		}
-		return html`
-			<re-user-dashboard></re-user-dashboard>
+			</section>
 		`;
 	}
 
