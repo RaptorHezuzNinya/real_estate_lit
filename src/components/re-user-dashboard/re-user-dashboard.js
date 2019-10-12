@@ -22,8 +22,16 @@ export class ReUserDashboard extends connect(store)(LitElement) {
 	render() {
 		return html`
 			<p>user dashboard component (logged in)</p>
-			<re-user-menu></re-user-menu>
+			<re-user-menu @re-list-item-clicked=${this.navigateUser}></re-user-menu>
 		`;
+	}
+	navigateUser(evt) {
+		// debugger;
+		const url = evt.detail.value.url;
+		window.history.pushState({}, '', url);
+
+		store.dispatch(navigate({ page: url }));
+		evt.stopPropagation();
 	}
 }
 customElements.define('re-user-dashboard', ReUserDashboard);

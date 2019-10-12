@@ -16,8 +16,8 @@ export class ReUserMenu extends LitElement {
 	constructor() {
 		super();
 		this.listItems = [
-			{ url: '/create/tenants/', label: 'add tenant' },
-			{ url: '/overview/tenants/', label: 'tenants overview' }
+			{ url: '/tenants/create', label: 'add tenant' },
+			{ url: '/tenants/overview', label: 'tenants overview' }
 		];
 	}
 
