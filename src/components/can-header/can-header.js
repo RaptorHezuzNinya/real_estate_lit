@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { connect } from 'pwa-helpers';
-import { store } from '../../redux/store';
-import { updateDrawerState, navigate } from '../../redux/actions/app';
+import { store } from '../../redux/store.js';
+import { updateDrawer, navigate } from '../../redux/actions/app.acs.js';
 import { normalize } from '../../assets/css/normalize';
 
 import { CanHeaderStyles } from './can-header-styles';
