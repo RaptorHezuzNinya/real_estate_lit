@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import { ReUserDashboardStyles } from './re-user-dashboard-styles.js';
+import '../re-user-menu/re-user-menu.js';
 
 export class ReUserDashboard extends LitElement {
 	static get styles() {
@@ -17,7 +18,8 @@ export class ReUserDashboard extends LitElement {
 
 	render() {
 		return html`
-			<p>userdashbaordd</p>
+			<p>user dashboard component (logged in)</p>
+			<re-user-menu></re-user-menu>
 		`;
 	}
 }
