@@ -21,12 +21,24 @@ class ReListItem extends LitElement {
 		this.link = false;
 		this.index = false;
 	}
+
 	render() {
 		return html`
-			<li class="mdc-list-item" tabindex=${this.index}>
+			<li class="mdc-list-item" tabindex=${this.index} @click=${this.listItemClicked}>
 				<span class="mdc-list-item__text">${this.listItem.label}</span>
 			</li>
 		`;
+	}
+
+	listItemClicked() {
+		const event = new CustomEvent('re-list-item-clicked', {
+			detail: {
+				value: this.listItem
+			},
+			bubbles: true,
+			composed: true
+		});
+		this.dispatchEvent(event);
 	}
 }
 
