@@ -5,7 +5,7 @@ export const normalizeMiddleware = ({ dispatch }) => next => action => {
 	// filter both by action type and metadata content
 	if (action.type.includes(`Set`) && action.meta.normalizeKey) {
 		// notify about the transformation
-
+		debugger;
 		dispatch(dataNormalized({ entity: action.meta.entity }));
 
 		// transform the data structure

@@ -1,9 +1,9 @@
 import {
-	UPDATE_PAGE,
+	SET_PAGE,
 	UPDATE_OFFLINE,
 	OPEN_SNACKBAR,
 	CLOSE_SNACKBAR,
-	UPDATE_DRAWER
+	SET_DRAWER
 } from '../actions/app.acs.js';
 
 const INITIAL_STATE = {
