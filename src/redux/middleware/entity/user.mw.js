@@ -2,8 +2,9 @@ import { USER, SIGN_UP_USER, setUser, LOGIN_USER } from '../../actions/user.acs.
 import { API_ERROR, API_SUCCESS, apiRequest } from '../../actions/api.acs.js';
 import { setLoader } from '../../actions/ui.acs.js';
 import { setNotification } from '../../actions/notification.acs.js';
+import { navigate } from '../../actions/app.acs.js';
 
-export const userMiddleware = () => next => action => {
+export const userMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
 
 	switch (action.type) {
@@ -24,7 +25,10 @@ export const userMiddleware = () => next => action => {
 		}
 
 		case `${USER} ${API_SUCCESS}`: {
+			window.history.pushState({}, '', '/user/dashboard');
+
 			next([setUser({ user: action.payload }), setLoader({ state: false, entity: USER })]);
+			dispatch(navigate({ page: '/user/dashboard' }));
 			break;
 		}
 

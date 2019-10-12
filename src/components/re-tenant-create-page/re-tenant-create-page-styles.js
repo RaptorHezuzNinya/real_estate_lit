@@ -1,9 +1,8 @@
 import { css } from 'lit-element';
 
-export const ReUserDashboardStyles = css`
+export const ReTenantCreatePageStyles = css`
 	:host {
 		display: block;
-		border: 1px solid green;
 	}
 	p {
 		text-align: center;

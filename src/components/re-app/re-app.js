@@ -6,16 +6,17 @@ import { installMediaQueryWatcher } from 'pwa-helpers/media-query.js';
 import { installOfflineWatcher } from 'pwa-helpers/network.js';
 import { installRouter } from 'pwa-helpers/router.js';
 import { updateMetadata } from 'pwa-helpers/metadata.js';
-import { navigate, updateOffline, updateDrawerState } from '../../redux/actions/app.js';
+import { navigate, updateOffline, setDrawer } from '../../redux/actions/app.acs.js';
 import { ReAppStyles } from './re-app-styles';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header/app-header.js';
 import '../re-snack-bar/re-snack-bar.js';
-import '../re-404/re-404.js';
 import '../can-header/can-header';
 import '../re-register-page/re-register-page.js';
 import '../re-home-page/re-home-page.js';
+import '../re-user-dashboard/re-user-dashboard.js';
 import '../re-login-page/re-login-page.js';
+import '../re-tenant-create-page/re-tenant-create-page.js';
 
 class ReApp extends connect(store)(LitElement) {
 	static get styles() {
@@ -25,8 +26,8 @@ class ReApp extends connect(store)(LitElement) {
 		return {
 			appTitle: { type: String },
 			page: { type: String },
-			drawerOpened: { type: Boolean },
-			snackbarOpened: { type: Boolean },
+			drawerOpen: { type: Boolean },
+			snackbaropen: { type: Boolean },
 			offline: { type: Boolean },
 			user: Object
 		};
@@ -38,12 +39,16 @@ class ReApp extends connect(store)(LitElement) {
 		// See https://www.polymer-project.org/3.0/docs/devguide/settings#setting-passive-touch-gestures
 		setPassiveTouchGestures(true);
 		this.user = false;
+		this.page = false;
 	}
 
 	firstUpdated() {
-		installRouter(location => store.dispatch(navigate(decodeURIComponent(location.pathname))));
+		const page = decodeURIComponent(location.pathname);
+		installRouter(location => store.dispatch(navigate({ page: page })));
 		installOfflineWatcher(offline => store.dispatch(updateOffline(offline)));
-		installMediaQueryWatcher(`(min-width: 460px)`, () => store.dispatch(updateDrawerState(false)));
+		installMediaQueryWatcher(`(min-width: 460px)`, () =>
+			store.dispatch(setDrawer({ state: false }))
+		);
 	}
 
 	updated(changedProps) {
@@ -52,16 +57,17 @@ class ReApp extends connect(store)(LitElement) {
 			updateMetadata({
 				title: pageTitle,
 				description: pageTitle
-				// This object also takes an image property, that points to an img src.
 			});
 		}
 	}
 
 	render() {
+		console.info('rerender:', this);
+
 		return html`
 			<can-header></can-header>
 
-			<app-drawer .opened="${this.drawerOpened}" @opened-changed="${this.drawerOpenedChanged}">
+			<app-drawer .opened="${this.drawerOpen}" @opened-changed="${this.drawerChanged}">
 				<nav class="drawer-list">
 					<a ?selected="${this.page === 'register'}" href="/register">Sign up</a>
 				</nav>
@@ -69,31 +75,39 @@ class ReApp extends connect(store)(LitElement) {
 
 			<!-- Main content -->
 			<main role="main" class="main-content">
+				<re-user-dashboard
+					class="page"
+					?active="${this.page === '/user/dashboard'}"
+				></re-user-dashboard>
+
+				<re-tenant-create-page
+					class="page"
+					?active="${this.page === '/tenants/create'}"
+				></re-tenant-create-page>
 				<re-home-page class="page" ?active="${this.page === 'home'}"></re-home-page>
-				<!-- <re-login-page class="page" ?active="${this.page === 'login'}"></re-login-page> -->
 				<re-register-page class="page" ?active="${this.page === 'register'}"></re-register-page>
 				<re-404 class="page" ?active="${this.page === 're-404'}"></re-404>
 			</main>
 
-			<snack-bar ?active="${this.snackbarOpened}">
+			<snack-bar ?active="${this.snackbaropen}">
 				You are now ${this.offline ? 'offline' : 'online'}.
 			</snack-bar>
 		`;
 	}
 
 	_menuButtonClicked() {
-		store.dispatch(updateDrawerState(true));
+		store.dispatch(setDrawer({ state: true }));
 	}
 
-	drawerOpenedChanged(e) {
-		store.dispatch(updateDrawerState(e.target.opened));
+	drawerChanged(evt) {
+		store.dispatch(setDrawer({ state: evt.target.open }));
 	}
 
 	stateChanged(state) {
 		this.page = state.app.currentPage.page;
 		this.offline = state.app.offline;
-		this.snackbarOpened = state.app.snackbarOpened;
-		this.drawerOpened = state.app.drawerOpened;
+		this.snackbaropen = state.app.snackbaropen;
+		this.drawerOpen = state.app.drawerOpen;
 		this.user = state.user.user;
 	}
 }

@@ -1,15 +1,13 @@
 import { html, LitElement } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
-import { fetchTenants } from '../../redux/actions/tenant';
-import { fetchPayments } from '../../redux/actions/payment';
 import { PageViewElement } from '../page-view-element.js';
 import { SharedStyles } from '../shared-styles.js';
 import { ReHomePageStyles } from './re-home-page-styles.js';
 import '../re-button/re-button.js';
 import '../re-test-card/re-test-card.js';
 import '../re-user-dashboard/re-user-dashboard.js';
-import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
+import { navigate } from '../../redux/actions/app.acs';
 
 class ReHomePage extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -31,31 +29,14 @@ class ReHomePage extends connect(store)(PageViewElement) {
 		this.user = false;
 	}
 
-	// connectedCallback() {
-	// 	super.connectedCallback();
-	// 	store.dispatch(fetchTenants());
-	//  store.dispatch(fetchPayments());
-	// }
-
 	render() {
 		return html`
 			<header>
 				<h3>Public home page</h3>
 			</header>
 			<section>
-				${this.renderSectionContent()}
-			</section>
-		`;
-	}
-	renderSectionContent() {
-		if (!this.user) {
-			return html`
 				<re-login-page></re-login-page>
-			`;
-		}
-		return html`
-			<p>logged in</p>
-			<re-user-dashboard></re-user-dashboard>
+			</section>
 		`;
 	}
 
@@ -77,8 +58,6 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	}
 
 	stateChanged(state) {
-		this.tenants = state.tenant.tenants;
-		this.paymentsByTenantId = paymentsByTenantId(state);
 		this.user = state.user.user;
 	}
 }
