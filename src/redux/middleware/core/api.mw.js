@@ -27,7 +27,6 @@ export const apiMiddleware = ({ dispatch }) => next => action => {
 			})
 			.catch(error => {
 				console.log('error', error);
-				console.log('errror.response', error.response);
 				dispatch(apiError({ error: error, entity }));
 			});
 	}
