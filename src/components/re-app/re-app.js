@@ -39,6 +39,7 @@ class ReApp extends connect(store)(LitElement) {
 		// See https://www.polymer-project.org/3.0/docs/devguide/settings#setting-passive-touch-gestures
 		setPassiveTouchGestures(true);
 		this.user = false;
+		this.page = false;
 	}
 
 	firstUpdated() {
