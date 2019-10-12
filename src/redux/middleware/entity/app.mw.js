@@ -29,11 +29,15 @@ const loadDispatchSetPage = (dispatch, page) => {
 		case 'register':
 			import('../../../components/re-register-page/re-register-page.js');
 			break;
-		case 'login':
-			// import('../../components/can-login-page/can-login-page.js');
+		case '/user/dashboard':
+			import('../../../components/re-user-dashboard/re-user-dashboard.js');
+			break;
+		case '/tenants/create':
+			import('../../../components/re-tenant-create-page/re-tenant-create-page.js');
 			break;
 		// default:
 		// 	page = 'view404';
 		// 	import('../../components/re-404//my-view404.js');
 	}
+	return dispatch(setPage(page));
 };
