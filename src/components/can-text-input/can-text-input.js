@@ -26,7 +26,7 @@ class CanTextInput extends LitElement {
 
 	constructor() {
 		super();
-		this.helperText = null;
+		this.helperText = false;
 		this.label = false;
 		this.counter = false;
 		this.maxCharacterCount = null;
