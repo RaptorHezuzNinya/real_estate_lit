@@ -1,11 +1,6 @@
-build/
-node_modules/
-_site/
-.DS_Store
+
 .vscode
-.server
+node_modules/
 test
-config.js
-yarn-error.log
-/dist
-coverage/
+
+
