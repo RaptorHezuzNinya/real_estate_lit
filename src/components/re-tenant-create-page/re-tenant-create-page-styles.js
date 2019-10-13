@@ -11,4 +11,7 @@ export const ReTenantCreatePageStyles = css`
 	div {
 		padding: 22px;
 	}
+	can-text-input {
+		margin-bottom: 24px;
+	}
 `;
