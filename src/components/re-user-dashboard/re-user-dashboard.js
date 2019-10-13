@@ -26,7 +26,6 @@ export class ReUserDashboard extends connect(store)(LitElement) {
 		`;
 	}
 	navigateUser(evt) {
-		// debugger;
 		const url = evt.detail.value.url;
 		window.history.pushState({}, '', url);
 

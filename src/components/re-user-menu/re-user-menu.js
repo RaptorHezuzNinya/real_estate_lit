@@ -17,7 +17,7 @@ export class ReUserMenu extends LitElement {
 		super();
 		this.listItems = [
 			{ url: '/tenants/create', label: 'add tenant' },
-			{ url: '/tenants/overview', label: 'tenants overview' }
+			{ url: '/ tenants/overview', label: 'tenants overview' }
 		];
 	}
 
