@@ -2,14 +2,19 @@ import axios from 'axios';
 import { API_ROOT } from '../../../../config/config.js';
 import { API_REQUEST, apiError, apiSuccess } from '../../actions/api.acs.js';
 
-export const apiMiddleware = ({ dispatch }) => next => action => {
+export const apiMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
 
 	if (action.type.includes(API_REQUEST)) {
-		const { url, method, entity, headers } = action.meta;
+		const { url, method, entity, headers, auth } = action.meta;
 
 		const data = action.payload;
 		const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
+		const store = getState();
+		if (auth && store.user.user) {
+			headers.Authorization = `Bearer ${store.user.user.token}`;
+		}
+		console.log('header', headers);
 
 		axios.defaults.baseURL = API_ROOT;
 		axios.defaults.headers.common['Content-Type'] = 'application/json';
