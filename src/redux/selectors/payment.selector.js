@@ -17,6 +17,7 @@ export const paymentsByTenantId = createSelector(
 		return data;
 	}
 );
+
 function filterCallBack(element) {
 	return element.tenant_id === this.id;
 }
