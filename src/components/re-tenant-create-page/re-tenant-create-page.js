@@ -22,11 +22,11 @@ export class ReTenantCreatePage extends connect(store)(LitElement) {
 	}
 	constructor() {
 		super();
-		this.email = 'fennascharloo@outlook.com';
-		this.accountHolder = 'F. Scharloo';
-		this.firstName = 'Fenna';
-		this.lastName = 'Scharloo';
-		this.iban = 'NL08RABO0133380343';
+		this.email = 'somemail@email.com';
+		this.accountHolder = 'F. Schakenba';
+		this.firstName = 'Foei';
+		this.lastName = 'Schakenba';
+		this.iban = 'NL08RABO0000000';
 		this.rent = '588.37';
 		this.phone = '0612345678';
 	}
