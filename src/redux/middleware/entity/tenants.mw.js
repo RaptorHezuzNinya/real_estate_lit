@@ -8,16 +8,21 @@ export const tenantsMiddleware = ({ dispatch, getState }) => next => action => {
 
 	switch (action.type) {
 		case CREATE_TENANTS: {
-			debugger;
 			next([
-				apiRequest({ body: action.payload, method: 'POST', url: `/api/users`, entity: TENANTS }),
+				apiRequest({
+					body: action.payload,
+					method: 'POST',
+					url: `/api/tenants`,
+					entity: TENANTS,
+					auth: true
+				}),
 				setLoader({ state: true, entity: TENANTS })
 			]);
 			break;
 		}
 
 		case `${TENANTS} ${API_SUCCESS}`: {
-			next([setUser({ user: action.payload }), setLoader({ state: false, entity: TENANTS })]);
+			// next([setUser({ user: action.payload }), setLoader({ state: false, entity: TENANTS })]);
 			break;
 		}
 
