@@ -4,6 +4,7 @@ import { store } from '../../redux/store';
 import { ReTenantOverviewStyles } from './re-tenant-overview-styles.js';
 import '../re-test-card/re-test-card';
 import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
+import { fetchUser } from '../../redux/actions/user.acs.js';
 
 export class ReTenantOverview extends connect(store)(LitElement) {
 	static get styles() {
@@ -31,11 +32,13 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 				<h3>Tenant overview section</h3>
 				<p>Here you find infomation concerning your added tenants</p>
 
-				<!-- <re-button @button-click=${this.buttonClicked} buttonLabel="Opslaan"></re-button> -->
+				<re-button @button-click=${this.buttonClicked} buttonLabel="Opslaan"></re-button>
 			</div>
 		`;
 	}
-
+	buttonClicked() {
+		store.dispatch(fetchUser());
+	}
 	renderTenantCards() {
 		const templates = [];
 		for (const key in this.tenants) {

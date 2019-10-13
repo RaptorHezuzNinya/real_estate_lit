@@ -4,6 +4,7 @@ export const ReTenantOverviewStyles = css`
 	:host {
 		display: block;
 	}
+
 	p,
 	h3 {
 		text-align: center;
