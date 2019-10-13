@@ -123,15 +123,3 @@ export class ReTenantCreatePage extends connect(store)(LitElement) {
 	}
 }
 customElements.define('re-tenant-create-page', ReTenantCreatePage);
-
-// const tenant = {
-// 	id: id,
-// 	email: email,
-// 	accountHolder: accountHolder,
-// 	firstName: firstName,
-// 	lastName: lastName,
-// 	iban: iban,
-// 	rent: rent,
-// 	phone: phone,
-// 	referenceId: referenceId
-// };
