@@ -30,19 +30,6 @@ export class ReTenantCreatePage extends connect(store)(LitElement) {
 		this.rent = '588.37';
 		this.phone = '0612345678';
 	}
-	// firstUpdated() {
-	// 	console.log('firstUpdate', this);
-
-	// 	const childeren = this.shadowRoot.querySelector('div').children;
-	// 	for (let index = 0; index < childeren.length; index++) {
-	// 		const child = childeren[index];
-	// 		if (child.tagName === 'CAN-TEXT-INPUT') {
-	// 			console.log(child.MDCTextField);
-
-	// 			// child.MDCTextField.layout();
-	// 		}
-	// 	}
-	// }
 
 	render() {
 		return html`
@@ -67,10 +54,12 @@ export class ReTenantCreatePage extends connect(store)(LitElement) {
 		};
 		store.dispatch(createTenants({ tenant }));
 	}
+
 	inputChanged(evt) {
 		this[evt.target.id] = evt.detail.value;
 		console.log('this[evt.target.id]', this[evt.target.id]);
 	}
+
 	renderInputs() {
 		const data = [
 			{
