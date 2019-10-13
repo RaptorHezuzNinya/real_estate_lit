@@ -17,13 +17,10 @@ const INITIAL_STATE = {
 export const appReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case SET_DRAWER: {
-			// console.log(action.payload);
-			// debugger;
 			const newState = {
 				...state,
 				drawerOpen: action.payload.state
 			};
-			console.log('newState! -> ', newState);
 
 			return newState;
 		}

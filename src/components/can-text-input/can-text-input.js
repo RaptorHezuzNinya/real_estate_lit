@@ -38,6 +38,17 @@ class CanTextInput extends LitElement {
 		this.inputType = 'text';
 	}
 
+	firstUpdated() {
+		this.MDCTextFieldElement = this.shadowRoot.querySelector('.mdc-text-field');
+		this.MDCTextField = new MDCTextField(this.MDCTextFieldElement);
+		this.MDCTextField.layout();
+		if (this.counter) {
+			this.MDCCharacterCounter = new MDCTextFieldCharacterCounter(
+				this.shadowRoot.querySelector('.mdc-text-field-character-counter')
+			);
+		}
+	}
+
 	render() {
 		return html`
 			<div class="mdc-text-field mdc-text-field--outlined">
@@ -92,15 +103,15 @@ class CanTextInput extends LitElement {
 		this.dispatchEvent(inputChange);
 	}
 
-	firstUpdated() {
-		this.MDCTextFieldElement = this.shadowRoot.querySelector('.mdc-text-field');
-		this.MDCTextField = new MDCTextField(this.MDCTextFieldElement);
-		if (this.counter) {
-			this.MDCCharacterCounter = new MDCTextFieldCharacterCounter(
-				this.shadowRoot.querySelector('.mdc-text-field-character-counter')
-			);
-		}
-	}
+	// firstUpdated() {
+	// 	this.MDCTextFieldElement = this.shadowRoot.querySelector('.mdc-text-field');
+	// 	this.MDCTextField = new MDCTextField(this.MDCTextFieldElement);
+	// 	if (this.counter) {
+	// 		this.MDCCharacterCounter = new MDCTextFieldCharacterCounter(
+	// 			this.shadowRoot.querySelector('.mdc-text-field-character-counter')
+	// 		);
+	// 	}
+	// }
 
 	disconnectedCallback() {
 		super.disconnectedCallback();

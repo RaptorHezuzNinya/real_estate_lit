@@ -62,8 +62,6 @@ class ReApp extends connect(store)(LitElement) {
 	}
 
 	render() {
-		console.info('rerender:', this);
-
 		return html`
 			<can-header></can-header>
 

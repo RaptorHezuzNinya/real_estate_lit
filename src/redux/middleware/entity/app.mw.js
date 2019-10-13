@@ -6,7 +6,7 @@ export const appMiddleware = ({ dispatch }) => next => action => {
 	switch (action.type) {
 		case NAVIGATE: {
 			const page = action.payload.page === '/' ? 'home' : action.payload.page;
-			console.log('page: ', page);
+
 			loadDispatchSetPage(dispatch, page);
 			next(setDrawer({ state: false }));
 
