@@ -11,16 +11,18 @@ import { notificationMiddleware } from './middleware/core/notification.mw';
 import { apiMiddleware } from './middleware/core/api.mw.js';
 import { userMiddleware } from './middleware/entity/user.mw.js';
 import { appMiddleware } from './middleware/entity/app.mw.js';
+import { tenantsMiddleware } from './middleware/entity/tenants.mw.js';
 
 // reducers
 import { combineReducers } from 'redux';
 import { appReducer } from './reducers/app.reducer.js';
 import { userReducer } from './reducers/user.reducer.js';
-import { tenantsMiddleware } from './middleware/entity/tenants.mw.js';
+import { tenantsReducer } from './reducers/tenants.reducer.js';
 
 const coreReducer = combineReducers({
 	app: appReducer,
-	user: userReducer
+	user: userReducer,
+	tenants: tenantsReducer
 });
 
 const rootReducer = (state, action) => {
@@ -34,7 +36,7 @@ const entityMiddleware = [appMiddleware, userMiddleware, tenantsMiddleware];
 const coreMiddleware = [
 	actionSplitterMiddleware,
 	apiMiddleware,
-	// normalizeMiddleware,
+	normalizeMiddleware,
 	notificationMiddleware
 ];
 
