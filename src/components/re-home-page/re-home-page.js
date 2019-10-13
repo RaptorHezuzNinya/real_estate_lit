@@ -6,8 +6,6 @@ import { SharedStyles } from '../shared-styles.js';
 import { ReHomePageStyles } from './re-home-page-styles.js';
 import '../re-button/re-button.js';
 import '../re-test-card/re-test-card.js';
-import '../re-user-dashboard/re-user-dashboard.js';
-import { navigate } from '../../redux/actions/app.acs';
 
 class ReHomePage extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -38,23 +36,6 @@ class ReHomePage extends connect(store)(PageViewElement) {
 				<re-login-page></re-login-page>
 			</section>
 		`;
-	}
-
-	renderTenantCards() {
-		const templates = [];
-		for (const key in this.tenants) {
-			if (this.tenants.hasOwnProperty(key)) {
-				const template = html`
-					<re-test-card
-						.tenant=${this.tenants[key]}
-						.payments=${this.paymentsByTenantId[this.tenants[key].id]}
-					>
-					</re-test-card>
-				`;
-				templates.push(template);
-			}
-		}
-		return templates;
 	}
 
 	stateChanged(state) {
