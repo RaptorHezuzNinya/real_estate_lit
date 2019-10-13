@@ -16,6 +16,7 @@ import { appMiddleware } from './middleware/entity/app.mw.js';
 import { combineReducers } from 'redux';
 import { appReducer } from './reducers/app.reducer.js';
 import { userReducer } from './reducers/user.reducer.js';
+import { tenantsMiddleware } from './middleware/entity/tenants.mw.js';
 
 const coreReducer = combineReducers({
 	app: appReducer,
@@ -28,7 +29,7 @@ const rootReducer = (state, action) => {
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const entityMiddleware = [appMiddleware, userMiddleware];
+const entityMiddleware = [appMiddleware, userMiddleware, tenantsMiddleware];
 
 const coreMiddleware = [
 	actionSplitterMiddleware,
