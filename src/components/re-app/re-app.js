@@ -66,7 +66,7 @@ class ReApp extends connect(store)(LitElement) {
 
 			<app-drawer .opened="${this.drawerOpen}" @opened-changed="${this.drawerChanged}">
 				<nav class="drawer-list">
-					<a ?selected="${this.page === 'register'}" href="/register">Sign up</a>
+					<a ?selected="${this.page === '/register'}" href="/register">Sign up</a>
 				</nav>
 			</app-drawer>
 
@@ -78,7 +78,7 @@ class ReApp extends connect(store)(LitElement) {
 				></re-user-dashboard>
 
 				<re-home-page class="page" ?active="${this.page === 'home'}"></re-home-page>
-				<re-register-page class="page" ?active="${this.page === 'register'}"></re-register-page>
+				<re-register-page class="page" ?active="${this.page === '/register'}"></re-register-page>
 
 				<re-404 class="page" ?active="${this.page === 're-404'}"></re-404>
 			</main>

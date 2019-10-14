@@ -32,7 +32,7 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 				<h3>Tenant overview section</h3>
 				<p>Here you find infomation concerning your added tenants</p>
 
-				<re-button @button-click=${this.buttonClicked} buttonLabel="Opslaan"></re-button>
+				<re-button @button-click=${this.buttonClicked} buttonLabel="fetch user (dev)"></re-button>
 			</div>
 		`;
 	}
