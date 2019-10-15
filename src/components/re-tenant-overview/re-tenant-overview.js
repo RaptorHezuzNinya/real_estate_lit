@@ -8,25 +8,26 @@ import { fetchUser } from '../../redux/actions/user.acs.js';
 import { fetchTenants } from '../../redux/actions/tenant.acs';
 
 export class ReTenantOverview extends connect(store)(LitElement) {
+	fetchTenants() {
+		store.dispatch(fetchTenants({ currentUserId: this.currentUserId }));
+	}
+	fetchUser() {
+		store.dispatch(fetchUser());
+	}
 	static get styles() {
 		return [ReTenantOverviewStyles];
 	}
-
 	static get properties() {
 		return {
-			email: { type: String },
-			accountHolder: { type: String },
-			paymentsByTenantId: { type: Object },
-			currentUserId: String
+			currentUserId: String,
+			tenants: Object
 		};
 	}
 
 	constructor() {
 		super();
-		this.email = 'fennascharloo@outlook.com';
-		this.accountHolder = 'F. Scharloo';
-		this.paymentsByTenantId = false;
 		this.currentUserId = false;
+		this.tenants = false;
 	}
 
 	render() {
