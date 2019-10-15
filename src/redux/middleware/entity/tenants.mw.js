@@ -45,10 +45,11 @@ export const tenantsMiddleware = ({ dispatch, getState }) => next => action => {
 			if (action.payload.hasOwnProperty('tenant')) {
 				next([
 					setTenants({
-						tenants: { [action.payload['tenant']._id]: action.payload['tenant'] }
+						tenants: { [action.payload[`tenant`]._id]: action.payload[`tenant`] }
 					}),
 					setLoader({ state: false, entity: TENANTS })
 				]);
+				break;
 			}
 		}
 

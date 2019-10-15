@@ -11,10 +11,10 @@ export const apiMiddleware = ({ dispatch, getState }) => next => action => {
 		const data = action.payload;
 		const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
 		const store = getState();
+
 		if (auth && store.user.user) {
 			headers.Authorization = `Bearer ${store.user.user.token}`;
 		}
-		console.log('header', headers);
 
 		axios.defaults.baseURL = API_ROOT;
 		axios.defaults.headers.common['Content-Type'] = 'application/json';
