@@ -1,6 +1,6 @@
 import { dataNormalized } from '../../actions/data.acs.js';
-import { setUser } from '../../actions/user.acs.js';
 import { SET } from '../../actions/types.acs.js';
+import { setTenants } from '../../actions/tenant.acs.js';
 
 export const normalizeMiddleware = ({ dispatch }) => next => action => {
 	// filter both by action type and metadata content
