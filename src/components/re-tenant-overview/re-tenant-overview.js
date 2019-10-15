@@ -5,6 +5,7 @@ import { ReTenantOverviewStyles } from './re-tenant-overview-styles.js';
 import '../re-test-card/re-test-card';
 import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
 import { fetchUser } from '../../redux/actions/user.acs.js';
+import { fetchTenants } from '../../redux/actions/tenant.acs';
 
 export class ReTenantOverview extends connect(store)(LitElement) {
 	static get styles() {
@@ -15,7 +16,8 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 		return {
 			email: { type: String },
 			accountHolder: { type: String },
-			paymentsByTenantId: { type: Object }
+			paymentsByTenantId: { type: Object },
+			currentUserId: String
 		};
 	}
 
@@ -24,6 +26,7 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 		this.email = 'fennascharloo@outlook.com';
 		this.accountHolder = 'F. Scharloo';
 		this.paymentsByTenantId = false;
+		this.currentUserId = false;
 	}
 
 	render() {
@@ -31,12 +34,21 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 			<div>
 				<h3>Tenant overview section</h3>
 				<p>Here you find infomation concerning your added tenants</p>
-
-				<re-button @button-click=${this.buttonClicked} buttonLabel="fetch user (dev)"></re-button>
+				<div class="holder">
+					<re-button @button-click=${this.fetchUser} buttonLabel="fetch user (dev)"></re-button>
+					<re-button
+						@button-click=${this.fetchTenants}
+						buttonLabel="fetch tenants (dev)"
+					></re-button>
+				</div>
 			</div>
 		`;
 	}
-	buttonClicked() {
+
+	fetchTenants() {
+		store.dispatch(fetchTenants({ currentUserId: this.currentUserId }));
+	}
+	fetchUser() {
 		store.dispatch(fetchUser());
 	}
 	renderTenantCards() {
@@ -58,6 +70,7 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 
 	stateChanged(state) {
 		// this.paymentsByTenantId = paymentsByTenantId(state);
+		this.currentUserId = state.user.user.id;
 	}
 }
 customElements.define('re-tenant-overview', ReTenantOverview);
