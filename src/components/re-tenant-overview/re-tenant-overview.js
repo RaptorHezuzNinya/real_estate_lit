@@ -49,22 +49,12 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 		`;
 	}
 
-	fetchTenants() {
-		store.dispatch(fetchTenants({ currentUserId: this.currentUserId }));
-	}
-	fetchUser() {
-		store.dispatch(fetchUser());
-	}
 	renderTenantCards() {
 		const templates = [];
 		for (const key in this.tenants) {
 			if (this.tenants.hasOwnProperty(key)) {
 				const template = html`
-					<re-test-card
-						.tenant=${this.tenants[key]}
-						.payments=${this.paymentsByTenantId[this.tenants[key].id]}
-					>
-					</re-test-card>
+					<re-test-card .tenant=${this.tenants[key]}> </re-test-card>
 				`;
 				templates.push(template);
 			}
@@ -74,6 +64,7 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 
 	stateChanged(state) {
 		// this.paymentsByTenantId = paymentsByTenantId(state);
+		this.tenants = state.tenant.tenants;
 		this.currentUserId = state.user.user.id;
 	}
 }
