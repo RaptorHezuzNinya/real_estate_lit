@@ -13,4 +13,8 @@ export const ReTenantOverviewStyles = css`
 	div {
 		padding: 22px;
 	}
+	.holder {
+		display: flex;
+		justify-content: space-around;
+	}
 `;
