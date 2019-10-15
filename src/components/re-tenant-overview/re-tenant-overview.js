@@ -36,6 +36,9 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 				<h3>Tenant overview section</h3>
 				<p>Here you find infomation concerning your added tenants</p>
 				<div class="holder">
+					${this.renderTenantCards()}
+				</div>
+				<div class="footer">
 					<re-button @button-click=${this.fetchUser} buttonLabel="fetch user (dev)"></re-button>
 					<re-button
 						@button-click=${this.fetchTenants}
