@@ -1,4 +1,4 @@
-import { FETCH, CREATE, SET } from './types.acs.js';
+import { FETCH, CREATE, SET } from './types.js';
 
 export const TENANTS = '[Tenants]';
 

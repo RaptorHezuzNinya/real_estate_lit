@@ -1,11 +1,13 @@
-import { SET } from '../actions/types.acs.js';
+import { SET, UPDATE, OPEN, CLOSE } from '../actions/types.js';
 
 export const APP = '[App]';
 
-export const NAVIGATE = `${APP} navigate`;
+export const NAVIGATE = `${APP} Navigate`;
 export const SET_PAGE = `${APP} ${SET} page`;
 export const SET_DRAWER = `${APP} ${SET} drawer`;
-export const UPDATE_OFFLINE = 'UPDATE_OFFLINE';
+export const UPDATE_OFFLINE = `${APP} ${UPDATE} offline`;
+export const OPEN_SNACKBAR = `${APP} ${OPEN} snackbar`;
+export const CLOSE_SNACKBAR = `${APP} ${CLOSE} snackbar`;
 
 export const navigate = page => ({
 	type: NAVIGATE,
@@ -36,8 +38,6 @@ export const updateOffline = offline => (dispatch, getState) => {
 	});
 };
 
-export const OPEN_SNACKBAR = 'OPEN_SNACKBAR';
-export const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
 let snackbarTimer;
 export const showSnackbar = () => dispatch => {
 	dispatch({
