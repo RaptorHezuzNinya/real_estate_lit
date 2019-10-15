@@ -13,7 +13,8 @@ export const ReTenantOverviewStyles = css`
 	div {
 		padding: 22px;
 	}
-	.holder {
+	.holder,
+	.footer {
 		display: flex;
 		justify-content: space-around;
 	}
