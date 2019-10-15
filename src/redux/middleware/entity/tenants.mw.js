@@ -1,7 +1,7 @@
 import { API_ERROR, API_SUCCESS, apiRequest } from '../../actions/api.acs.js';
 import { setLoader } from '../../actions/ui.acs.js';
 import { setNotification } from '../../actions/notification.acs.js';
-import { TENANTS, CREATE_TENANTS, setTenant } from '../../actions/tenant.acs.js';
+import { TENANTS, CREATE_TENANTS, setTenants, FETCH_TENANTS } from '../../actions/tenant.acs.js';
 
 export const tenantsMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
