@@ -6,7 +6,7 @@ import { navigate } from '../../actions/app.acs.js';
 
 export const userMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
-
+	// on set teants we need to add all new new tenants ids to the tenantsRefs opbject in user
 	switch (action.type) {
 		case SIGN_UP_USER: {
 			next([

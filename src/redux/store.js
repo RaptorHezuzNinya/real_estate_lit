@@ -17,12 +17,12 @@ import { tenantsMiddleware } from './middleware/entity/tenants.mw.js';
 import { combineReducers } from 'redux';
 import { appReducer } from './reducers/app.reducer.js';
 import { userReducer } from './reducers/user.reducer.js';
-import { tenantsReducer } from './reducers/tenants.reducer.js';
+import { tenantReducer } from './reducers/tenant.reducer.js';
 
 const coreReducer = combineReducers({
 	app: appReducer,
 	user: userReducer,
-	tenants: tenantsReducer
+	tenant: tenantReducer
 });
 
 const rootReducer = (state, action) => {
