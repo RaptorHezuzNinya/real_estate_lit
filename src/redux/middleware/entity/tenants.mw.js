@@ -39,17 +39,16 @@ export const tenantsMiddleware = ({ dispatch, getState }) => next => action => {
 					setTenants({ tenants: action.payload.tenants, normalizeKey: '_id' }),
 					setLoader({ state: false, entity: TENANTS })
 				]);
-				debugger;
+
 				break;
 			}
 			if (action.payload.hasOwnProperty('tenant')) {
-				debugger;
-
-				next(
+				next([
 					setTenants({
 						tenants: { [action.payload['tenant']._id]: action.payload['tenant'] }
-					})
-				);
+					}),
+					setLoader({ state: false, entity: TENANTS })
+				]);
 			}
 		}
 
