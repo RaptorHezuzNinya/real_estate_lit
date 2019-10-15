@@ -34,8 +34,23 @@ export const tenantsMiddleware = ({ dispatch, getState }) => next => action => {
 		}
 
 		case `${TENANTS} ${API_SUCCESS}`: {
-			next([setTenants({ tenants: action.payload }), setLoader({ state: false, entity: TENANTS })]);
-			break;
+			if (action.payload.hasOwnProperty('tenants')) {
+				next([
+					setTenants({ tenants: action.payload.tenants, normalizeKey: '_id' }),
+					setLoader({ state: false, entity: TENANTS })
+				]);
+				debugger;
+				break;
+			}
+			if (action.payload.hasOwnProperty('tenant')) {
+				debugger;
+
+				next(
+					setTenants({
+						tenants: { [action.payload['tenant']._id]: action.payload['tenant'] }
+					})
+				);
+			}
 		}
 
 		case `${TENANTS} ${API_ERROR}`: {

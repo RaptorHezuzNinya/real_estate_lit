@@ -16,7 +16,9 @@ export const normalizeMiddleware = ({ dispatch }) => next => action => {
 		}, {});
 
 		//fire the user document action
-		next(setTenants({ data, normalizeKey: null }));
+
+		// have check if datanormalized with entity tenants fired so we can set???
+		next(setTenants({ tenants: data, normalizeKey: null }));
 	} else {
 		next(action);
 	}
