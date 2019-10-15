@@ -21,8 +21,20 @@ export const tenantsMiddleware = ({ dispatch, getState }) => next => action => {
 			break;
 		}
 
+		case FETCH_TENANTS: {
+			next([
+				apiRequest({
+					url: `/api/tenants/${action.payload.currentUserId}`,
+					entity: TENANTS,
+					auth: true
+				}),
+				setLoader({ state: true, entity: TENANTS })
+			]);
+			break;
+		}
+
 		case `${TENANTS} ${API_SUCCESS}`: {
-			next([setTenant({ tenants: action.payload }), setLoader({ state: false, entity: TENANTS })]);
+			next([setTenants({ tenants: action.payload }), setLoader({ state: false, entity: TENANTS })]);
 			break;
 		}
 
