@@ -1,5 +1,5 @@
 import { dataNormalized } from '../../actions/data.acs.js';
-import { SET } from '../../actions/types.js';
+import { SET } from '../../actions/action.types.js';
 import { setTenants } from '../../actions/tenant.acs.js';
 
 export const normalizeMiddleware = ({ dispatch }) => next => action => {
