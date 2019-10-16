@@ -43,13 +43,28 @@ class CanHeader extends connect(store)(LitElement) {
 		`;
 	}
 
+	handleUserProfileButtonClicked() {
+		if (this.user) {
+			window.history.pushState({}, '', '/user/dashboard');
+			return store.dispatch(navigate({ page: window.location.pathname }));
+		}
+		if (!this.user) {
+			window.history.pushState({}, '', '/login');
+			store.dispatch(navigate({ page: window.location.pathname }));
+		}
+	}
+
 	handleMenuButtonClicked() {
-		store.dispatch(setDrawer({ state: true }));
+		// store.dispatch(setDrawer({ state: true }));
+		console.log('menu btn clicked');
 	}
 
 	handleCanLogoClicked() {
 		window.history.pushState({}, '', '/');
 		store.dispatch(navigate({ page: window.location.pathname }));
+	}
+	stateChanged(state) {
+		this.user = state.user.user;
 	}
 }
 

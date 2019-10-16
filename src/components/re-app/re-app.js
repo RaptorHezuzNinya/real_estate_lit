@@ -72,13 +72,13 @@ class ReApp extends connect(store)(LitElement) {
 
 			<!-- Main content -->
 			<main role="main" class="main-content">
+				<re-home-page class="page" ?active="${this.page === '/home'}"></re-home-page>
+				<re-login-page class="page" ?active="${this.page === '/login'}"></re-login-page>
+				<re-register-page class="page" ?active="${this.page === '/register'}"></re-register-page>
 				<re-user-dashboard
 					class="page"
 					?active="${this.page === '/user/dashboard'}"
 				></re-user-dashboard>
-
-				<re-home-page class="page" ?active="${this.page === 'home'}"></re-home-page>
-				<re-register-page class="page" ?active="${this.page === '/register'}"></re-register-page>
 
 				<re-404 class="page" ?active="${this.page === 're-404'}"></re-404>
 			</main>
