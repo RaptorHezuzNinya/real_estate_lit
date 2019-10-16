@@ -89,10 +89,6 @@ class ReApp extends connect(store)(LitElement) {
 		`;
 	}
 
-	_menuButtonClicked() {
-		store.dispatch(setDrawer({ state: true }));
-	}
-
 	drawerChanged(evt) {
 		store.dispatch(setDrawer({ state: evt.target.open }));
 	}
