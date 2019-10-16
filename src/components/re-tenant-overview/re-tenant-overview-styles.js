@@ -3,6 +3,8 @@ import { css } from 'lit-element';
 export const ReTenantOverviewStyles = css`
 	:host {
 		display: block;
+		display: flex;
+		justify-content: center;
 	}
 
 	p,
@@ -18,6 +20,6 @@ export const ReTenantOverviewStyles = css`
 	}
 	.footer {
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 	}
 `;

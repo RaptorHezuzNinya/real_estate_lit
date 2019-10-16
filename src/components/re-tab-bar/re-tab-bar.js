@@ -44,7 +44,19 @@ export class ReTabBar extends LitElement {
 							<button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="1">
 								<span class="mdc-tab__content">
 									<!-- <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span> -->
-									<span class="mdc-tab__text-label">Tenant Create</span>
+									<span class="mdc-tab__text-label">Upload payment</span>
+								</span>
+								<span class="mdc-tab-indicator mdc-tab-indicator--active">
+									<span
+										class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+									></span>
+								</span>
+								<span class="mdc-tab__ripple"></span>
+							</button>
+							<button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="1">
+								<span class="mdc-tab__content">
+									<!-- <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span> -->
+									<span class="mdc-tab__text-label">Create tenant</span>
 								</span>
 								<span class="mdc-tab-indicator mdc-tab-indicator--active">
 									<span
