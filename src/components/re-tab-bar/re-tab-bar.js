@@ -11,14 +11,12 @@ export class ReTabBar extends LitElement {
 	static get properties() {
 		return {
 			MDCTabBar: { type: Object }
-			// MDCTabsBarElement: { type: Object }
 		};
 	}
 
 	constructor() {
 		super();
 		this.MDCTabBar = false;
-		// this.MDCTabsBarElement = false;
 	}
 
 	firstUpdated() {
