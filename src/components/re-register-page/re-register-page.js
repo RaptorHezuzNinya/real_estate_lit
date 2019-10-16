@@ -26,7 +26,7 @@ export class ReRegisterPage extends connect(store)(LitElement) {
 
 	render() {
 		return html`
-			<p>User Register page</p>
+			<h3>User Register page</h3>
 			<re-card>
 				<div slot="content" @input-value-change=${this.inputChanged}>
 					${this.renderInputs()}

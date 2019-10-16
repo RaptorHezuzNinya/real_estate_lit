@@ -8,12 +8,6 @@ import { fetchUser } from '../../redux/actions/user.acs.js';
 import { fetchTenants } from '../../redux/actions/tenant.acs';
 
 export class ReTenantOverview extends connect(store)(LitElement) {
-	fetchTenants() {
-		store.dispatch(fetchTenants({ currentUserId: this.currentUserId }));
-	}
-	fetchUser() {
-		store.dispatch(fetchUser());
-	}
 	static get styles() {
 		return [ReTenantOverviewStyles];
 	}
@@ -28,6 +22,11 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 		super();
 		this.currentUserId = false;
 		this.tenants = false;
+	}
+
+	connectedCallback() {
+		super.connectedCallback();
+		store.dispatch(fetchTenants({ currentUserId: this.currentUserId }));
 	}
 
 	render() {

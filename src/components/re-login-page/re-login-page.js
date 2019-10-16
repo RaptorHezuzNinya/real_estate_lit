@@ -1,11 +1,12 @@
 import { LitElement, html } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
+import { loginUser } from '../../redux/actions/user.acs.js';
 import { ReLoginPageStyles } from './re-login-page-styles.js';
 import '../can-text-input/can-text-input.js';
 import '../re-card/re-card.js';
 import '../re-button/re-button.js';
-import { loginUser } from '../../redux/actions/user.acs.js';
+import { navigate } from '../../redux/actions/app.acs';
 
 export class ReLoginPage extends connect(store)(LitElement) {
 	static get styles() {
@@ -25,28 +26,43 @@ export class ReLoginPage extends connect(store)(LitElement) {
 
 	render() {
 		return html`
-			<p>User login page</p>
+			<br />
+			<br />
+
+			<h2>User login page</h2>
+			<br />
+			<br />
+
 			<re-card>
 				<div slot="content" @input-value-change=${this.inputChanged}>
 					${this.renderInputs()}
 				</div>
 				<div class="footer">
 					<re-button
-						@button-click=${this.buttonClicked}
+						@button-click=${this.loginClicked}
 						class="mdc-card__action mdc-card__action--button"
 						buttonLabel="Login"
 					></re-button>
-					<a class="register" buttonLabel="Register" href="/register">register</a>
+					<re-button
+						@button-click=${this.registerClicked}
+						class="mdc-card__action mdc-card__action--button"
+						buttonLabel="register"
+					></re-button>
 				</div>
 			</re-card>
 		`;
+	}
+
+	registerClicked() {
+		window.history.pushState({}, '', '/register');
+		store.dispatch(navigate({ page: window.location.pathname }));
 	}
 	inputChanged(evt) {
 		this[evt.target.id] = evt.detail.value;
 		evt.stopPropagation();
 	}
 
-	buttonClicked(evt) {
+	loginClicked(evt) {
 		const data = {
 			user: {
 				email: this.email,
