@@ -1,4 +1,4 @@
-import { FETCH, CREATE, SET } from './types.js';
+import { FETCH, CREATE, SET } from './action.types.js';
 
 export const TENANTS = '[Tenants]';
 

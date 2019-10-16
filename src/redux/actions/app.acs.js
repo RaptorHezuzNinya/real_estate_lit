@@ -1,4 +1,4 @@
-import { SET, UPDATE, OPEN, CLOSE } from '../actions/types.js';
+import { SET, UPDATE, OPEN, CLOSE } from './action.types.js';
 
 export const APP = '[App]';
 

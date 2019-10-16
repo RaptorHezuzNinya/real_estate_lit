@@ -1,4 +1,4 @@
-import { SET, FETCH } from '../actions/types.js';
+import { SET, FETCH } from './action.types.js';
 // entity
 export const USER = '[User]';
 // action types

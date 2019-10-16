@@ -1,4 +1,4 @@
-import { SET } from './types.js';
+import { SET } from './action.types.js';
 
 // action types
 
