@@ -48,6 +48,10 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 		`;
 	}
 
+	fetchUser() {
+		store.dispatch(fetchUser());
+	}
+
 	renderTenantCards() {
 		const templates = [];
 		for (const key in this.tenants) {

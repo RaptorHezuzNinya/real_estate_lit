@@ -2,11 +2,13 @@ import { LitElement, html } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store';
 import { ReUserDashboardStyles } from './re-user-dashboard-styles.js';
+
 import '../re-tenant-create-page/re-tenant-create-page.js';
 import '../re-tab-bar/re-tab-bar.js';
 import '../re-tenant-overview/re-tenant-overview.js';
+import { PageViewElement } from '../page-view-element';
 
-export class ReUserDashboard extends connect(store)(LitElement) {
+export class ReUserDashboard extends connect(store)(PageViewElement) {
 	static get styles() {
 		return [ReUserDashboardStyles];
 	}
