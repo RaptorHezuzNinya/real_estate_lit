@@ -5,7 +5,7 @@ export const appMiddleware = ({ dispatch }) => next => action => {
 
 	switch (action.type) {
 		case NAVIGATE: {
-			const page = action.payload.page === '/' ? 'home' : action.payload.page;
+			const page = action.payload.page === '/' ? '/home' : action.payload.page;
 
 			loadDispatchSetPage(dispatch, page);
 			next(setDrawer({ state: false }));
@@ -17,24 +17,28 @@ export const appMiddleware = ({ dispatch }) => next => action => {
 
 const loadDispatchSetPage = (dispatch, page) => {
 	switch (page) {
-		// case 'view1':			 EXAMPLE to to load module or bundle per 'page'
+		// case 'view1':
+		// 	EXAMPLE case to to load module or bundle per 'page'
 		// 	import('../../components/my-view1.js').then(module => {
 		// 		// Put code in here that you want to run every time when
 		// 		// navigating to view1 after my-view1.js is loaded.
 		// 	});
 		// 	break;
-		case 'home':
+		case '/home':
 			import('../../../components/re-home-page/re-home-page.js');
 			break;
-		case 'register':
+		case '/login':
+			import('../../../components/re-login-page/re-login-page.js');
+			break;
+		case '/register':
 			import('../../../components/re-register-page/re-register-page.js');
 			break;
 		case '/user/dashboard':
 			import('../../../components/re-user-dashboard/re-user-dashboard.js');
 			break;
-		case '/tenants/create':
-			import('../../../components/re-tenant-create-page/re-tenant-create-page.js');
-			break;
+		// case 'tenants/create':
+		// 	import('../../../components/re-tenant-create-page/re-tenant-create-page.js');
+		// 	break;
 		// default:
 		// 	page = 'view404';
 		// 	import('../../components/re-404//my-view404.js');

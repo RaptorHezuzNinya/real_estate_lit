@@ -2,7 +2,7 @@ import { SET, UPDATE, OPEN, CLOSE } from '../actions/types.js';
 
 export const APP = '[App]';
 
-export const NAVIGATE = `${APP} Navigate`;
+export const NAVIGATE = `${APP} navigate`;
 export const SET_PAGE = `${APP} ${SET} page`;
 export const SET_DRAWER = `${APP} ${SET} drawer`;
 export const UPDATE_OFFLINE = `${APP} ${UPDATE} offline`;
@@ -28,7 +28,6 @@ export const setDrawer = state => ({
 });
 
 export const updateOffline = offline => (dispatch, getState) => {
-	// Show the snackbar only if offline status changes.
 	if (offline !== getState().app.offline) {
 		dispatch(showSnackbar());
 	}
