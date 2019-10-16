@@ -3,8 +3,13 @@ import { css } from 'lit-element';
 export const ReLoginPageStyles = css`
 	:host {
 		display: block;
+		padding: 28px;
 	}
-	p {
+	can-text-input {
+		margin-bottom: 28px;
+	}
+	p,
+	h2 {
 		text-align: center;
 	}
 	.footer {

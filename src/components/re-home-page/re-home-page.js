@@ -31,10 +31,14 @@ class ReHomePage extends connect(store)(PageViewElement) {
 		return html`
 			<header>
 				<h3>Public home page</h3>
+				<br />
+				<br />
+				<br />
+				<br />
+				<p>re-home-page</p>
+				<br />
+				<br />
 			</header>
-			<section>
-				<re-login-page></re-login-page>
-			</section>
 		`;
 	}
 

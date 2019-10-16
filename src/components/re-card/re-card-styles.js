@@ -5,4 +5,7 @@ export const ReCardStyles = css`
 		display: block;
 		border: 1px solid red;
 	}
+	div {
+		padding: 28px;
+	}
 `;
