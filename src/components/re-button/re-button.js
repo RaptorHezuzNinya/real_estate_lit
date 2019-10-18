@@ -14,7 +14,7 @@ class CanButtonV2 extends LitElement {
 			green: { type: Boolean, reflect: true },
 			disabled: { type: Boolean },
 			MDCRipple: { type: Object },
-			buttonLabel: String
+			label: String
 		};
 	}
 
@@ -23,7 +23,7 @@ class CanButtonV2 extends LitElement {
 		this.green = false;
 		this.disabled = false;
 		this.MDCRipple = false;
-		this.buttonLabel = false;
+		this.label = false;
 	}
 
 	render() {
@@ -37,7 +37,7 @@ class CanButtonV2 extends LitElement {
 				<slot></slot>
 				<!-- <slot name="text"></slot>
 				<slot name="icon"></slot> -->
-				<span class="mdc-button__label">${this.buttonLabel}</span>
+				<span class="mdc-button__label">${this.label}</span>
 			</button>
 		`;
 	}

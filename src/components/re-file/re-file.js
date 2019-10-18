@@ -7,7 +7,6 @@ class ReFile extends LitElement {
 	static get styles() {
 		return [ReFileStyles, unsafeCSS(filepondStyles)];
 	}
-
 	static get properties() {
 		return {
 			filePondInstance: { type: Object },
