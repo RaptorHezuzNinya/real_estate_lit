@@ -19,7 +19,11 @@ class ReFile extends LitElement {
 		this.filePondInstance = null;
 		this.maxFiles = 1;
 	}
-
+	firstUpdated() {
+		this.registerFilePondInput();
+		const pond = this.shadowRoot.querySelector('.filepond--root');
+		pond.addEventListener('FilePond:addfile', evt => this.fileAdded(evt));
+	}
 	render() {
 		return html`
 			<input
@@ -33,13 +37,13 @@ class ReFile extends LitElement {
 		`;
 	}
 
-	firstUpdated() {
-		this.registerFilePondInput();
-		const pond = this.shadowRoot.querySelector('.filepond--root');
-
-		pond.addEventListener('FilePond:addfile', e => {
-			console.log('FilePond:addfile event fired!', e.detail);
+	fileAdded(evt) {
+		const event = new CustomEvent('file-added', {
+			detail: {
+				value: evt
+			}
 		});
+		this.dispatchEvent(event);
 	}
 
 	registerFilePondInput() {

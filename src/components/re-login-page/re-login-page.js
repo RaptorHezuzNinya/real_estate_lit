@@ -41,12 +41,12 @@ export class ReLoginPage extends connect(store)(LitElement) {
 					<re-button
 						@button-click=${this.loginClicked}
 						class="mdc-card__action mdc-card__action--button"
-						buttonLabel="Login"
+						label="Login"
 					></re-button>
 					<re-button
 						@button-click=${this.registerClicked}
 						class="mdc-card__action mdc-card__action--button"
-						buttonLabel="register"
+						label="register"
 					></re-button>
 				</div>
 			</re-card>
