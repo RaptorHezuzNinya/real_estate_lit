@@ -38,8 +38,7 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 					${this.renderTenantCards()}
 				</div>
 				<div class="footer">
-					<re-button @button-click=${this.fetchUser} buttonLabel="fetch user"></re-button>
-					<re-button @button-click=${this.fetchTenants} buttonLabel="fetch tenants"></re-button>
+					<re-button @button-click=${this.fetchUser} label="fetch user"></re-button>
 				</div>
 			</div>
 		`;
@@ -63,7 +62,6 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 	}
 
 	stateChanged(state) {
-		// this.paymentsByTenantId = paymentsByTenantId(state);
 		this.tenants = state.tenant.tenants;
 		this.currentUserId = state.user.user.id;
 	}

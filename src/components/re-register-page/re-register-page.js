@@ -35,7 +35,7 @@ export class ReRegisterPage extends connect(store)(LitElement) {
 					slot="action1"
 					@button-click=${this.buttonClicked}
 					class="mdc-card__action mdc-card__action--button"
-					buttonLabel="Register"
+					label="Register"
 				></re-button>
 			</re-card>
 		`;

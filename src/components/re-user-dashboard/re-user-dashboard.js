@@ -27,7 +27,6 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 	render() {
 		return html`
 			<re-tab-bar @re-active-tab-change=${this.tabChanged}></re-tab-bar>
-			<p>user dashboard component (logged in)</p>
 			${this.renderPageContent()}
 		`;
 	}
