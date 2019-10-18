@@ -13,7 +13,7 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 				apiRequest({
 					body: action.payload,
 					method: 'POST',
-					url: `/api/tenants`,
+					url: `/api/payments/user/upload`,
 					entity: PAYMENT,
 					auth: true
 				}),
