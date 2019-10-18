@@ -37,7 +37,7 @@ export class ReTenantCreatePage extends connect(store)(LitElement) {
 				<h3>Tenant create page</h3>
 				<p>fill in the form and submit to save a new tenant to your account</p>
 				${this.renderInputs()}
-				<re-button @button-click=${this.buttonClicked} buttonLabel="Opslaan"></re-button>
+				<re-button @button-click=${this.buttonClicked} label="Opslaan"></re-button>
 			</div>
 		`;
 	}

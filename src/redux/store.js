@@ -11,7 +11,8 @@ import { notificationMiddleware } from './middleware/core/notification.mw';
 import { apiMiddleware } from './middleware/core/api.mw.js';
 import { userMiddleware } from './middleware/entity/user.mw.js';
 import { appMiddleware } from './middleware/entity/app.mw.js';
-import { tenantsMiddleware } from './middleware/entity/tenants.mw.js';
+import { tenantMiddleware } from './middleware/entity/tenant.mw.js';
+import { paymentMiddleware } from './middleware/entity/payment.mw.js';
 
 // reducers
 import { combineReducers } from 'redux';
@@ -31,7 +32,7 @@ const rootReducer = (state, action) => {
 
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const entityMiddleware = [appMiddleware, userMiddleware, tenantsMiddleware];
+const entityMiddleware = [appMiddleware, userMiddleware, tenantMiddleware, paymentMiddleware];
 
 const coreMiddleware = [
 	actionSplitterMiddleware,
