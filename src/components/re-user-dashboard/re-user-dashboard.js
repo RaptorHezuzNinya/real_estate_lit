@@ -7,6 +7,7 @@ import '../re-tenant-create-page/re-tenant-create-page.js';
 import '../re-tab-bar/re-tab-bar.js';
 import '../re-payment-upload/re-payment-upload.js';
 import '../re-tenant-overview/re-tenant-overview.js';
+import { setTab } from '../../redux/actions/pageTab.acs';
 
 export class ReUserDashboard extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -15,18 +16,29 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 
 	static get properties() {
 		return {
+			tabs: Array,
 			activeTab: Number
 		};
 	}
 
 	constructor() {
 		super();
+		this.tabs = [
+			{ tabIndex: 0, label: 'Overview' },
+			{ tabIndex: 1, label: 'Upload Payments csv' },
+			{ tabIndex: 2, label: 'Create tenant' },
+			{ tabIndex: 3, label: 'Upload tenants' }
+		];
 		this.activeTab = 0;
 	}
 
 	render() {
 		return html`
-			<re-tab-bar @re-active-tab-change=${this.tabChanged}></re-tab-bar>
+			<re-tab-bar
+				.tabs=${this.tabs}
+				@re-active-tab-change=${this.tabChanged}
+				.activeTab=${this.activeTab}
+			></re-tab-bar>
 			${this.renderPageContent()}
 		`;
 	}
