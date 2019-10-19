@@ -10,4 +10,9 @@ export const RePaymentUploadStyles = css`
 	h3 {
 		text-align: center;
 	}
+
+	re-button {
+		display: flex;
+		justify-content: center;
+	}
 `;
