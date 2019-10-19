@@ -2,6 +2,7 @@ import { LitElement, html, unsafeCSS, css } from 'lit-element';
 import * as FilePond from 'filepond';
 import { ReFileStyles } from './re-file-styles';
 import filepondStyles from 'filepond/dist/filepond.css';
+import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
 
 class ReFile extends LitElement {
 	static get styles() {
