@@ -3,7 +3,6 @@ export const API_REQUEST = 'API_REQUEST';
 export const API_SUCCESS = 'API_SUCCESS';
 export const API_ERROR = 'API_ERROR';
 
-// action creators
 // This is Command Action!
 export const apiRequest = ({ body, url, entity, method = 'GET', headers = {}, auth = false }) => ({
 	type: `${entity} ${API_REQUEST}`,

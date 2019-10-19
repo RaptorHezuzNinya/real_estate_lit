@@ -29,13 +29,23 @@ class RePaymentUpload extends connect(store)(LitElement) {
 			<br />
 			<re-file @file-added=${this.fileAdded}></re-file>
 			<br />
+
+			<re-button label="Save" @click=${this.uploadFile}></re-button>
 		`;
 	}
+
+	uploadFile() {}
+
 	fileAdded(evt) {
-		const file = this.shadowRoot.querySelector('re-file').filePondInstance.getFile();
+		const upload = this.shadowRoot.querySelector('re-file').filePondInstance.getFile();
+
+		const file = {
+			name: upload.filename,
+			fileData: upload.getFileEncodeDataURL()
+		};
 
 		store.dispatch(uploadPayments({ file }));
-		console.log('file added', evt);
+		// debugger;
 	}
 }
 

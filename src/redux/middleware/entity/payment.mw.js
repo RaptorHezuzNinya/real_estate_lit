@@ -1,6 +1,6 @@
 import { API_ERROR, API_SUCCESS, apiRequest } from '../../actions/api.acs.js';
 import { setLoader } from '../../actions/ui.acs.js';
-import { setNotification } from '../../actions/notification.acs.js';
+
 import { UPLOAD_PAYMENTS, PAYMENT } from '../../actions/payment.acs.js';
 
 export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
@@ -8,10 +8,10 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 
 	switch (action.type) {
 		case UPLOAD_PAYMENTS: {
-			// return;
+			const file = { ...action.payload };
 			next([
 				apiRequest({
-					body: action.payload,
+					body: file,
 					method: 'POST',
 					url: `/api/payments/user/upload`,
 					entity: PAYMENT,
