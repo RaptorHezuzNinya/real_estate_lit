@@ -45,6 +45,10 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 				return html`
 					<re-tenant-create-page></re-tenant-create-page>
 				`;
+			case 3:
+				return html`
+					<re-upload-tenants></re-upload-tenants>
+				`;
 
 			default:
 				break;
