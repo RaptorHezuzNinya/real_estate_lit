@@ -4400,6 +4400,11 @@ filename-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
   integrity sha1-wcS5vuPglyXdsQa3XB4wH+LxiyY=
 
+filepond-plugin-file-encode@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/filepond-plugin-file-encode/-/filepond-plugin-file-encode-2.1.4.tgz#18c900ed372f69f028795671a911db9b7f08f9b8"
+  integrity sha512-PM/jPbcHVBxT88aLhtmBAI5+A6a3loi5CTbAWKpiWOU2FcMuhPu0FgBi5ymY/D+Zg4+f/08uLWoXTdWPYFqvlQ==
+
 filepond@^4.7.2:
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/filepond/-/filepond-4.7.2.tgz#5b61d4b437c0e0f9cad7afcb9ffc6e9d16c0ceec"
