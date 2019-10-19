@@ -4,7 +4,7 @@ import { store } from '../../redux/store';
 import { RePaymentUploadStyles } from './re-payment-upload-styles.js';
 import '../re-file/re-file.js';
 import '../re-button/re-button.js';
-import { uploadPayments } from '../../redux/actions/payment.acs';
+import { uploadPayments } from '../../redux/actions/payment.acs.js';
 
 class RePaymentUpload extends connect(store)(LitElement) {
 	static get styles() {
@@ -12,13 +12,13 @@ class RePaymentUpload extends connect(store)(LitElement) {
 	}
 	static get properties() {
 		return {
-			listItem: { type: Object }
+			file: Object
 		};
 	}
 
 	constructor() {
 		super();
-		this.listItem = null;
+		this.file = false;
 	}
 
 	render() {

@@ -49,6 +49,8 @@ class ReFile extends LitElement {
 
 	registerFilePondInput() {
 		const inputEle = this.shadowRoot.querySelector('input');
+		FilePond.registerPlugin(FilePondPluginFileEncode);
+
 		this.filePondInstance = FilePond.create(inputEle, {
 			labelIdle: `Drag & Drop je bestanden of <span class="filepond--label - action">Blader</span>`
 		});
