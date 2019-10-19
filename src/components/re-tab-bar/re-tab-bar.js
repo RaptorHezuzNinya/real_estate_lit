@@ -31,7 +31,7 @@ export class ReTabBar extends LitElement {
 						<div class="mdc-tab-scroller__scroll-content">
 							<button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
 								<span class="mdc-tab__content">
-									<span class="mdc-tab__text-label">Tenant Overview</span>
+									<span class="mdc-tab__text-label">Overview</span>
 								</span>
 								<span class="mdc-tab-indicator mdc-tab-indicator--active">
 									<span
@@ -54,6 +54,17 @@ export class ReTabBar extends LitElement {
 							<button class="mdc-tab " role="tab" aria-selected="false" tabindex="2">
 								<span class="mdc-tab__content">
 									<span class="mdc-tab__text-label">Create tenant</span>
+								</span>
+								<span class="mdc-tab-indicator mdc-tab-indicator--active">
+									<span
+										class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+									></span>
+								</span>
+								<span class="mdc-tab__ripple"></span>
+							</button>
+							<button class="mdc-tab " role="tab" aria-selected="false" tabindex="3">
+								<span class="mdc-tab__content">
+									<span class="mdc-tab__text-label">Upload tenants</span>
 								</span>
 								<span class="mdc-tab-indicator mdc-tab-indicator--active">
 									<span
