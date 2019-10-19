@@ -12,7 +12,7 @@ export const tenantMiddleware = ({ dispatch, getState }) => next => action => {
 				apiRequest({
 					body: action.payload,
 					method: 'POST',
-					url: `/api/tenants`,
+					url: `/api/tenant`,
 					entity: TENANTS,
 					auth: true
 				}),
