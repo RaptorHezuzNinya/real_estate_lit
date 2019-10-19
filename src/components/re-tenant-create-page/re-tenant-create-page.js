@@ -43,16 +43,21 @@ export class ReTenantCreatePage extends connect(store)(LitElement) {
 	}
 
 	buttonClicked(evt) {
-		const tenant = {
-			email: this.email,
-			accountHolder: this.accountHolder,
-			firstName: this.firstName,
-			lastName: this.lastName,
-			iban: this.iban,
-			rent: this.rent,
-			phone: this.phone
+		const data = {
+			tenants: [
+				{
+					email: this.email,
+					accountHolder: this.accountHolder,
+					firstName: this.firstName,
+					lastName: this.lastName,
+					iban: this.iban,
+					rent: this.rent,
+					phone: this.phone
+				}
+			]
 		};
-		store.dispatch(createTenants({ tenant }));
+
+		store.dispatch(createTenants({ data, multiple: false }));
 	}
 
 	inputChanged(evt) {
