@@ -21,7 +21,6 @@ export const setTenants = ({ tenants, normalizeKey }) => ({
 export const CREATE_TENANT = `${TENANT} ${CREATE}`;
 export const CREATE_TENANTS = `${TENANTS} ${CREATE}`;
 export const createTenants = ({ data, multiple }) => {
-	debugger;
 	return {
 		type: `${multiple ? CREATE_TENANTS : CREATE_TENANT}`,
 		payload: data,

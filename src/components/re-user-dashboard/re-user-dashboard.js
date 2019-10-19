@@ -68,7 +68,11 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 	}
 
 	tabChanged(evt) {
-		this.activeTab = evt.detail.value;
+		store.dispatch(setTab({ tabIndex: evt.detail.value, location: 'userDashboard' }));
+	}
+
+	stateChanged(state) {
+		this.activeTab = state.pageTabs.userDashboard.activeTab;
 	}
 }
 customElements.define('re-user-dashboard', ReUserDashboard);
