@@ -19,11 +19,13 @@ import { combineReducers } from 'redux';
 import { appReducer } from './reducers/app.reducer.js';
 import { userReducer } from './reducers/user.reducer.js';
 import { tenantReducer } from './reducers/tenant.reducer.js';
+import { pageTabReducer } from './reducers/pageTab.reducer.js';
 
 const coreReducer = combineReducers({
 	app: appReducer,
 	user: userReducer,
-	tenant: tenantReducer
+	tenant: tenantReducer,
+	pageTabs: pageTabReducer
 });
 
 const rootReducer = (state, action) => {
