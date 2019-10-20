@@ -1,34 +1,37 @@
 import { API_ERROR, API_SUCCESS, apiRequest } from '../../actions/api.acs.js';
 import { setLoader } from '../../actions/ui.acs.js';
-
-import { UPLOAD_PAYMENTS, PAYMENT } from '../../actions/payment.acs.js';
+import { CREATE_PAYMENTS, PAYMENTS, TRANSFORM_PAYMENTS } from '../../actions/payment.acs.js';
 
 export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
 
 	switch (action.type) {
-		case UPLOAD_PAYMENTS: {
-			const file = { ...action.payload };
+		case CREATE_PAYMENTS: {
 			next([
 				apiRequest({
-					body: file,
+					body: action.payload,
 					method: 'POST',
 					url: `/api/payments/user`,
-					entity: PAYMENT,
+					entity: PAYMENTS,
 					auth: true
 				}),
-				setLoader({ state: true, entity: PAYMENT })
+				setLoader({ state: true, entity: PAYMENTS })
 			]);
 			break;
 		}
 
-		case `${PAYMENT} ${API_SUCCESS}`: {
+		case `${TRANSFORM_PAYMENTS}`: {
+			const newData = renameObjKeys(action.payload);
+			debugger;
+		}
+
+		case `${PAYMENTS} ${API_SUCCESS}`: {
 			next([]);
 
 			break;
 		}
 
-		case `${PAYMENT} ${API_ERROR}`: {
+		case `${PAYMENTS} ${API_ERROR}`: {
 			next([]);
 			break;
 		}
