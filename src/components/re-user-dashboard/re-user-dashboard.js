@@ -1,14 +1,14 @@
 import { html } from 'lit-element';
 import { connect } from 'pwa-helpers';
-import { store } from '../../redux/store';
+import { store } from '../../redux/store.js';
 import { ReUserDashboardStyles } from './re-user-dashboard-styles.js';
 import { PageViewElement } from '../page-view-element';
 import '../re-tenant-create-page/re-tenant-create-page.js';
 import '../re-tab-bar/re-tab-bar.js';
 import '../re-payment-upload/re-payment-upload.js';
 import '../re-tenant-overview/re-tenant-overview.js';
-import '../re-upload-tenants/re-upload-tenants.js';
-import { setTab } from '../../redux/actions/pageTab.acs';
+import '../re-tenants-upload/re-tenants-upload.js';
+import { setTab } from '../../redux/actions/pageTab.acs.js';
 
 export class ReUserDashboard extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -60,7 +60,7 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 				`;
 			case 3:
 				return html`
-					<re-upload-tenants></re-upload-tenants>
+					<re-tenants-upload></re-tenants-upload>
 				`;
 
 			default:
