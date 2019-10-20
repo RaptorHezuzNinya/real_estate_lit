@@ -6,7 +6,7 @@ import { saveState, loadState } from './localStorage.js';
 // middleware
 import { actionSplitterMiddleware } from './middleware/core/actionSplitter.mw.js';
 import { normalizeMiddleware } from './middleware/core/transform/normalize.mw.js';
-// import { transformMiddleware } from './middleware/core/transform/transform.mw.js';
+import { transformMiddleware } from './middleware/core/transform/transform.mw.js';
 import { notificationMiddleware } from './middleware/core/notification.mw.js';
 import { filterMiddleware } from './middleware/core/transform/filter.mw.js';
 // entity middleware
@@ -50,7 +50,7 @@ const coreMiddleware = [
 	apiMiddleware,
 	filterMiddleware,
 	normalizeMiddleware,
-	// transformMiddleware,
+	transformMiddleware,
 	notificationMiddleware
 ];
 
