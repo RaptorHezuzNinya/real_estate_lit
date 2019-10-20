@@ -25,6 +25,21 @@ export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 			break;
 		}
 
+		case `${PAYMENTS} ${FILE} ${CSV} ${PARSE}`: {
+			const result = [];
+			Papa.parse(action.payload, {
+				header: true,
+				step: function(row) {
+					result.push(row.data);
+				},
+				complete: () => {
+					dispatch(setLoader({ state: true, entity: FILE }));
+					dispatch(transformPayments({ payments: result }));
+				}
+			});
+			break;
+		}
+
 		case `${FILE} ${API_SUCCESS}`: {
 			next([]);
 
