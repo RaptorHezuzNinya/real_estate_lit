@@ -17,7 +17,7 @@ class ReFile extends LitElement {
 
 	constructor() {
 		super();
-		this.filePondInstance = null;
+		this.filePondInstance = false;
 		this.maxFiles = 1;
 	}
 	firstUpdated() {
