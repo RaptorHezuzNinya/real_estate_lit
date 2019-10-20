@@ -48,7 +48,9 @@ const entityMiddleware = [
 const coreMiddleware = [
 	actionSplitterMiddleware,
 	apiMiddleware,
+	filterMiddleware,
 	normalizeMiddleware,
+	// transformMiddleware,
 	notificationMiddleware
 ];
 
