@@ -5,8 +5,10 @@ import logger from 'redux-logger';
 import { saveState, loadState } from './localStorage.js';
 // middleware
 import { actionSplitterMiddleware } from './middleware/core/actionSplitter.mw.js';
-import { normalizeMiddleware } from './middleware/core/normalize.mw';
-import { notificationMiddleware } from './middleware/core/notification.mw';
+import { normalizeMiddleware } from './middleware/core/transform/normalize.mw.js';
+// import { transformMiddleware } from './middleware/core/transform/transform.mw.js';
+import { notificationMiddleware } from './middleware/core/notification.mw.js';
+import { filterMiddleware } from './middleware/core/transform/filter.mw.js';
 // entity middleware
 import { apiMiddleware } from './middleware/core/api.mw.js';
 import { userMiddleware } from './middleware/entity/user.mw.js';

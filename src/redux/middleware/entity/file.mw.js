@@ -4,6 +4,7 @@ import { CSV, FILE } from '../../actions/file.acs.js';
 import { TENANTS, createTenants } from '../../actions/tenant.acs.js';
 import Papa from 'papaparse';
 import { PARSE } from '../../actions/action.types.js';
+import { PAYMENTS, createPayments, transformPayments } from '../../actions/payment.acs.js';
 
 export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
@@ -17,7 +18,6 @@ export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 					result.push(row.data);
 				},
 				complete: () => {
-					console.log(result);
 					dispatch(setLoader({ state: true, entity: FILE }));
 					dispatch(createTenants({ data: result, multiple: true }));
 				}
