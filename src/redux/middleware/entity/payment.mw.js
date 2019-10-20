@@ -1,6 +1,9 @@
 import { API_ERROR, API_SUCCESS, apiRequest } from '../../actions/api.acs.js';
 import { setLoader } from '../../actions/ui.acs.js';
 import { CREATE_PAYMENTS, PAYMENTS, TRANSFORM_PAYMENTS } from '../../actions/payment.acs.js';
+import { transformData } from '../../actions/dataMutation.acs.js';
+import { FILE } from '../../actions/file.acs.js';
+import { FILTER_COMPLETE } from '../../actions/dataMutation.acs.js';
 
 export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
@@ -20,9 +23,17 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 			break;
 		}
 
-		case `${TRANSFORM_PAYMENTS}`: {
-			const newData = renameObjKeys(action.payload);
-			debugger;
+		case `${FILE} ${PAYMENTS} ${FILTER_COMPLETE}`: {
+			const transformMappings = {
+				'Naam / Omschrijving': 'name',
+				Rekening: 'iban',
+				Datum: 'date',
+				'Af Bij': 'credited',
+				'Bedrag (EUR)': 'amount',
+				Mededelingen: 'memo'
+			};
+			next(transformData({ data: action.payload, entity: PAYMENTS, transformMappings }));
+			break;
 		}
 
 		case `${PAYMENTS} ${API_SUCCESS}`: {
