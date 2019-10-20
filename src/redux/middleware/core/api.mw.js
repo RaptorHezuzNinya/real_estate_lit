@@ -28,10 +28,12 @@ export const apiMiddleware = ({ dispatch, getState }) => next => action => {
 			})
 			.then(({ data }) => {
 				const response = data;
+				// debugger;
 				dispatch(apiSuccess({ response, entity }));
 			})
 			.catch(error => {
 				console.log('error', error);
+				// debugger;
 				dispatch(apiError({ error: error, entity }));
 			});
 	}

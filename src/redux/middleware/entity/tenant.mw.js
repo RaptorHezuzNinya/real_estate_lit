@@ -45,7 +45,7 @@ export const tenantMiddleware = ({ dispatch, getState }) => next => action => {
 		case FETCH_TENANTS: {
 			next([
 				apiRequest({
-					url: `/api/tenants/${action.payload.currentUserId}`,
+					url: `/api/tenants`,
 					entity: TENANTS,
 					auth: true
 				}),
