@@ -39,9 +39,10 @@ class ReFile extends LitElement {
 	}
 
 	fileAdded(evt) {
+		const file = this.filePondInstance.getFile();
 		const event = new CustomEvent('file-added', {
 			detail: {
-				value: evt
+				value: file
 			}
 		});
 		this.dispatchEvent(event);
