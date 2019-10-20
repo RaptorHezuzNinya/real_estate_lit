@@ -5,12 +5,13 @@ import { TENANTS, createTenants } from '../../actions/tenant.acs.js';
 import Papa from 'papaparse';
 import { PARSE } from '../../actions/action.types.js';
 import { PAYMENTS, createPayments, transformPayments } from '../../actions/payment.acs.js';
+import { transformData, filterData } from '../../actions/dataMutation.acs.js';
 
 export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
 
 	switch (action.type) {
-		case `${TENANTS} ${FILE} ${CSV} ${PARSE}`: {
+		case `${FILE} ${TENANTS} ${CSV} ${PARSE}`: {
 			const result = [];
 			Papa.parse(action.payload, {
 				header: true,
@@ -18,14 +19,23 @@ export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 					result.push(row.data);
 				},
 				complete: () => {
-					dispatch(setLoader({ state: true, entity: FILE }));
+					// dispatch(setLoader({ state: true, entity: FILE }));
 					dispatch(createTenants({ data: result, multiple: true }));
 				}
 			});
 			break;
 		}
 
-		case `${PAYMENTS} ${FILE} ${CSV} ${PARSE}`: {
+		case `${FILE} ${PAYMENTS} ${CSV} ${PARSE}`: {
+			const state = getState();
+			const tenants = state.tenant.tenants;
+			const tenantIdentifiers = [];
+			for (const key in tenants) {
+				if (tenants.hasOwnProperty(key)) {
+					tenantIdentifiers.push(tenants[key].iban);
+				}
+			}
+
 			const result = [];
 			Papa.parse(action.payload, {
 				header: true,
@@ -33,8 +43,16 @@ export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 					result.push(row.data);
 				},
 				complete: () => {
-					dispatch(setLoader({ state: true, entity: FILE }));
-					dispatch(transformPayments({ payments: result }));
+					// dispatch(setLoader({ state: true, entity: FILE }));
+					dispatch(
+						filterData({
+							data: result,
+							entity: FILE,
+							subEntity: PAYMENTS,
+							identifiers: tenantIdentifiers,
+							identifier: 'Tegenrekening'
+						})
+					);
 				}
 			});
 			break;
