@@ -5,6 +5,7 @@ import { ReUploadTenantsStyles } from './re-upload-tenants-styles.js';
 import { parseFile, CSV } from '../../redux/actions/file.acs.js';
 import { TENANTS } from '../../redux/actions/tenant.acs';
 import '../re-file/re-file.js';
+import '../re-button/re-button.js';
 
 class ReUploadTenants extends connect(store)(LitElement) {
 	static get styles() {
@@ -33,13 +34,17 @@ class ReUploadTenants extends connect(store)(LitElement) {
 				<br />
 
 				<re-file @file-added=${this.fileAdded}></re-file>
+				<re-button @click=${this.handleSave} label="Opslaan"> </re-button>
 			</div>
 		`;
 	}
 
+	handleSave() {
+		store.dispatch(parseFile({ file: this.csvFile.file, fileType: CSV, subEntity: TENANTS }));
+	}
+
 	fileAdded(evt) {
 		this.csvFile = evt.detail.value;
-		store.dispatch(parseFile({ file: this.csvFile.file, fileType: CSV, subEntity: TENANTS }));
 	}
 }
 
