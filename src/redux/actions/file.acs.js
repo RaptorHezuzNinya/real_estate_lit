@@ -1,4 +1,4 @@
-import { PARSE, COMPLETE } from './action.types.js';
+import { PARSE } from './action.types.js';
 
 // entity
 export const FILE = '[File]';
@@ -7,7 +7,7 @@ export const FILE = '[File]';
 export const CSV = '[csv]';
 
 export const parseFile = ({ file, fileType, subEntity }) => ({
-	type: `${subEntity} ${FILE} ${fileType} ${PARSE}`,
+	type: `${FILE} ${subEntity} ${fileType} ${PARSE}`,
 	payload: file,
 	meta: { entity: FILE, subEntity }
 });
