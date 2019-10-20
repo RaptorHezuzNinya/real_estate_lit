@@ -27,6 +27,7 @@ export class ReTenantOverview extends connect(store)(LitElement) {
 	connectedCallback() {
 		super.connectedCallback();
 		store.dispatch(fetchTenants({ currentUserId: this.currentUserId }));
+		console.log('connectedCallBack');
 	}
 
 	render() {
