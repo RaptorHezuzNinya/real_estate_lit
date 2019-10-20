@@ -34,26 +34,21 @@ class RePaymentUpload extends connect(store)(LitElement) {
 			<br />
 			${this.file
 				? html`
-						<re-button label="Save" @click=${this.uploadFile}></re-button>
+						<re-button label="Save" @click=${this.handleSave}></re-button>
 				  `
 				: ''}
 		`;
 	}
 
-	uploadFile() {
-		store.dispatch(uploadPayments({ file: this.file }));
-		// const fp = this.shadowRoot.querySelector('re-file').filePondInstance;
-		// fp.removeFile();
-		// this.file = false;
+	handleSave() {
+		store.dispatch(parseFile({ file: this.file.file, fileType: CSV, subEntity: PAYMENTS }));
+		// const filePondInstance = this.shadowRoot.querySelector('re-file').filePondInstance;
+		// filePondInstance.removeFiles();
+		// this.csvFile = false;
 	}
 
 	fileAdded(evt) {
-		const upload = this.shadowRoot.querySelector('re-file').filePondInstance.getFile();
-		const file = {
-			name: upload.filename,
-			fileData: upload.getFileEncodeDataURL()
-		};
-		this.file = file;
+		this.file = this.shadowRoot.querySelector('re-file').filePondInstance.getFile();
 	}
 }
 
