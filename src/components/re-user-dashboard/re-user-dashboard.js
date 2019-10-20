@@ -7,6 +7,7 @@ import '../re-tenant-create-page/re-tenant-create-page.js';
 import '../re-tab-bar/re-tab-bar.js';
 import '../re-payment-upload/re-payment-upload.js';
 import '../re-tenant-overview/re-tenant-overview.js';
+import '../re-upload-tenants/re-upload-tenants.js';
 import { setTab } from '../../redux/actions/pageTab.acs';
 
 export class ReUserDashboard extends connect(store)(PageViewElement) {
