@@ -9,28 +9,29 @@ export const dataNormalized = ({ entity }) => ({
 	meta: { entity }
 });
 
-export const filterData = ({ data, entity, subEntity, identifiers, identifier }) => ({
-	type: `${entity} ${subEntity} ${FILTER}`,
+export const filterData = ({ data, entity, identifiers, identifier }) => ({
+	type: `${entity} ${FILTER}`,
 	payload: data,
-	meta: { entity, subEntity, identifiers, identifier }
+	meta: { entity, identifiers, identifier }
 });
 
 // [ means subEntity ] complete is the document type action here
 export const FILTER_COMPLETE = `[${FILTER}] ${COMPLETE}`;
 export const filterComplete = ({ result, entity, subEntity }) => ({
-	type: `${entity} ${subEntity} ${FILTER_COMPLETE}`,
+	type: `${entity} ${FILTER_COMPLETE}`,
 	payload: result,
 	meta: { entity, subEntity }
 });
 
-export const transformData = ({ data, entity, transformMappings }) => ({
+export const transformData = ({ data, entity, keyMapping }) => ({
 	type: `${entity} ${TRANSFORM}`,
 	payload: data,
-	meta: { entity, transformMappings }
+	meta: { entity, keyMapping }
 });
 
 export const TRANSFORM_COMPLETE = `[${TRANSFORM}] ${COMPLETE}`;
-export const transformComplete = ({ entity }) => ({
+export const transformComplete = ({ entity, result }) => ({
 	type: `${entity} ${TRANSFORM_COMPLETE}`,
+	payload: result,
 	meta: { entity }
 });

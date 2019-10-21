@@ -41,8 +41,8 @@ class RePaymentUpload extends connect(store)(LitElement) {
 	}
 
 	handleSave() {
-		store.dispatch(parseFile({ file: this.file.file, fileType: CSV, subEntity: PAYMENTS }));
 		// const filePondInstance = this.shadowRoot.querySelector('re-file').filePondInstance;
+		store.dispatch(parseFile({ file: this.file.file, fileType: CSV, subEntity: PAYMENTS }));
 		// filePondInstance.removeFiles();
 		// this.csvFile = false;
 	}
