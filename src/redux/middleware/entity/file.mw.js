@@ -4,8 +4,8 @@ import { CSV, FILE } from '../../actions/file.acs.js';
 import { TENANTS, createTenants } from '../../actions/tenant.acs.js';
 import Papa from 'papaparse';
 import { PARSE } from '../../actions/action.types.js';
-import { PAYMENTS, createPayments, transformPayments } from '../../actions/payment.acs.js';
-import { transformData, filterData } from '../../actions/dataMutation.acs.js';
+import { PAYMENTS } from '../../actions/payment.acs.js';
+import { filterData } from '../../actions/dataMutation.acs.js';
 
 export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
@@ -19,7 +19,6 @@ export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 					result.push(row.data);
 				},
 				complete: () => {
-					// dispatch(setLoader({ state: true, entity: FILE }));
 					dispatch(createTenants({ data: result, multiple: true }));
 				}
 			});
@@ -43,12 +42,10 @@ export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 					result.push(row.data);
 				},
 				complete: () => {
-					// dispatch(setLoader({ state: true, entity: FILE }));
 					dispatch(
 						filterData({
 							data: result,
-							entity: FILE,
-							subEntity: PAYMENTS,
+							entity: PAYMENTS,
 							identifiers: tenantIdentifiers,
 							identifier: 'Tegenrekening'
 						})
@@ -60,7 +57,6 @@ export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 
 		case `${FILE} ${API_SUCCESS}`: {
 			next([]);
-
 			break;
 		}
 
