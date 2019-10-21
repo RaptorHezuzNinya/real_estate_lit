@@ -1,8 +1,12 @@
 import { API_ERROR, API_SUCCESS, apiRequest } from '../../actions/api.acs.js';
 import { setLoader } from '../../actions/ui.acs.js';
-import { CREATE_PAYMENTS, PAYMENTS, TRANSFORM_PAYMENTS } from '../../actions/payment.acs.js';
-import { transformData } from '../../actions/dataMutation.acs.js';
-import { FILE } from '../../actions/file.acs.js';
+import {
+	CREATE_PAYMENTS,
+	PAYMENTS,
+	TRANSFORM_PAYMENTS,
+	createPayments
+} from '../../actions/payment.acs.js';
+import { transformData, TRANSFORM_COMPLETE } from '../../actions/dataMutation.acs.js';
 import { FILTER_COMPLETE } from '../../actions/dataMutation.acs.js';
 
 export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
@@ -14,7 +18,7 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 				apiRequest({
 					body: action.payload,
 					method: 'POST',
-					url: `/api/payments/user`,
+					url: `/api/payments`,
 					entity: PAYMENTS,
 					auth: true
 				}),
