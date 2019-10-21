@@ -6,7 +6,7 @@ export const transformMiddleware = ({ dispatch, getState }) => next => action =>
 		next(action);
 
 		const result = action.payload.map(obj => {
-			obj['Af Bij'] === 'Bij' ? (obj['Af Bij'] = true) : (obj['Af Bij'] = false);
+			// obj['Af Bij'] === 'Bij' ? (obj['Af Bij'] = true) : (obj['Af Bij'] = false);
 			return renameKeys(action.meta.keyMapping, obj);
 		});
 		const { entity } = action.meta;
