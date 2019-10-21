@@ -27,16 +27,25 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 			break;
 		}
 
-		case `${FILE} ${PAYMENTS} ${FILTER_COMPLETE}`: {
-			const transformMappings = {
+		case `${PAYMENTS} ${FILTER_COMPLETE}`: {
+			const keyMapping = {
 				'Naam / Omschrijving': 'name',
-				Rekening: 'iban',
+				Tegenrekening: 'iban',
 				Datum: 'date',
 				'Af Bij': 'credited',
 				'Bedrag (EUR)': 'amount',
 				Mededelingen: 'memo'
 			};
-			next(transformData({ data: action.payload, entity: PAYMENTS, transformMappings }));
+			next(transformData({ data: action.payload, entity: PAYMENTS, keyMapping }));
+			break;
+		}
+
+		case `${PAYMENTS} ${TRANSFORM_COMPLETE}`: {
+			const { entity } = action.meta;
+
+			dispatch(createPayments({ payments: action.payload, entity }));
+			dispatch(setLoader({ state: true, entity }));
+
 			break;
 		}
 
