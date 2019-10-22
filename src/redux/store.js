@@ -22,13 +22,15 @@ import { combineReducers } from 'redux';
 import { appReducer } from './reducers/app.reducer.js';
 import { userReducer } from './reducers/user.reducer.js';
 import { tenantReducer } from './reducers/tenant.reducer.js';
+import { paymentReducer } from './reducers/payment.reducer.js';
 import { pageTabReducer } from './reducers/pageTab.reducer.js';
 
 const coreReducer = combineReducers({
 	app: appReducer,
 	user: userReducer,
 	tenant: tenantReducer,
-	pageTabs: pageTabReducer
+	pageTabs: pageTabReducer,
+	payment: paymentReducer
 });
 
 const rootReducer = (state, action) => {

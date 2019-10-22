@@ -1,4 +1,4 @@
-import { SET_PAYMENTS } from '../actions/payment.js';
+import { SET_PAYMENTS } from '../actions/payment.acs.js';
 
 const initialState = {
 	payments: false
