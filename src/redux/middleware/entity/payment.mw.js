@@ -3,8 +3,8 @@ import { setLoader } from '../../actions/ui.acs.js';
 import {
 	CREATE_PAYMENTS,
 	PAYMENTS,
-	TRANSFORM_PAYMENTS,
-	createPayments
+	createPayments,
+	setPayments
 } from '../../actions/payment.acs.js';
 import { transformData, TRANSFORM_COMPLETE } from '../../actions/dataMutation.acs.js';
 import { FILTER_COMPLETE } from '../../actions/dataMutation.acs.js';

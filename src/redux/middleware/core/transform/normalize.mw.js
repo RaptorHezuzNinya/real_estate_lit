@@ -1,6 +1,5 @@
 import { dataNormalized } from '../../../actions/dataMutation.acs.js';
 import { SET } from '../../../actions/action.types.js';
-import { setTenants } from '../../../actions/tenant.acs.js';
 
 export const normalizeMiddleware = ({ dispatch }) => next => action => {
 	if (action.type.includes(SET) && action.meta.normalizeKey) {
@@ -13,9 +12,8 @@ export const normalizeMiddleware = ({ dispatch }) => next => action => {
 			return acc;
 		}, {});
 
-		//fire the user document action
-		// have check if datanormalized with entity tenants fired so we can set???
-		next(setTenants({ tenants: data, normalizeKey: null }));
+		action.meta.normalizeKey = null;
+		next({ type: action.type, payload: data, meta: action.meta });
 	} else {
 		next(action);
 	}
