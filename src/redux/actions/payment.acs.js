@@ -1,4 +1,4 @@
-import { CREATE, TRANSFORM } from './action.types.js';
+import { CREATE, TRANSFORM, SET } from './action.types.js';
 
 export const PAYMENTS = '[Payments]';
 
@@ -10,9 +10,10 @@ export const createPayments = ({ payments }) => ({
 	meta: { entity: PAYMENTS }
 });
 
-export const TRANSFORM_PAYMENTS = `${PAYMENTS} ${TRANSFORM}`;
-export const transformPayments = ({ payments }) => ({
-	type: `${TRANSFORM_PAYMENTS}`,
+// fetchBooks = [books] fetch
+export const SET_PAYMENTS = `${PAYMENTS} ${SET}`;
+export const setPayments = ({ payments, normalizeKey }) => ({
+	type: `${SET_PAYMENTS}`,
 	payload: payments,
-	meta: { entity: PAYMENTS }
+	meta: { entity: PAYMENTS, normalizeKey }
 });
