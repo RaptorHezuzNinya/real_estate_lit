@@ -14,15 +14,16 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 
 	switch (action.type) {
 		case CREATE_PAYMENTS: {
+			const { entity } = action.meta;
 			next([
 				apiRequest({
 					body: action.payload,
 					method: 'POST',
 					url: `/api/payments`,
-					entity: PAYMENTS,
+					entity,
 					auth: true
 				}),
-				setLoader({ state: true, entity: PAYMENTS })
+				setLoader({ state: true, entity })
 			]);
 			break;
 		}
@@ -50,8 +51,11 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 		}
 
 		case `${PAYMENTS} ${API_SUCCESS}`: {
-			next([]);
-
+			const { entity } = action.meta;
+			next([
+				setPayments({ payments: action.payload, normalizeKey: '_id' }),
+				setLoader({ state: false, entity })
+			]);
 			break;
 		}
 
