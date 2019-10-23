@@ -1,6 +1,11 @@
-import { CREATE, TRANSFORM, SET } from './action.types.js';
+import { FETCH, CREATE, TRANSFORM, SET } from './action.types.js';
 
 export const PAYMENTS = '[Payments]';
+
+export const fetchPayments = () => ({
+	type: `${PAYMENTS} ${FETCH}`,
+	meta: { entity: PAYMENTS }
+});
 
 // fetchBooks = [books] fetch
 export const CREATE_PAYMENTS = `${PAYMENTS} ${CREATE}`;
