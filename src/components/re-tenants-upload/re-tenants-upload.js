@@ -44,7 +44,7 @@ class ReTenantsUpload extends connect(store)(LitElement) {
 	}
 
 	handleSave() {
-		// store.dispatch(parseFile({ file: this.csvFile.file, fileType: CSV, subEntity: TENANTS })); not needed now we have tenants
+		store.dispatch(parseFile({ file: this.csvFile.file, fileType: CSV, subEntity: TENANTS }));
 		const filePondInstance = this.shadowRoot.querySelector('re-file').filePondInstance;
 		filePondInstance.removeFiles();
 		this.csvFile = false;

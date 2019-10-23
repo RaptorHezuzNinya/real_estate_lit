@@ -6,9 +6,10 @@ import { PageViewElement } from '../page-view-element';
 import '../re-tenant-create-page/re-tenant-create-page.js';
 import '../re-tab-bar/re-tab-bar.js';
 import '../re-payment-upload/re-payment-upload.js';
-import '../re-tenant-overview/re-tenant-overview.js';
+
 import '../re-tenants-upload/re-tenants-upload.js';
 import { setTab } from '../../redux/actions/pageTab.acs.js';
+import '../re-overview-tab/re-overview-tab.js';
 
 export class ReUserDashboard extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -48,7 +49,7 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 		switch (this.activeTab) {
 			case 0:
 				return html`
-					<re-tenant-overview></re-tenant-overview>
+					<re-overview-tab></re-overview-tab>
 				`;
 			case 1:
 				return html`
