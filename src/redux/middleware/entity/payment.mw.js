@@ -8,11 +8,23 @@ import {
 } from '../../actions/payment.acs.js';
 import { transformData, TRANSFORM_COMPLETE } from '../../actions/dataMutation.acs.js';
 import { FILTER_COMPLETE } from '../../actions/dataMutation.acs.js';
+import { FETCH } from '../../actions/action.types.js';
 
 export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
-
+	const { entity, subEntity } = action.meta || {};
 	switch (action.type) {
+		case `${PAYMENTS} ${FETCH}`: {
+			next([
+				apiRequest({
+					url: `/api/payments`,
+					entity,
+					auth: true
+				}),
+				setLoader({ state: true, entity })
+			]);
+			break;
+		}
 		case CREATE_PAYMENTS: {
 			const { entity } = action.meta;
 			next([
@@ -43,7 +55,6 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 
 		case `${PAYMENTS} ${TRANSFORM_COMPLETE}`: {
 			const { entity } = action.meta;
-
 			dispatch(createPayments({ payments: action.payload, entity }));
 			dispatch(setLoader({ state: true, entity }));
 
@@ -52,10 +63,7 @@ export const paymentMiddleware = ({ dispatch, getState }) => next => action => {
 
 		case `${PAYMENTS} ${API_SUCCESS}`: {
 			const { entity } = action.meta;
-			next([
-				setPayments({ payments: action.payload, normalizeKey: '_id' }),
-				setLoader({ state: false, entity })
-			]);
+			next([setPayments({ payments: action.payload }), setLoader({ state: false, entity })]);
 			break;
 		}
 

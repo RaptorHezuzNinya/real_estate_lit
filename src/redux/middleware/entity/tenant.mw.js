@@ -9,26 +9,27 @@ import {
 	setTenants,
 	FETCH_TENANTS
 } from '../../actions/tenant.acs.js';
+import { CREATE } from '../../actions/action.types.js';
 
 export const tenantMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
 
 	switch (action.type) {
-		case CREATE_TENANT: {
-			next([
-				apiRequest({
-					body: action.payload,
-					method: 'POST',
-					url: `/api/tenant`,
-					entity: TENANTS,
-					auth: true
-				}),
-				setLoader({ state: true, entity: TENANT })
-			]);
-			break;
-		}
+		// case CREATE_TENANT: {
+		// 	next([
+		// 		apiRequest({
+		// 			body: action.payload,
+		// 			method: 'POST',
+		// 			url: `/api/tenant`,
+		// 			entity: TENANTS,
+		// 			auth: true
+		// 		}),
+		// 		setLoader({ state: true, entity: TENANT })
+		// 	]);
+		// 	break;
+		// }
 
-		case CREATE_TENANTS: {
+		case `${TENANTS} ${CREATE}`: {
 			next([
 				apiRequest({
 					body: action.payload,

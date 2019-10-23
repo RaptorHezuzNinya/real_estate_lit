@@ -19,7 +19,7 @@ export const fileMiddleware = ({ dispatch, getState }) => next => action => {
 					result.push(row.data);
 				},
 				complete: () => {
-					dispatch(createTenants({ data: result, multiple: true }));
+					dispatch(createTenants({ tenants: result, multiple: true }));
 				}
 			});
 			break;

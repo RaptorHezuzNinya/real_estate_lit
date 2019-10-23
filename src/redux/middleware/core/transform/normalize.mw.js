@@ -13,6 +13,7 @@ export const normalizeMiddleware = ({ dispatch }) => next => action => {
 		}, {});
 
 		action.meta.normalizeKey = null;
+
 		next({ type: action.type, payload: data, meta: action.meta });
 	} else {
 		next(action);
