@@ -34,7 +34,6 @@ class CanButtonV2 extends LitElement {
 				@click=${this.handleClick}
 				type="button"
 			>
-				<slot></slot>
 				<!-- <slot name="text"></slot>
 				<slot name="icon"></slot> -->
 				<span class="mdc-button__label">${this.label}</span>

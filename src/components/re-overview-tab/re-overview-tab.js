@@ -1,12 +1,15 @@
 import { LitElement, html } from 'lit-element';
 import { connect } from 'pwa-helpers';
-import { store } from '../../redux/store';
+import { store } from '../../redux/store.js';
 import { ReOverviewTabStyles } from './re-overview-tab.js-styles.js';
 import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
 import { fetchUser } from '../../redux/actions/user.acs.js';
-import { fetchTenants } from '../../redux/actions/tenant.acs';
+import { fetchTenants } from '../../redux/actions/tenant.acs.js';
 import '../re-tenant-overview/re-tenant-overview.js';
-import { fetchPayments } from '../../redux/actions/payment.acs';
+import { fetchPayments } from '../../redux/actions/payment.acs.js';
+import '../re-button/re-button.js';
+import { fetchIng } from '../../redux/actions/ing.acs.js';
+import { ACCESS_TOKEN } from '../../redux/actions/subEntities.js';
 
 export class ReOverviewTab extends connect(store)(LitElement) {
 	static get styles() {
@@ -16,13 +19,15 @@ export class ReOverviewTab extends connect(store)(LitElement) {
 	static get properties() {
 		return {
 			userId: String,
-			tenants: Object
+			tenants: Object,
+			paymentsByTenant: Array
 		};
 	}
 	constructor() {
 		super();
 		this.userId = false;
 		this.tenants = false;
+		this.paymentsByTenant = false;
 	}
 
 	connectedCallback() {
