@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import { ReTestCardStyles } from './re-test-card-styles.js';
-
+import { classMap } from 'lit-html/directives/class-map.js';
 export class ReTestCard extends LitElement {
 	static get styles() {
 		return [ReTestCardStyles];
@@ -17,11 +17,13 @@ export class ReTestCard extends LitElement {
 		this.cardIsActive = false;
 		this.tenant = false;
 		this.payments = false;
+		this.paymentsByTenant = false;
 	}
 
 	render() {
+		let classes = { card: true, cardActive: this.cardIsActive };
 		return html`
-			<div class=${`card  ${this.cardIsActive ? 'cardActive' : null}`}>
+			<div class=${classMap(classes)}>
 				<section id="cardHeader" @click=${this.handleCardActivation}>
 					<span class="cardAvatarContainer">
 						<span class="cardAvatar"></span>
@@ -38,6 +40,7 @@ export class ReTestCard extends LitElement {
 			</div>
 		`;
 	}
+
 	renderPayments() {
 		if (this.payments) {
 			return this.payments.map(payment => {

@@ -1,7 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import { ReTenantOverviewStyles } from './re-tenant-overview-styles.js';
 import '../re-test-card/re-test-card';
-
 export class ReTenantOverview extends LitElement {
 	static get styles() {
 		return [ReTenantOverviewStyles];
@@ -14,7 +13,6 @@ export class ReTenantOverview extends LitElement {
 
 	constructor() {
 		super();
-
 		this.tenants = false;
 	}
 
