@@ -6,7 +6,7 @@ export const apiMiddleware = ({ dispatch, getState }) => next => action => {
 	next(action);
 
 	if (action.type.includes(API_REQUEST)) {
-		const { url, method, entity, headers, auth } = action.meta;
+		const { url, method, entity, headers, auth, ing } = action.meta;
 
 		const data = action.payload;
 		const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';

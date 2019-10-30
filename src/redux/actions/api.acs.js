@@ -4,10 +4,18 @@ export const API_SUCCESS = 'API_SUCCESS';
 export const API_ERROR = 'API_ERROR';
 
 // This is Command Action!
-export const apiRequest = ({ body, url, entity, method = 'GET', headers = {}, auth = false }) => ({
+export const apiRequest = ({
+	body,
+	url,
+	entity,
+	method = 'GET',
+	headers = {},
+	auth = false,
+	ing = false
+}) => ({
 	type: `${entity} ${API_REQUEST}`,
 	payload: body,
-	meta: { method, url, entity, headers, auth }
+	meta: { method, url, entity, headers, auth, ing }
 });
 
 // This is Event Action!
