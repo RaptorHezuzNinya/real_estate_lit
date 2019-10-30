@@ -19,6 +19,13 @@ export const apiMiddleware = ({ dispatch, getState }) => next => action => {
 		axios.defaults.baseURL = API_ROOT;
 		axios.defaults.headers.common['Content-Type'] = 'application/json';
 
+		if (ing) {
+			axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
+			headers['Digest'] = 'SHA-256=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='; // if body of req is emtry this is default
+			headers['Date'] = new Date().toGMTString();
+			// `headers` are custom headers to be sent
+			//   headers: {'X-Requested-With': 'XMLHttpRequest'},
+		}
 		axios
 			.request({
 				url,

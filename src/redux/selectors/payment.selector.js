@@ -10,14 +10,15 @@ export const paymentsByTenantId = createSelector(
 		const data = {};
 		for (const key in tenants) {
 			if (tenants.hasOwnProperty(key)) {
-				const paymentsByTenantId = payments.filter(filterCallBack, tenants[key]);
-				data[tenants[key].id] = paymentsByTenantId;
+				const paymentsByTenant = payments.filter(filterCallBack, tenants[key]);
+				data[tenants[key]._id] = paymentsByTenant;
 			}
 		}
+
 		return data;
 	}
 );
 
 function filterCallBack(element) {
-	return element.tenant_id === this.id;
+	return element.tenantRef === this._id;
 }
