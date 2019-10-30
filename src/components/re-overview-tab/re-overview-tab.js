@@ -38,11 +38,24 @@ export class ReOverviewTab extends connect(store)(LitElement) {
 
 	render() {
 		return html`
-			<re-tenant-overview .tenants=${this.tenants}></re-tenant-overview>
+			<div class="tokenBTNWrapper">
+				<re-button @click=${this.callIngAction} label="fetch token"></re-button>
+			</div>
+
+			<re-tenant-overview
+				.paymentsByTenant=${this.paymentsByTenant}
+				.tenants=${this.tenants}
+			></re-tenant-overview>
+
 			<div class="footer">
 				<re-button @button-click=${this.fetchUser} label="fetch user"></re-button>
 			</div>
 		`;
+	}
+
+	callIngAction() {
+		console.log('button ing called');
+		store.dispatch(fetchIng({ subEntity: ACCESS_TOKEN }));
 	}
 
 	fetchUser() {
@@ -52,6 +65,7 @@ export class ReOverviewTab extends connect(store)(LitElement) {
 	stateChanged(state) {
 		this.tenants = state.tenant.tenants;
 		this.userId = state.user.user.id;
+		this.paymentsByTenant = paymentsByTenantId(state);
 	}
 }
 customElements.define('re-overview-tab', ReOverviewTab);
