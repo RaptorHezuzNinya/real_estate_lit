@@ -40,7 +40,7 @@ export const apiMiddleware = ({ dispatch, getState }) => next => action => {
 			})
 			.catch(error => {
 				console.log('error', error);
-				// debugger;
+				debugger;
 				dispatch(apiError({ error: error, entity }));
 			});
 	}

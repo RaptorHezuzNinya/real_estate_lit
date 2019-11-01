@@ -16,6 +16,7 @@ import { appMiddleware } from './middleware/entity/app.mw.js';
 import { tenantMiddleware } from './middleware/entity/tenant.mw.js';
 import { paymentMiddleware } from './middleware/entity/payment.mw.js';
 import { fileMiddleware } from './middleware/entity/file.mw.js';
+import { ingMiddleware } from './middleware/entity/ing.mw.js';
 
 // reducers
 import { combineReducers } from 'redux';

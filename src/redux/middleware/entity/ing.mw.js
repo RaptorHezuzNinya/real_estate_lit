@@ -11,14 +11,10 @@ export const ingMiddleware = ({ dispatch, getState }) => next => action => {
 		case `${ING_API} ${ACCESS_TOKEN} ${FETCH}`: {
 			next([
 				apiRequest({
-                    url: `/oauth2/token`,
-                    method: 'POST',
+					url: `/oauth2/token`,
+					method: 'POST',
 					entity,
-                    ing: true,
-                    header: {Date: new Date().toGMTString()},
-                    Digest: "SHA-256=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
-                    Authorization: `Signature keyId="[CLIENT_ID or EIDAS_SERIAL_NUMBER]",algorithm="rsa-sha256", headers="(request-target) date digest", signature="[SIGNATURE_VALUE]"`
-                    
+					ing: true
 				}),
 				setLoader({ state: true, entity })
 			]);
@@ -27,10 +23,8 @@ export const ingMiddleware = ({ dispatch, getState }) => next => action => {
 	}
 };
 
-
 // Host: api.ing.com
 // Date: Sun, 05 Jan 2014 21:31:40 GMT
 // Content-Type: application/x-www-form-urlencoded
 
-
-grant_type=client_credentials&scope=greetings%3Aview
+// grant_type=client_credentials&scope=greetings%3Aview
