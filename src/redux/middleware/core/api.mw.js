@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_ROOT } from '../../../../config/config.js';
+import { API_ROOT, ING_API_ROOT } from '../../../../config/config.js';
 import { API_REQUEST, apiError, apiSuccess } from '../../actions/api.acs.js';
 
 export const apiMiddleware = ({ dispatch, getState }) => next => action => {
