@@ -45,7 +45,8 @@ const entityMiddleware = [
 	userMiddleware,
 	tenantMiddleware,
 	paymentMiddleware,
-	fileMiddleware
+	fileMiddleware,
+	ingMiddleware
 ];
 
 const coreMiddleware = [
