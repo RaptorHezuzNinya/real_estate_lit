@@ -11,12 +11,12 @@ export const ReCardV2Styles = css`
 		background-color: #fefefe;
 		height: 88px;
 		max-width: 500px;
+		padding: 0 12px;
 		overflow: hidden;
 		transition: 375ms cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.cardActive {
-		/* height: 332px; */
 		height: 100%;
 	}
 
@@ -28,17 +28,16 @@ export const ReCardV2Styles = css`
 		height: 100%;
 		display: flex;
 		flex-direction: column-reverse;
-		/* margin: auto; */
 		justify-content: center;
 	}
 
-	.nonSharedContent {
+	.content {
 		border: 1px solid red;
 		transition: 75ms;
 		opacity: 0;
 	}
 
-	#cardHeader {
+	.cardHeader {
 		cursor: pointer;
 		width: 100%;
 		height: 72px;
@@ -46,28 +45,28 @@ export const ReCardV2Styles = css`
 		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 	}
 
-	.cardHeaderTextContainer {
+	.container {
 		display: inline-block;
 		height: 100%;
 		padding-top: 4px;
-		width: auto;
+		width: 100%;
 	}
 
-	.cardHeaderTitle {
+	.title {
 		/* background-color: #2196f2; */
-		width: 184px;
+		/* width: 184px;
 		height: 16px;
-		margin-bottom: 16px;
+		margin-bottom: 16px; */
 	}
 
-	.cardHeaderSupportingText {
-		/* background-color: #2196f2; */
-		font-size: 14px;
-		height: 16px;
-		width: 136px;
+	.supportText {
+		font-size: 13px;
 	}
 
-	.cardAvatarContainer {
+	.cardContent {
+		margin-top: 16px;
+	}
+	/* .cardAvatarContainer {
 		display: inline-block;
 		margin: 0 16px;
 		height: 100%;
@@ -80,12 +79,11 @@ export const ReCardV2Styles = css`
 		border-radius: 50%;
 		background-color: #2196f2;
 		display: inline-block;
-	}
-
-	.paymentHolder {
+	} */
+	/* .paymentHolder {
 		border-bottom: 0.5px solid lightgray;
 		font-size: 15px;
 		display: flex;
 		justify-content: space-around;
-	}
+	} */
 `;
