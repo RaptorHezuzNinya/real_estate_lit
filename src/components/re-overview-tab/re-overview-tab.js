@@ -1,5 +1,5 @@
-import { LitElement, html } from 'lit-element';
 import { connect } from 'pwa-helpers';
+import { LitElement, html } from 'lit-element';
 import { store } from '../../redux/store.js';
 import { ReOverviewTabStyles } from './re-overview-tab.js-styles.js';
 import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
@@ -38,9 +38,9 @@ export class ReOverviewTab extends connect(store)(LitElement) {
 
 	render() {
 		return html`
-			<div class="tokenBTNWrapper">
-				<re-button @click=${this.callIngAction} label="fetch token"></re-button>
-			</div>
+			<!-- <div class="tokenBTNWrapper"> -->
+			<!-- <re-button @click=${this.callIngAction} label="fetch token"></re-button> -->
+			<!-- </div> -->
 
 			<re-tenant-overview
 				.paymentsByTenant=${this.paymentsByTenant}
@@ -53,10 +53,10 @@ export class ReOverviewTab extends connect(store)(LitElement) {
 		`;
 	}
 
-	callIngAction() {
-		console.log('button ing called');
-		store.dispatch(fetchIng({ subEntity: ACCESS_TOKEN }));
-	}
+	// callIngAction() {
+	// 	console.log('button ing called');
+	// 	store.dispatch(fetchIng({ subEntity: ACCESS_TOKEN }));
+	// }
 
 	fetchUser() {
 		store.dispatch(fetchUser());
