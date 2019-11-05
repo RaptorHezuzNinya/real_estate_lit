@@ -65,7 +65,10 @@ export class ReOverviewTab extends connect(store)(LitElement) {
 	stateChanged(state) {
 		this.tenants = state.tenant.tenants;
 		this.userId = state.user.user.id;
-		this.paymentsByTenant = paymentsByTenantId(state);
+		if (state.payments) {
+			this.paymentsByTenant = paymentsByTenantId(state);
+		}
 	}
 }
+
 customElements.define('re-overview-tab', ReOverviewTab);
