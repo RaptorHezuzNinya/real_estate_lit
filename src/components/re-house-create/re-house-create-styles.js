@@ -8,4 +8,8 @@ export const ReHouseCreateStyles = css`
 	can-text-input {
 		margin-bottom: 24px;
 	}
+
+	re-button {
+		margin-top: 24px;
+	}
 `;

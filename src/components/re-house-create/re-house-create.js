@@ -2,6 +2,8 @@ import { LitElement, html } from 'lit-element';
 import { ReHouseCreateStyles } from './re-house-create-styles.js';
 import '../can-text-input/can-text-input.js';
 import '../re-button/re-button.js';
+import '../re-card-v2/re-card-v2.js';
+
 export class ReHouseCreate extends LitElement {
 	static get styles() {
 		return [ReHouseCreateStyles];
@@ -25,7 +27,11 @@ export class ReHouseCreate extends LitElement {
 	render() {
 		return html`
 			<div @input-value-change=${this.inputChanged}>
-				${this.renderInputs()}
+				<re-card-v2
+					title="Add a house"
+					supportText="Here you can add a house to your residence collection"
+					.content=${this.renderInputs()}
+				></re-card-v2>
 				<re-button @button-click=${this.buttonClicked} label="Opslaan"></re-button>
 			</div>
 		`;
