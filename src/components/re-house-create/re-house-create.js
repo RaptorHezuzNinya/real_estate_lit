@@ -95,8 +95,3 @@ export class ReHouseCreate extends LitElement {
 	}
 }
 customElements.define('re-house-create', ReHouseCreate);
-// 		street: { type: String, required: [true, "can't be blank"] },
-// 		houseNumber: { type: Number, required: [true, "can't be blank"] },
-// 		zipCode: { type: String, required: [true, "can't be blank"] },
-// 		city: { type: String, required: [true, "can't be blank"] },
-// 		country: { type: String, required: [true, "can't be blank"] },

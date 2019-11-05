@@ -9,6 +9,10 @@ export class ReHouseManagementTab extends connect(store)(LitElement) {
 		return [ReHouseManagementTabStyles];
 	}
 
+	constructor() {
+		super();
+	}
+
 	render() {
 		return html`
 			<div>
@@ -17,6 +21,5 @@ export class ReHouseManagementTab extends connect(store)(LitElement) {
 			</div>
 		`;
 	}
-	stateChanged(state) {}
 }
 customElements.define('re-house-management-tab', ReHouseManagementTab);
