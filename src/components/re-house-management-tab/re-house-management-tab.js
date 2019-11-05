@@ -13,8 +13,10 @@ export class ReHouseManagementTab extends connect(store)(LitElement) {
 		return html`
 			<div>
 				<p>house management tab</p>
+				<re-house-create></re-house-create>
 			</div>
 		`;
 	}
+	stateChanged(state) {}
 }
 customElements.define('re-house-management-tab', ReHouseManagementTab);
