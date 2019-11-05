@@ -76,7 +76,7 @@ export class ReHouseCreate extends LitElement {
 			}
 		];
 
-		return data.map(input => {
+		const templates = data.map(input => {
 			return html`
 				<can-text-input
 					id=${input.id}
@@ -87,6 +87,7 @@ export class ReHouseCreate extends LitElement {
 				></can-text-input>
 			`;
 		});
+		return templates;
 	}
 
 	inputChanged(evt) {
