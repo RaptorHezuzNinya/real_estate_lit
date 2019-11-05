@@ -1,6 +1,10 @@
 import { LitElement, html } from 'lit-element';
+import { connect } from 'pwa-helpers';
+import { store } from '../../redux/store.js';
 import { ReHouseManagementTabStyles } from './re-house-management-tab-styles.js';
-export class ReHouseManagementTab extends LitElement {
+import '../re-house-create/re-house-create.js';
+
+export class ReHouseManagementTab extends connect(store)(LitElement) {
 	static get styles() {
 		return [ReHouseManagementTabStyles];
 	}
