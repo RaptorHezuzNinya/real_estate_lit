@@ -1,0 +1,95 @@
+import { LitElement, html } from 'lit-element';
+import { ReHouseCreateStyles } from './re-house-create-styles.js';
+import '../can-text-input/can-text-input.js';
+import '../re-button/re-button.js';
+export class ReHouseCreate extends LitElement {
+	static get styles() {
+		return [ReHouseCreateStyles];
+	}
+	static get properties() {
+		return {
+			house: { type: Object }
+		};
+	}
+	constructor() {
+		super();
+		this.house = {
+			street: 'exampleStreet',
+			houseNumber: 123,
+			zipCode: '3417gp',
+			city: 'Montfoort',
+			country: 'Nederland'
+		};
+	}
+
+	render() {
+		return html`
+			<div @input-value-change=${this.inputChanged}>
+				${this.renderInputs()}
+				<re-button @button-click=${this.buttonClicked} label="Opslaan"></re-button>
+			</div>
+		`;
+	}
+
+	renderInputs() {
+		const data = [
+			{
+				id: 'street',
+				label: 'Street',
+				inputType: 'text',
+				inputValue: this.house.street,
+				required: true
+			},
+			{
+				id: 'houseNumber',
+				label: 'House number',
+				inputType: 'number',
+				inputValue: this.house.houseNumber,
+				required: true
+			},
+			{
+				id: 'zipCode',
+				label: 'zip code',
+				inputType: 'text',
+				inputValue: this.house.zipCode,
+				required: true
+			},
+			{
+				id: 'city',
+				label: 'City',
+				inputType: 'text',
+				inputValue: this.house.city,
+				required: true
+			},
+			{
+				id: 'country',
+				label: 'Country',
+				inputType: 'text',
+				inputValue: this.house.country,
+				required: true
+			}
+		];
+
+		return data.map(input => {
+			return html`
+				<can-text-input
+					id=${input.id}
+					.label=${input.label}
+					.inputType=${input.type}
+					.requiredField=${input.required}
+					.inputValue=${input.inputValue}
+				></can-text-input>
+			`;
+		});
+	}
+
+	inputChanged(evt) {
+		evt.stopPropagation();
+	}
+}
+customElements.define('re-house-create', ReHouseCreate);
+// 		street: { type: String, required: [true, "can't be blank"] },
+// 		houseNumber: { type: Number, required: [true, "can't be blank"] },
+// 		zipCode: { type: String, required: [true, "can't be blank"] },
+// 		city: { type: String, required: [true, "can't be blank"] },
+// 		country: { type: String, required: [true, "can't be blank"] },
