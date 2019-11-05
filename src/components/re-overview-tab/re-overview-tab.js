@@ -5,11 +5,11 @@ import { ReOverviewTabStyles } from './re-overview-tab.js-styles.js';
 import { paymentsByTenantId } from '../../redux/selectors/payment.selector.js';
 import { fetchUser } from '../../redux/actions/user.acs.js';
 import { fetchTenants } from '../../redux/actions/tenant.acs.js';
-import '../re-tenant-overview/re-tenant-overview.js';
 import { fetchPayments } from '../../redux/actions/payment.acs.js';
-import '../re-button/re-button.js';
 import { fetchIng } from '../../redux/actions/ing.acs.js';
 import { ACCESS_TOKEN } from '../../redux/actions/subEntities.js';
+import '../re-tenant-overview/re-tenant-overview.js';
+import '../re-button/re-button.js';
 
 export class ReOverviewTab extends connect(store)(LitElement) {
 	static get styles() {

@@ -6,10 +6,10 @@ import { PageViewElement } from '../page-view-element';
 import '../re-tenant-create-page/re-tenant-create-page.js';
 import '../re-tab-bar/re-tab-bar.js';
 import '../re-payment-upload/re-payment-upload.js';
-
 import '../re-tenants-upload/re-tenants-upload.js';
 import { setTab } from '../../redux/actions/pageTab.acs.js';
 import '../re-overview-tab/re-overview-tab.js';
+import '../re-house-management-tab/re-house-management-tab.js';
 
 export class ReUserDashboard extends connect(store)(PageViewElement) {
 	static get styles() {
@@ -27,9 +27,10 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 		super();
 		this.tabs = [
 			{ tabIndex: 0, label: 'Overview' },
-			{ tabIndex: 1, label: 'Upload Payments csv' },
-			{ tabIndex: 2, label: 'Create tenant' },
-			{ tabIndex: 3, label: 'Upload tenants' }
+			{ tabIndex: 1, label: 'House management' },
+			{ tabIndex: 2, label: 'Upload Payments csv' },
+			{ tabIndex: 3, label: 'Create tenant' },
+			{ tabIndex: 4, label: 'Upload tenants' }
 		];
 		this.activeTab = 0;
 	}
@@ -53,13 +54,17 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 				`;
 			case 1:
 				return html`
-					<re-payment-upload></re-payment-upload>
+					<re-house-management-tab></re-house-management-tab>
 				`;
 			case 2:
 				return html`
-					<re-tenant-create-page></re-tenant-create-page>
+					<re-payment-upload></re-payment-upload>
 				`;
 			case 3:
+				return html`
+					<re-tenant-create-page></re-tenant-create-page>
+				`;
+			case 4:
 				return html`
 					<re-tenants-upload></re-tenants-upload>
 				`;
