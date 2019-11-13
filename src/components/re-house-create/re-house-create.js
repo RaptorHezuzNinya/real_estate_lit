@@ -28,6 +28,7 @@ export class ReHouseCreate extends LitElement {
 		return html`
 			<div @input-value-change=${this.inputChanged}>
 				<re-card-v2
+					.cardIsActive=${true}
 					title="Add a house"
 					supportText="Here you can add a house to your residence collection"
 					.content=${this.renderInputs()}
