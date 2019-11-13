@@ -16,7 +16,6 @@ export class ReHouseManagementTab extends connect(store)(LitElement) {
 	render() {
 		return html`
 			<div>
-				<p>house management tab</p>
 				<re-house-create></re-house-create>
 			</div>
 		`;
