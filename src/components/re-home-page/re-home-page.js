@@ -30,8 +30,6 @@ class ReHomePage extends connect(store)(PageViewElement) {
 	render() {
 		return html`
 			<header>
-				<h3>Public home page</h3>
-				<br />
 				<br />
 				<br />
 				<br />

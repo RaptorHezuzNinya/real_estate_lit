@@ -66,7 +66,7 @@ class ReApp extends connect(store)(LitElement) {
 
 			<app-drawer .opened="${this.drawerOpen}" @opened-changed="${this.drawerChanged}">
 				<nav class="drawer-list">
-					<a ?selected="${this.page === '/register'}" href="/register">Sign up</a>
+					<!-- <a ?selected="${this.page === '/register'}" href="/register">Sign up</a> -->
 				</nav>
 			</app-drawer>
 
@@ -90,7 +90,8 @@ class ReApp extends connect(store)(LitElement) {
 	}
 
 	drawerChanged(evt) {
-		store.dispatch(setDrawer({ state: evt.target.open }));
+		console.log(evt.target.open);
+		store.dispatch(setDrawer({ state: evt.target.opened }));
 	}
 
 	stateChanged(state) {
