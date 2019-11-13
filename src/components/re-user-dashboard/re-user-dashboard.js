@@ -42,6 +42,7 @@ export class ReUserDashboard extends connect(store)(PageViewElement) {
 				@re-active-tab-change=${this.tabChanged}
 				.activeTab=${this.activeTab}
 			></re-tab-bar>
+			<br />
 			${this.renderPageContent()}
 		`;
 	}
