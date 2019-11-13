@@ -55,8 +55,8 @@ class CanHeader extends connect(store)(LitElement) {
 	}
 
 	handleMenuButtonClicked() {
-		// store.dispatch(setDrawer({ state: true }));
-		console.log('menu btn clicked');
+		console.log('maria is queen');
+		store.dispatch(setDrawer({ state: true }));
 	}
 
 	handleCanLogoClicked() {
